@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Consultar Lista de Despacho  - El Colorado</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="description"  content="Lista de Despacho de Civil 7"/>
+        <meta name="keywords" content=""/>
+        <meta name="author" content="Romero Melodi Marisel" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap/css/bootstrap.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>-->
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/fullcalendar/fullcalendar.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/datatables/media/css/dataTables.bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/components.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/plugins.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/layout.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/light.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-select/bootstrap-select.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/icheck/skins/square/_all.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="assets/plugins/jquery-multi-select/css/multi-select.css"/>-->
+        <link rel="stylesheet" type="text/css" href="assets/css/loading.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-modal/css/bootstrap-modal.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css"/>
+       
+        <link rel="stylesheet" type="text/css" href="assets/css/gestionEstilos/general.css"/>   <!-- HOJA DE ESTILOS GENERAL -->
+        <link rel="stylesheet" type="text/css" href="assets/css/gestionEstilos/sisthemis.css"/>   <!-- HOJA DE ESTILOS GENERAL -->
+    
+    
+        <link rel="stylesheet" href="assets/css/estilodespacho_print.css" type="text/css"/>	
+    </head>	
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+	
+
+<script type="text/javascript" src="assets/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script type="text/javascript" src="assets/plugins/uniform/jquery.uniform.min.js"></script>
+<!--<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>-->
+<script type="text/javascript" src="assets/plugins/datatables/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="assets/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/plugins/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/plugins/fullcalendar/lang/es.js"></script>
+<script type="text/javascript" src="assets/plugins/fullcalendar/lib/moment.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
+
+<script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/plugins/icheck/icheck.min.js"></script>
+<script type="text/javascript" src="assets/js/metronic.js"></script>
+<script type="text/javascript" src="assets/js/layout.js"></script>
+
+<script type="text/javascript" src="assets/js/components-pickers.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-inputmask/inputmask/jquery.inputmask.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-inputmask/inputmask/jquery.inputmask.date.extensions.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-inputmask/inputmask/jquery.inputmask.js"></script>
+
+<script>
+
+    jQuery(document).ready(function() {
+        nobackbutton();   //Deshabilita el boton volver del navegador
+        
+        Metronic.init();
+	ComponentsPickers.init();
+	Layout.init();
+       
+          
+        $('.dataTable').DataTable({
+            'aoColumnDefs': [{
+                 'bSortable': false,
+                 'aTargets': ['noSort']
+             }],
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ning�n dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "�ltimo",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"},
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"}
+            }
+        });
+     
+
+          $('.daterangerpicker').daterangepicker({
+            startDate: moment().subtract('days', 29),
+            format: 'DD/MM/YYYY',
+            "autoApply": true,
+            "applyClass": "btn daterangerpicker-boton",
+            "cancelClass": "btn grey-silver",
+                locale: {
+                    applyLabel: 'Aplicar',
+                    cancelLabel: "Cancelar",
+                    fromLabel: 'Desde',
+                    toLabel: 'Hasta',
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                }
+            },
+            function (start, end) {
+                $('.daterangerpicker').val(start.format('D/MM/YYYY') + ' - ' + end.format('D/MM/YYYY'));
+            }
+        );
+
+ 
+        $('.daterangerpicker').val(moment().subtract('days', 29).format('D/MM/YYYY') + ' - ' + moment().format('D/MM/YYYY'));
+      
+      
+     });
+    
+    function QuitarCargando() {
+        //Una vez habilitado todo, se quita el icono de "cargando" de la pantalla (despues de un segundo)
+        setTimeout(function(){
+            document.getElementById('cargando').style.display   =   "none";
+            document.body.style.cursor                          =   "auto";   //Coloca el cursor por defecto
+        }, 1000);
+    }
+     
+  
+
+</script><script>
+		
+    window.onload = function(){
+       
+      //Una vez habilitado todo, se quita el icono de "cargando" de la pantalla (despues de un segundo)
+        setTimeout(function () {
+            document.getElementById('cargando').style.display = "none";
+        }, 1000);
+    };
+       
+    function ImprimirPDF(id_registro) {
+        document.getElementById('id_registro').value       =      id_registro;
+        document.getElementById('textoTramite_PDF').action       =   "imprimirTextoTramite.php";
+        document.getElementById('textoTramite_PDF').method       =   "post";
+        $('#textoTramite_PDF').attr('target','_bank');
+        document.getElementById('textoTramite_PDF').submit();
+    }
+</script>
+
+<body>
+    <style type="text/css" media="print,screen" >
+
+body{
+    font-family: Arial;
+    font-style: normal;
+    font-size: 12px;
+	/* Text color */
+    color: #333;
+	/* Remove the background color to make it transparent */
+    background-color: #fff;
+    margin: 20px;
+    }
+body.documento{
+    width: 16cm;
+    min-height: 21cm; 
+    padding: 2cm 2cm;
+    // Escritos:    confeccionados con margen izquierdo de 5 cm., 
+    //              derecho de 1,5cm (los que se invertir�n en el reverso). 
+    //              El margen superior deber� ser de 5cm., el inferior de 2,5 cm. 
+    
+    margin-top: 5px;
+    background: white;
+    font-family:Arial;
+    font-size: 13px;
+    line-height: 1.6;
+    position: absolute; 
+    left: 50%;
+    transform: translate(-50%);
+}
+ 
+.encabezado{
+    text-align: center;
+    alignment-adjust: central;
+}
+body table{
+    margin-top:0.5cm;
+    margin-bottom:0.5cm;
+    text-align: justify;
+}
+th {
+    font-family:Arial;
+    color:black;
+    background-color:lightgrey;
+    text-align: justify;
+
+}
+
+thead {
+    display:table-header-group;
+}
+
+tbody {
+    display:table-row-group;
+
+}
+
+table td {
+    border-bottom:1px solid grey;            
+    text-align: justify;
+
+}
+
+</style>
+        
+<body class="documento">
+    <form id="formularioVolverEncabezado" class="form-horizontal" action="resultados_listaDespachoCivil7.php" method="post">
+            <!--Estos par�metros son para volver a la tabla actual con los cirterios de b�squeda ates seleccionados-->
+            <input type="hidden" id="fechaSimple" name="fechaSimple" value="" />
+            <input type="hidden" id="rangoFecha" name="rangoFecha" value=""/>
+            <input type="hidden" id="tipoFecha" name="tipoFecha" value="" />
+            <input type="hidden" id="tipoListaDespacho" name="tipoListaDespacho" value=""/>
+            <input type="hidden" id="tipoJuzgado" name="tipoJuzgado" value="" />
+         
+            <br />
+        
+    </form>
+    <div>
+          <!--ICONO DE "CARGANDO"--> 
+            <div id="cargando" class="loaderNew-wrapper">
+                <div class="loaderNew"></div>
+            </div>
+             <!--ICONO DE "CARGANDO"-->   
+                
+    
+        <div class="encabezado"><br />
+            <img align="center" src="assets/img/escudo_formosa.gif" border="0"> <br />
+            <font style='font-size: 14px;' face='Arial, Helvetica, sans-serif'><b>PROVINCIA DE FORMOSA		</b><br />	</font>
+            <font style='font-size: 14px;' face='Arial, Helvetica, sans-serif'><b>PODER JUDICIAL		</b><br /> 	</font>
+            <font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'> <b>Juzgado de Primera Instancia N° 7 en lo Civil, Comercial, del Trabajo y de Menores - El Colorado </b><br /> </font>
+            <br />     
+        </div>   
+        
+        <p style="text-align: justify;"><strong>Lista de Despacho Ordinaria - Correspondiente al d&iacute;a: 19/12/2017 </strong></p>
+        <p>Siendo las 07:15 hs. del d&iacute;a 19 de Diciembre del a&ntilde;o 2017 se procede a dar apertura a la siguiente Lista de Despacho: </p>
+        
+           
+ <table border= "0"  cellpadding="5" ><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>1) 00640/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>A. T. G. C/ A. S. S/ Violencia Familiar</strong> <br /> Proveído Simple : 18/12/2017 --  Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>2) 00634/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>A. V. S/ Violencia Familiar ((ALDERETE LEONARDA RAMONA C/ CHAMORRO RAUL OMAR))</strong> <br /> Proveído Simple : 15/12/2017 --  Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>3) 00641/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ANRIQUE, TERESA DE JESUS S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971383'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971383)' > Proveído Secretaría</a> : 18/12/2017 (  Escrito: 15/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>4) 00127/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ARANDA, Eloy Vicente C/ ZALAZAR, Diego Ramon S/ Juicio Ejecutivo (Ejecución de Honorarios Judiciales)</strong> <br /> Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>5) 00826/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ASOCIACIÓN MUTUAL DE DOCENTES C/ RIVERO, RUBEN ALBERTO S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br />	<a id='mostrarTexto971385'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971385)' > Proveído Simple</a> : 15/12/2017 (  Escrito: 22/11/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>6) 00612/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. A. E. C/ B. E. M. S/ Violencia Familiar</strong> <br /> Oficio  Diligenciado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>7) 00598/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. M. B. C/ V. E. F. S/ Violencia Familiar</strong> <br /> Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>8) 00630/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. M. L. S/ Violencia Familiar</strong> <br /> Proveído Simple : 14/12/2017 --  Orden De Citación  Librado/a: 14/12/2017 --  Acta : 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>9) 00219/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. T. B. C/ R. M. J. S/ Violencia Familiar (OVI)</strong> <br /> Informes  : 14/12/2017 ( Psicológico ) --  Art. 5 Ley 1191 (Violencia Familiar) : 14/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>10) 00539/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. V. B. C/ A. G. H. S/ Violencia Familiar</strong> <br /> Oficio  Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>11) 00175/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>BARAIOLO, Ramon De Los Santos C/ SARAVIA, Carlos S/ Juicio Ordinario</strong> <br /> Oficio  Observado/a: 15/12/2017 --  Cédula   Librado/a: 15/12/2017 --  Cédula   Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>12) 01370/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>BLANCO GONZALEZ, Irmina C/ REYES, Alicia Beatriz S/ Acción Común (LABORAL)</strong> <br /> Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>13) 00016/07</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>BOGADO, FELIPA C/ BURATOVICH ANTONIO F. Y/O CUALQ. OT S/ Sumario y Sumarisimo (INTERDICTO DE RECOBRAR)<br>INC. de Ejec. de Honorarios (Prom. Dr. Eloy Aranda - Orden Nro  05-14)</strong> <br />	<a id='mostrarTexto971398'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971398)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 07/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>14) 00404/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>BRITEZ, ALBERTO C/ MUNICIPALIDAD DE PIRANE Y/O Q.R.J.R S/ Acc. Laboral (LABORAL)</strong> <br />	<a id='mostrarTexto971399'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971399)' > Proveído Simple</a> : 15/12/2017 (  Escrito: 04/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>15) 00154/10</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CABALLERO, EPIFANIA C/ SIAN, JUAN CARLOS Y/O C.O.O. S/ Ordinario (ORDINARIO)</strong> <br />	<a id='mostrarTexto971400'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971400)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 18/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>16) 00457/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CABAÑA, EMILIO - FRANCO, DELIA S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971401'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971401)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 28/11/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>17) 00416/07</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CARABAJAL, JESUS MARIA Y O. C/ CARABAJAL, TEOFILA S/ Ordinario (ORDINARIO)<br>INC. de Ejec. de Honorarios (Orden Nro 02-16 Prom. Dr.Hector Cabrera)</strong> <br /> Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>18) 00435/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CARDOZO, Victor C/ CANO, Walter Fabian y/u Otros S/ Acción Común (LABORAL)</strong> <br /> Cédula   Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>19) 00297/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CASA SINOA S.A. C/ GOMEZ FELICIA ESTER.ESPINOZA MIGUEL S/ Acc. de Ejecucion</strong> <br />	<a id='mostrarTexto971404'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971404)' > Cheque</a> : 15/12/2017 (  Escrito: 15/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>20) 00372/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CASA SINOA S.A. C/ LOPEZ, Amado S/ Juicio Ejecutivo</strong> <br /> Oficio  Con Cargo Recepción: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>21) 00465/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>COLMAN, Estelbina C/ Herederos de PEREYRA, Cesar Domingo S/ Juicio Ordinario</strong> <br /> Oficio  Diligenciado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>22) 00524/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>COMETTO, Dario Javier C/ ACUÑA, Justo Daniel S/ Juicio Ejecutivo</strong> <br />	<a id='mostrarTexto971407'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971407)' > Proveído Simple</a> : 15/12/2017 (  Escrito: 04/12/2017 ) --  Sentencia  247/17: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>23) 00903/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>COMETTO, DARIO JAVIER C/ ARAUJO, ROSALIA S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br /> Oficio  Diligenciado/a: 14/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>24) 00520/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>COMETTO, Dario Javier C/ GALEANO, Sonia Elizabeth S/ Juicio Ejecutivo</strong> <br />	<a id='mostrarTexto971410'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971410)' > Proveído Simple</a> : 15/12/2017 (  Escrito: 04/12/2017 ) --  Sentencia  250/17: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>25) 00522/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>COMETTO, Dario Javier C/ ROJAS, Joel Nicolas S/ Juicio Ejecutivo</strong> <br />	<a id='mostrarTexto971412'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971412)' > Proveído Simple</a> : 15/12/2017 (  Escrito: 04/12/2017 ) --  Sentencia  246/17: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>26) 01332/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>DANCO S.R.L. C/ ALMIRON, Clara Elena S/ Juicio Ejecutivo</strong> <br /> Oficio  Diligenciado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>27) 00499/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>DANCO S.R.L. C/ GIMENEZ, Eugenio Angel Gabriel S/ Juicio Ejecutivo</strong> <br />	<a id='mostrarTexto971415'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971415)' > Proveído Simple</a> : 15/12/2017 (  Escrito: 04/12/2017 ) --  Sentencia  248/17: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>28) 00500/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>DANCO S.R.L. C/ MOREYRA, Cristian Marcelo S/ Juicio Ejecutivo</strong> <br />	<a id='mostrarTexto971417'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971417)' > Proveído Simple</a> : 15/12/2017 (  Escrito: 04/12/2017 ) --  Sentencia  249/17: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>29) 00501/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>DANCO S.R.L. C/ OJEDA, Diego Ricardo S/ Juicio Ejecutivo</strong> <br />	<a id='mostrarTexto971419'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971419)' > Proveído Simple</a> : 15/12/2017 (  Escrito: 04/12/2017 ) --  Sentencia  245/17: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>30) 01228/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>DUARTE, MARCIAL C/ MUNICIPALIDAD DE PIRANE S/ Acc. de Amparo (AMPARO (LEY 749))</strong> <br /> Cédula   Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>31) 00259/10</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ENRIQUEZ FELIPE S/ Acc. Sucesoria (SUCESORIO)</strong> <br />	<a id='mostrarTexto971422'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971422)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 01/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>32) 00353/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ESQUIVEL, FROILAN S/ Acc. Sucesoria (Sucesorio Ab-Intestato)</strong> <br />	<a id='mostrarTexto971423'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971423)' > Proveído Simple</a> : 15/12/2017 (  Escrito: 01/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>33) 00193/06</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>34) 00632/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>35) 00695/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>36) 00177/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO ( Dra. MUJICA, Patricia Rossana )</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>37) 00297/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO ( Dra. MUJICA, Patricia Rossana )</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>38) 00737/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO ( Dra. MUJICA, Patricia Rossana )</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>39) 00149/04</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FELDMANN, BERNARDO - BENITEZ, JULIA S/SUCESORIO</strong> <br /> Nota De Secretaría  : 18/12/2017 ( Constancia ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>40) 00296/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FERNANDEZ LUIS ENRIQUE C/ FAMOSO ROBERTO S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br /> Cédula   Observado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>41) 00141/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FERNANDEZ LUIS ENRIQUE C/ ZARATE EDUARDO S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br /> Cédula   Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>42) 00087/03</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FERNANDEZ, GERONIMO S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br /> Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>43) 00483/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FERNANDEZ, LUIS ENRIQUE C/ CASERES, ELEUTERIO S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br /> Cédula   Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>44) 01171/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FERNANDEZ, LUIS ENRIQUE C/ CHAROLES, LUIDA GLADIS S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br /> Oficio  Diligenciado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>45) 00063/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FERNANDEZ, LUIS ENRIQUE C/ RIOS HUGO CESAR S/ Acc. de Ejecucion (Ejecutivo)</strong> <br />	<a id='mostrarTexto971436'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971436)' > Proveído Simple</a> : 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>46) 00268/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FERNANDEZ, NESTOR ADRIAN C/ GALEANO, ROSA YANINA S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br /> Cédula   Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>47) 00448/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FLORES, DANIEL S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971438'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971438)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 04/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>48) 00638/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>G. L. E. C/ A. J. C. S/ Violencia Familiar</strong> <br /> Proveído Simple : 18/12/2017 --  Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>49) 00642/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>G. M. P. C/ P. R. G. S/ Violencia Familiar</strong> <br /> Acta : 18/12/2017 --  Informes  : 18/12/2017 ( Único De Riesgo ) --  Auto Interlocutorio  214/2.017: 18/12/2017 --  Oficio  Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>50) 00348/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>G. V. I. C/ R. J. C. S/ Violencia Familiar</strong> <br /> Informes  : 18/12/2017 ( Psicológico ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>51) 00187/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GON, OSCAR C/ COMETTO ROMILDO Y/O COMETTO HNOS /Y S/ Acc. de Desalojo</strong> <br /> Oficio  Diligenciado/a: 14/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>52) 00136/94</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GONZALEZ DE FRANCO, SEBASTIANA V. C/ DE PEDRO, JORGE EDUARDO Y/O OTROS S/ Ordinario (DAÐOS Y PERJUICIOS)<br>INC. de MODALIDAD DE PAGO LEY 1373 (Orden Nro 22-16 Prom. Dr.DUARTE, OMAR ESTEBAN)</strong> <br />	<a id='mostrarTexto971447'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971447)' > Cheque</a> : 18/12/2017 (  Escrito: 18/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>53) 00730/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GOROSTEGUI, NORMANDO S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971448'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971448)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 11/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>54) 00957/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>K. G. B. S/ Violencia Familiar (DENUNCIA)</strong> <br /> Cédula   Diligenciado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>55) 00446/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>M. J. L. C/ R. R. S/ Violencia Familiar</strong> <br /> Proveído Simple : 15/12/2017 (  Escrito: 12/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>56) 00399/10</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MACIEL OLGA BEATRIZ Y OTROS C/ LUGO, VILMA Y/O CUALQUIER OTRO OCUP S/ Acc. de Desalojo (DESALOJO)</strong> <br />	<a id='mostrarTexto971451'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971451)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 07/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>57) 00040/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MAZA, Enrique Bruno y RUIZ, Josefina Maria S/ Juicios Sucesorios (Sucesión Ab-Intestato)</strong> <br /> Cédula Acordada   Observado/a: 15/12/2017 --  Edicto  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>58) 00570/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MEDINA, JULIO OMAR S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971454'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971454)' > Proveído Secretaría</a> : 18/12/2017 (  Escrito: 15/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>59) 00400/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MELGAREJO MARTINA DOLORES S/ Acc. Sucesoria (Sucesorio Ab-Intestato)</strong> <br />	<a id='mostrarTexto971455'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971455)' > Proveído Secretaría</a> : 18/12/2017 (  Escrito: 15/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>60) 00260/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MENDOZA, Speit Santiago Adrian C/ ARANDA, Ovidio S/ Juicio Ejecutivo</strong> <br /> Oficio  Diligenciado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>61) 00980/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MONJE, ANA MARIA C/ ROLON, ARNALDO ANDRES Y/O Q.R.J.R. S/ Acc. Laboral (LABORAL)</strong> <br /> Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>62) 00462/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MOREL, Fani Andrea S/ Juicios Sucesorios</strong> <br />	<a id='mostrarTexto971458'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971458)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 12/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>63) 00463/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MOREL, Mariano S/ Juicios Sucesorios (Sucesión Ab-Intestato)</strong> <br />	<a id='mostrarTexto971459'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971459)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 12/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>64) 00433/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>Municipalidad De Pirane C/ Difincoop -difusora Integral Cooperativa De Trabajo Vivienda Credito Y Consumo Ltda. S/ Juicio de Ejecución Fiscal y Apremios (Ejecución Fiscal)</strong> <br /> Oficio Ley  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>65) 00055/08</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>NEUBANER CARLOS S/ Acc. Sucesoria (AB INTESTATO)</strong> <br /> Oficio  Librado/a: 15/12/2017 --  Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>66) 00622/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>P. R. I. C/ T. R. L. S/ Violencia Familiar</strong> <br /> Oficio  Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>67) 00090/06</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>PARRA, JOSE ALEJO S/ Acc. Sucesoria (SUCESORIO)</strong> <br />	<a id='mostrarTexto971464'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971464)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 15/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>68) 00573/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>PEREYRA, Cesar Domingo S/ Juicios Sucesorios (Sucesión Ab-Intestato)</strong> <br /> Oficio  Diligenciado/a: 14/12/2017 --  Art. 142 RIAJ (Juicio Sucesorio)  Diligenciado/a: 14/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>69) 00097/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>PEREZ, SONIA NOEMI EN REP.HIJ MEN Y C/ MUNICIPALIDAD DE PALO SANTO S/ Ordinario (Daños y Perjuicios)</strong> <br />	<a id='mostrarTexto971467'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971467)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 05/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>70) 00872/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>PETER, SONIA ELIZABETH C/ OJEDA, RUFINA YOLANDA S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br />	<a id='mostrarTexto971468'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971468)' > Cheque</a> : 18/12/2017 (  Escrito: 18/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>71) 00184/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>QUINTEROS, Manuel Alejandro C/ AMARILLA, Cesar Raul S/ Juicio de Desalojo</strong> <br /> Mandamiento   Observado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>72) 00576/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>R. N. S. C/ F. J. L. S/ Violencia Familiar</strong> <br /> Oficio  Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>73) 00136/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RECALDE, Vicenta S/ Juicios Sucesorios (Sucesión Ab-Intestato)</strong> <br />	<a id='mostrarTexto971471'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971471)' > Proveído Secretaría</a> : 18/12/2017 (  Escrito: 11/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>74) 00698/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ROMAN SAWCZUK, JUAN RAMON ELIAS C/ ROMERO SAWCZUK, MARIA ADRIANA S/ Ordinario (ORDINARIO (REIVINDICACIÓN)</strong> <br /> Nota De Secretaría  : 18/12/2017 ( Constancia ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>75) 00698/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ROMAN SAWCZUK, JUAN RAMON ELIAS C/ ROMERO SAWCZUK, MARIA ADRIANA S/ Ordinario (ORDINARIO (REIVINDICACIÓN)<br>INC. de Ejecución de Sentencia (N° 62/17) (ROMERO, Sawczuk Maria Adriana S)</strong> <br />	<a id='mostrarTexto971473'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971473)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 17/11/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>76) 01091/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ROMERO, ANGEL RAFAEL S/ Acc. Voluntaria (INSC TARDIA DE DEFUNCION)</strong> <br /> Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>77) 00671/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RUIZ DIAZ, MIGUEL S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971475'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971475)' > Proveído Secretaría</a> : 18/12/2017 (  Escrito: 14/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>78) 00637/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>S. S. B. C/ L. O. R. S/ Violencia Familiar</strong> <br /> Proveído Simple : 18/12/2017 --  Oficio  Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>79) 00639/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>S. Y. A. C/ U. J. E. S/ Violencia Familiar</strong> <br /> Proveído Simple : 18/12/2017 --  Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>80) 00185/04</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SANCHEZ, CELINA Y ALVAREZ, RUBEN S/ Acc. Sucesoria (SUCESORIO)</strong> <br />	<a id='mostrarTexto971480'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971480)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 22/11/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>81) 00585/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SANCHEZ, Jacinta Vilma S/ Juicios Sucesorios (Sucesión Ab-Intestato)</strong> <br />	<a id='mostrarTexto971481'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971481)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 07/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>82) 00133/03</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SCHMIDT, HUGO FERNANDO C/ ALMIRON, RAUL OSCAR S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br />	<a id='mostrarTexto971482'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971482)' > Proveído Simple</a> : 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>83) 01011/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SCHMIDT, JUAN SANTIAGO S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971483'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971483)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 15/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>84) 00199/05</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SHORT, GUILLERMO Y AYALA, TOMASA S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971484'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971484)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 30/11/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>85) 00536/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SOLER, Alberto S/ Juicios Sucesorios (Sucesión Ab-Intestato)</strong> <br />	<a id='mostrarTexto971485'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971485)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 23/11/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>86) 00316/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>TOMAS SANDRA PATRICIA C/ MUNICIPALIDAD DE CTE. FONTANA S/ Acc. de Ejecucion (EJECUTIVO)</strong> <br />	<a id='mostrarTexto971486'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971486)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 05/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>87) 00120/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>TORRES VDA DE PRIETO JULIA Y PRIETO S/ Acc. Sucesoria (SUCESORIO)</strong> <br /> Oficio  Librado/a: 15/12/2017 --  Oficio  Librado/a: 15/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>88) 00991/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>TRACHTA, WENCESLAO - PAIVA, GENOVEV S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971489'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971489)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 15/12/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>89) 00008/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>VILLAFLOR , Pedro Ruben y Otros C/ NAUFAMER, Virginio S/ Juicio Ordinario (Daños y Perjuicios)</strong> <br /> Cédula   Librado/a: 18/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>90) 00588/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>WEICHZEL, Juan Carlos S/ Juicios Sucesorios (Sucesión Ab-Intestato)</strong> <br /> Art. 142 RIAJ (Juicio Sucesorio)  Diligenciado/a: 14/12/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>91) 01022/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>WIERSZEL, JUANA S/ Acc. Sucesoria (SUCESORIO AB-INTESTATO)</strong> <br />	<a id='mostrarTexto971492'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(971492)' > Proveído Simple</a> : 18/12/2017 (  Escrito: 07/12/2017 ) --  Sentencia  252/17: 18/12/2017 -- </td></tr></table>            <p style="text-align: justify;">En el d&iacute;a de la fecha siendo las 07:15 hs. se procede a cerrar la correpondiente
+                Lista de Despacho con un total de 91 expedientes, dejando a disposici&oacute;n de los Se&ntilde;ores 
+            Profesionales en Mesa de Entradas.</p>
+            <p  style="text-align: justify;">Conste.- </p>
+           
+            <p style="text-align: justify "><strong>SECRETAR&Iacute;A, 19 de Diciembre de 2017.-</strong></p>
+
+    </div> 
+     <form id="formularioVolverPie" class="form-horizontal" action="resultados_listaDespachoCivil7.php" method="post">
+            <!--Estos par�metros son para volver a la tabla actual con los cirterios de b�squeda ates seleccionados-->
+            <input type="hidden" id="fechaSimple" name="fechaSimple" value="" />
+            <input type="hidden" id="rangoFecha" name="rangoFecha" value=""/>
+            <input type="hidden" id="tipoFecha" name="tipoFecha" value="" />
+            <input type="hidden" id="tipoListaDespacho" name="tipoListaDespacho" value=""/>
+            <input type="hidden" id="tipoJuzgado" name="tipoJuzgado" value="" />
+      
+       <br />
+        <!--<button type="submit" class="btn btn-circle tooltips"  style="font-size: 12px; font-style: italic;" data-original-title="Volver a los Resultados de la B&uacute;squeda" data-placement="top" style="margin-left: 2%; margin-right:2%"> <i class="fa fa-arrow-left"></i> Volver a los Resultados de la B&uacute;squeda </button> -->
+   
+    </form>
+            <form id="textoTramite_PDF" action="imprimirTextoTramite.php" method="post" target="_bank">
+                <input type="hidden" id="id_registro" name="id_registro" />
+             
+            </form>  
+            
+
+</body>
+
+</html>

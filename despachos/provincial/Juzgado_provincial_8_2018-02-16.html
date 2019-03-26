@@ -1,0 +1,2883 @@
+ï»¿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<!-- <meta http-equiv="content-type" content="text/html;charset=UTF-8"> !-->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+	
+	<meta name="description"  content=""/>
+	<meta name="keywords" content=""/>
+	<meta name="robots" content="ALL,FOLLOW"/>
+	<meta name="author" content="Gerardo RubÃ©n Zaracho" />
+	 <title>LISTA DESPACHO CIVIL</title>
+	
+	<link rel="stylesheet" href="css/estilodespacho_print.css" type="text/css"/>
+	
+	
+	<!-- para el calendario !-->
+	
+	<!-- 
+	<link href="srabon/html/fixed-layout/css/bootstrap.css" 					rel="stylesheet">
+	<link href="srabon/html/fixed-layout/css/bootstrap-responsive.css" 		rel="stylesheet">
+	<link href="srabon/html/fixed-layout/css/jquery-ui-1.8.16.custom.css"	 	rel="stylesheet">
+	!-->
+
+	
+	<script src="srabon/html/fixed-layout/js/jquery.js">							</script>
+	<!--
+	<script src="srabon/html/fixed-layout/js/jquery-ui-1.8.16.custom.min.js">		</script>
+	<script src="srabon/html/fixed-layout/js/jquery.ui.touch-punch.js">			</script>	
+	!-->
+	
+	<!--   fancy box !-->
+
+	<script type="text/javascript" 			src="fancybox134/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" 			src="fancybox134/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<link rel="stylesheet" type="text/css" 	href="fancybox134/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+
+	<!--
+	<link rel="stylesheet" href="css/fancybox.css" type="text/css"/>
+
+	<!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" href="css/ie7.css" />
+	<![endif]-->	
+
+</head>
+
+
+<script>
+		// $(document).ready(function() 
+		// {
+			// alert("si");
+			// $("a[rel=proveido]").fancybox
+			// ({
+					// 'width'				: '80%',
+					// 'height'			: '80%',
+					// 'autoScale'			: false,
+					// 'transitionIn'		: 'elastic',
+					// 'transitionOut'		: 'elastic',
+					// 'type'				: 'iframe'
+			// });
+		// });
+		
+		window.onload = function()
+		{
+			
+			$("#various1").fancybox
+			({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+		
+		};
+		
+		
+		
+		
+	function LeerProveido(proveido, f_despacho)
+	{
+		//alert("entro a la funcion en la pagina"+f_despacho);
+		
+		 $.ajax
+		 ({
+			url: 'verproveido.php',
+			type: 'post',
+			data: {'eldato': proveido, "fecha_despacho": f_despacho},
+			success: function(data, status) 
+			{
+				//alert(data)
+				$('#inline1').html(data);	
+				document.getElementById("various1").click();	
+			}
+      
+		}); 
+	}
+		
+		
+		
+	function	ImprimirLista()
+	{
+		//alert("imprimir");
+		//document.getElementById('tabla_despacho').print();	
+		var divToPrint	=	document.getElementById('inline1');
+		newWin			= 	window.open("");
+		newWin.document.write(divToPrint.outerHTML);
+		// newWin.print();
+		// newWin.close();
+	}
+	
+</script>
+	
+
+
+<!-- <input  type="button" onclick="LeerProveido('91')" value  ="ajax"></input> !-->
+
+<body>
+	<html>
+								<head><body id='bodycontenido' name='bodycontenido'  background-repeat:no-repeat;'>
+									<div style='width:100%;height:100%;margin:0x0px0px0px;background-color:white;'><tr><td colspan='4'><b><font style='font-family:Arial,Helvetica, sans-serif; font-size: 11px;color:#3366FF;'>Â© GeneraciÃ³n y Mantenimiento por<br>D.S.I. - <br>Poder Judicial Formosa</font></b></td></tr><table  border='0' width='100%' cellspacing='0' cellpadding='0' id='tabla_despacho' name ='tabla_despacho' ><tbody><tr	style='height:50px;'>
+								<td colspan='4'><b>
+									<font style='font-family:Arial,Helvetica, sans-serif; font-size: 11px;color:#3366FF;'><br></br></font></b>
+								</td>
+							</tr><tr>
+										<td align='center' colspan='4'>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'><b>Provincia de Formosa		</b><br>	</font>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'><b>Poder Judicial			</b><br>	</font>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'>EXCELENTISIMO TRIBUNAL DEL TRABAJO<br>		</font>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'><b>Lista de Despacho Ordinaria - Correspondiente al dia: 16/02/2018</b></font>
+											<br><br><font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'><b>	SALA 2	</b><br>	</font>
+										</td>
+									</tr>
+									<tr style='height:30px;'>
+									</tr>
+									<tr>
+										<td colspan='4'>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'>Siendo las 07:15 hs. del dia Viernes, 16 de Febrero del 2018  se procede a dar apertura a la siguiente</font>
+										</td>
+									</tr>
+									<tr>
+										<td colspan='4'>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'>Lista de Despacho:</font>
+										</td>
+									</tr>
+								<tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>1) 00257/2017</font> !-->
+															<b>1) 00257/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A F O C/  P G L M S/ Accion Comun</font> !-->
+																<b>ABALLAY, FLORENCIA OFELIA  C/  PANDO, GLADYS LIDIA MARGARITA  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> BARBIERI, LAURA VIVIANA</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>2) 00041/2009</font> !-->
+															<b>2) 00041/2009</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A H J C/  B D F S S/ ACCION COMUN</font> !-->
+																<b>ACOSTA, HECTOS JORGE C/ BANCO DE FORMSOA S.A. S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GIMENEZ,RUBEN DARIO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>3) 00122/2014</font> !-->
+															<b>3) 00122/2014</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A J G C/  O S D C D T S/ ACCION COMUN</font> !-->
+																<b>ACOSTA, JOSE GREGORIO C/ OBRA SOCIAL DE CONDUCTORES DE TRANSPORTE S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO OBSERVADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> DUPUY,FEDERICO EZEQUIEL</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA OBSERVADA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>4) 00162/2015</font> !-->
+															<b>4) 00162/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A G E C/  G V N y O S/ Accion Comun</font> !-->
+																<b>ACUÑA, GIMENA ELIZABETH C/  GONZALEZ, VILMA NANCY y Otros S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> SOTO, PATRICIA MONICA</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>5) 00059/1991</font> !-->
+															<b>5) 00059/1991</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A M C/  E H R Y A D A Y L Y P J Q R R S/ ACCION P/ACCID.DER.COMUN - Inc. de Inc. Ejec. de Sentencia( DR. MARCOS RAUL MOLARES )</font> !-->
+																<b>ALCARAZ, MAGDALENA C/ ESCOFFE, HECTOR RAMON Y/O ACOPIADORA DE ALGODON Y/O LADRILLERIA Y/O PERSONA JURIDICA QUE RESULTE RESPONSABLE S/ ACCION P/ACCID.DER.COMUN - Inc. de Inc. Ejec. de Sentencia( DR. MARCOS RAUL MOLARES )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO FIRMADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> DR. Marcos Raul MOLARES</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>6) 00134/2003</font> !-->
+															<b>6) 00134/2003</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A O R Y O C/  T S Y O S/ ACCION COMUN - Inc. de Medida Cautelar( DR. CUESTA, PABLO )</font> !-->
+																<b>ALFONSO, OSCAR RUBEN Y OTROS C/ TEUCO S.A. Y/U OTROS S/ ACCION COMUN - Inc. de Medida Cautelar( DR. CUESTA, PABLO )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO FIRMADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> DR. CUESTA, PABLO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>7) 00406/2016</font> !-->
+															<b>7) 00406/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A A M C/  A A A M y o S/ Accion Comun</font> !-->
+																<b>ARCE ACOSTA, MELISA  C/  AGUIRRE ALVAREZ, AGOSTINA MAGALI y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> MEDINA PATIÑO, JOHN ENZO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>8) 00430/2017</font> !-->
+															<b>8) 00430/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A , C C/  Z , E M Y Q S/ Accion Comun</font> !-->
+																<b>ARRUA , CRISTINA  C/  ZURITA , EDUARDA MABEL Y/O Q.R.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA SECRETARIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GOMEZ MACHADO, MARIA FLORENCIA</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311950'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311950, "16022018")' >Ver Proveido:</a><font id='NoOculto' >PROVEIDO ORDENA: &nbsp;&nbsp;&nbsp;  Corresponde al ESCRITO   de fecha 14/02/2018 &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>9) 00119/2009</font> !-->
+															<b>9) 00119/2009</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A S A C/  M E J S/ ACCION COMUN - Inc. de Ejec. de Honorarios( MARTIN PARAJON - MARIANO PARAJON )</font> !-->
+																<b>ASOCIART S.A. ART C/ MACHUCA, ESTELA JOSEFINA S/ ACCION COMUN - Inc. de Ejec. de Honorarios( MARTIN PARAJON - MARIANO PARAJON )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO DILIGENCIADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> Martin Parajon - Mariano Parajon</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>10) 00061/2015</font> !-->
+															<b>10) 00061/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>A N C C/  O R D Y Q S/ ACCION COMUN</font> !-->
+																<b>AVALOS, NORBERTO CONSTANTINO C/ OVIEDO, RAMON DAMIAN Y/O Q.R.J.R S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GARRIDO,WALTER ORLANDO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>11) 00446/2016</font> !-->
+															<b>11) 00446/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B V L C/  E P S Y Q S/ Accion Comun</font> !-->
+																<b>BAEZ, VICTOR LEONARDO  C/  EL PAJARITO S.A. Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311955'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311955, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO - TRASLADO DEMANDA - FIJA AUDIENCIA DE ART.34/35 CPL: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CACACE, Gerardo Daniel</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>12) 00316/2017</font> !-->
+															<b>12) 00316/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B A D L C C/  G J R y o S/ Accion Comun</font> !-->
+																<b>BARAIOLO, ALEJANDRO DE LA CRUZ  C/  GROSSI, JOSE ROMEO y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> VOLTA, Santiago Juan</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>13) 00066/2006</font> !-->
+															<b>13) 00066/2006</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B M A C/  E P Y O Y Q R R S/ ACCION COMUN - Inc. de Ejecucion Sentencia( ESPINDOLA, GRACIELA )</font> !-->
+																<b>BAREIRO, MIGUEL ANGEL C/ EL PAJARITO Y/U OTRO Y/O QUIEN RESULTE RESPONSABLE S/ ACCION COMUN - Inc. de Ejecucion Sentencia( ESPINDOLA, GRACIELA )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA OBSERVADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ESPINDOLA, Graciela</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>14) 00133/2015</font> !-->
+															<b>14) 00133/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B R E C/  E P S Y Q S/ ACCION COMUN</font> !-->
+																<b>BARRIOS, ROMINA ELIZABETH C/ EL PAJARITO S.A. Y/O Q.R.J.R. S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CACACE,Gerardo Daniel</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>15) 00356/2016</font> !-->
+															<b>15) 00356/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B R F C/  D S L S y o Y Q S/ Accion Comun</font> !-->
+																<b>BAS, RODOLFO FABIAN  C/  DISTRIBUIDORA SANTA LUCIA S.R.L. y otros Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO LEY OBSERVADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ROLDAN, ELIO FRANCISCO</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >OFICIO LEY OBSERVADO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>16) 00064/2017</font> !-->
+															<b>16) 00064/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B C M C/  E P S Y Q S/ Accion Comun</font> !-->
+																<b>BENITEZ, CAREN MILAGROS  C/  EL PAJARITO S.A. Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CACACE, Gerardo Daniel</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >SOLICITA LIBRAMIENTO DE CHEQUE: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311982'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311982, "16022018")' >Ver Proveido:</a><font id='NoOculto' >LIBRAMIENTO DE CHEQUE: &nbsp;&nbsp;&nbsp;  Corresponde al SOLICITA LIBRAMIENTO DE CHEQUE   de fecha 14/02/2018 &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>17) 00132/2015</font> !-->
+															<b>17) 00132/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B N N C/  S F S S/ ACCION COMUN</font> !-->
+																<b>BENITEZ, NOELIA NOEMI C/ SANATORIO FORMOSA S.R.L. S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO DILIGENCIADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> LEGUIZAMON,ALVARO EMANUEL</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>18) 00159/2015</font> !-->
+															<b>18) 00159/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B S L C/  B F S S/ Accion Comun</font> !-->
+																<b>BENITEZ, SERGIO LUIS C/  BANCO FORMOSA S.A. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ARMOA, OVIDIO JUAN ANGEL</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>19) 00186/2014</font> !-->
+															<b>19) 00186/2014</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B F I C/  F Y P S L S S/ ACCION COMUN</font> !-->
+																<b>BOGADO, FEDERICO IGNACIO C/ FARMACIA Y PERFUMERIA SAN LUIS S.C.S. S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO FIRMADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ORTELLADO,ORLANDO LUIS</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>20) 00408/2017</font> !-->
+															<b>20) 00408/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B D P C/  E P S Y Q S/ Accion Comun</font> !-->
+																<b>BORDA, DARIO PAULINO  C/  EL PAJARITO S.A. Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311949'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311949, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;  Corresponde al ESCRITO   de fecha 14/02/2018  &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> PEÑA, SEBASTIAN</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>21) 00025/2017</font> !-->
+															<b>21) 00025/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>B K S C/  E P S S/ Accion Comun</font> !-->
+																<b>BRITEZ, KARINA SOLEDAD   C/  EL PAJARITO S.A.  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GARAY, MARIA ALEJANDRA</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311958'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311958, "16022018")' >Ver Proveido:</a><font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>22) 00276/2017</font> !-->
+															<b>22) 00276/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C C C/  S S E S Y Q S/ Accion Comun</font> !-->
+																<b>CABRERA, CARLOS  C/  STAR SERVICIOS EMPRESARIOS S.A. Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> PASTOR, RUBEN ORLANDO</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>23) 00496/2017</font> !-->
+															<b>23) 00496/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C M L A C/  A A y o S/ Accion Comun</font> !-->
+																<b>CACERES MALDONADO, LIDER ARNILDO  C/  ABRIL AMOBLAMIENTOS y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311935'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311935, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;  Corresponde al ESCRITO   de fecha 06/02/2018  &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ROLDAN, ELIO FRANCISCO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>24) 00121/2017</font> !-->
+															<b>24) 00121/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C C A C/  E P S y o S/ Accion Comun</font> !-->
+																<b>CACERES, CRISTIAN ADRIAN  C/  EL PAJARITO S.A. y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311903'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311903, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CACACE, Gerardo Daniel</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>25) 00486/2016</font> !-->
+															<b>25) 00486/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C G G C/  M R A M S/ Accion Comun 
+ - INC. de Nulidad  ( MOBILIO, JOSE JAVIER )</font> !-->
+																<b>CACERES, GUSTAVO GABRIEL  C/  MARKETING RESEARCH AN MERCHANDISING  S/ Accion Comun 
+ - INC. de Nulidad  ( MOBILIO, JOSE JAVIER )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >AUTOINTERLOCUTORIO - NULIDAD: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> MOBILIO, JOSE JAVIER</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>26) 00221/2016</font> !-->
+															<b>26) 00221/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C A B C/  I S Y Q S/ Accion Comun</font> !-->
+																<b>CASTAÑO, ALBERTO BLAS  C/  INDUCON S.R.L. Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> BELLINO , LAURA LILIANA</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>27) 00058/2017</font> !-->
+															<b>27) 00058/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C D A C/  C A M Y Q S/ Accion Comun</font> !-->
+																<b>CENTURION, DARIO ABELARDO  C/  CACERES, AUGUSTO MARTIN Y/O Q.R.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> FERREIRA, JOSE HUMBERTO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>28) 00025/2014</font> !-->
+															<b>28) 00025/2014</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C M S C/  E P S S/ ACCION COMUN</font> !-->
+																<b>CHAVEZ, MALVINA SOLEDAD C/ EL PAJARITO S.A. S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CACACE,Gerardo Daniel</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>29) 00068/2011</font> !-->
+															<b>29) 00068/2011</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C O B C/  I N C S S/ ACCION COMUN</font> !-->
+																<b>CHAVEZ, OLGA BEATRIZ C/ INTEGRACION NORTE CARREFOUR S.A. S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTIFICACION: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CASADEI,ANGEL</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>30) 00066/2016</font> !-->
+															<b>30) 00066/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C L C/  S C M D C y o S/ Accion Comun</font> !-->
+																<b>COLMAN, LIDIA  C/  SANTA CRUZ, MARIA DEL CARMEN y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311873'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311873, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> DIAZ ROIG, MARIA LAURA</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311942'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311942, "16022018")' >Ver Proveido:</a><font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311943'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311943, "16022018")' >Ver Proveido:</a><font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>31) 00215/2009</font> !-->
+															<b>31) 00215/2009</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C L P C/  G L H Y O S/ ACCION COMUN</font> !-->
+																<b>CORONEL, LOURDES PAOLA C/ GUTNISKY, LEON HORACIO Y/U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CONSTANZO,E. SANTIAGO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>32) 00042/2012</font> !-->
+															<b>32) 00042/2012</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C L A C/  M G D Y O S/ ACCION COMUN</font> !-->
+																<b>CORRALES, LUIS ALBERTO C/ MATEO, GERARDO DANIEL Y/U OTRO S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO FIRMADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> PIÑEIRO,JOSE GERARDO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>33) 00207/2006</font> !-->
+															<b>33) 00207/2006</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>C N O C/  S M N Y Q R R S/ ACCION COMUN</font> !-->
+																<b>CORREA, NORBERTO OSCAR C/ SALINAS, MARIO NELO Y/O QUIEN RESULTE RESPONSABLE S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> MOLARES,Marcos Raul     (bis)</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>34) 00150/2012</font> !-->
+															<b>34) 00150/2012</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>D V J E C/  M M Y O S/ ACCION COMUN</font> !-->
+																<b>DEL VALLE, JUAN EUSEBIO C/ MARECO. MANUEL Y/U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ARCE,MARIO HORACIO</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>35) 00136/2013</font> !-->
+															<b>35) 00136/2013</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>D C Y C/  E M I ( S Y O S/ ACCION COMUN</font> !-->
+																<b>DUARTE, CLAUDIA YANINA C/ EMERGENCIAS MEDICAS INFANTILES (EMI) SRL Y/U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> MARIÑO AVALOS,MANUEL ANTONIO</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>36) 00326/2016</font> !-->
+															<b>36) 00326/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>E M E C/  A W G Y Q S/ Accion Comun</font> !-->
+																<b>ENCISO, MIGUEL ESTEBAN   C/  ACEVEDO, WALTER GUILLERMO Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >Autointerlocutorio - Regulacion de Honorarios: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> AYALA, GLADIS SOFIA</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>37) 00085/2015</font> !-->
+															<b>37) 00085/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>E J D C/  C H Y O S/ ACCION COMUN</font> !-->
+																<b>ESCALADA, JUAN DOMINGO C/ CACERES, HERIBERTO Y/U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTIFICACION: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> LEGUIZAMON,CARLOS FEDERICO</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>38) 00158/2014</font> !-->
+															<b>38) 00158/2014</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>E J I C/  I S Y O S/ ACCION COMUN - INC. de Nulidad  ( GARCIA LABARTHE, SANTIAGO )</font> !-->
+																<b>ESPINOLA, JULIO ISMAEL C/ IMPERIO S.A Y OTROS S/ ACCION COMUN - INC. de Nulidad  ( GARCIA LABARTHE, SANTIAGO )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GARCIA LABARTHE, SANTIAGO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<b>39) </b>	</td>
+														<td colspan='2'>
+															<b>															
+																<b>Expediente Reservado  ( CONSOLANI, FRANCO MATIAS ) .</b>
+															</b>
+														</td>
+													</tr>
+													<tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>						
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+														</td>
+														!-->
+														
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CONSOLANI, FRANCO MATIAS</font>													
+													</td>																											
+													</tr>
+													<tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<b>40) </b>	</td>
+														<td colspan='2'>
+															<b>															
+																<b>Expediente Reservado  ( JOJOT, ARIEL FERNANDO ) Expediente Reservado  ( JOJOT, ARIEL FERNANDO ) .</b>
+															</b>
+														</td>
+													</tr>
+													<tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>						
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+														</td>
+														!-->
+														
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> JOJOT, ARIEL FERNANDO</font>													
+													</td>																											
+													</tr>
+													<tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>41) 00014/2018</font> !-->
+															<b>41) 00014/2018</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>F J C C/  I T S J </font> !-->
+																<b>FERNANDEZ, JUAN CARLOS   C/  INSTITUTO TECNICO SAN JOSE Ñ15 Y/O Q.R.J.R. S/ Apelacion</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311969'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311969, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PASE AL ACUERDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> MUÑOZ, JULIO ARGENTINO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>42) 00241/2006</font> !-->
+															<b>42) 00241/2006</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>F O C/  E S Y O Y Q R R S/ ACCION COMUN</font> !-->
+																<b>FILIPPINI, OBDULIO C/ ELECTRON S.R.L. Y/U OTRO Y/O QUIEN RESULTE RESPONSABLE S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> KULMAN,HUGO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>43) 00336/2017</font> !-->
+															<b>43) 00336/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>F C C/  C S y o S/ Accion Comun</font> !-->
+																<b>FRETES, CANDIDO  C/  CONING S.R.L. y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >AUTOINTERLOCUTORIO - EXCUSACION: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> LAGRAÑA, JONATHAN EMMANUEL</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>44) 00199/2007</font> !-->
+															<b>44) 00199/2007</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>G F C/  E S Y O S/ ACCION COMUN</font> !-->
+																<b>GALVAN, FELIX C/ EDEFOR S.A. Y/U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311931'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311931, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> </font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>45) 00165/2012</font> !-->
+															<b>45) 00165/2012</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>G J A C/  F B O Y O S/ ACCION COMUN</font> !-->
+																<b>GARCIA, JULIO ARGENTINO C/ FLUMIAN, BRUNO OSCAR Y/U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ZARATE,maximiliano ariel</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>46) 00190/2016</font> !-->
+															<b>46) 00190/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>G P C/  P A S Y Q S/ Accion Comun</font> !-->
+																<b>GARCIA, PAULINO  C/  PASTORIL AGROPECUARIA S.A. Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> JACQUSMIN, YAMILE</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>47) 00089/2015</font> !-->
+															<b>47) 00089/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>G S C/  P D T S S/ ACCION COMUN</font> !-->
+																<b>GARNICA, SERGIO C/ PILAR DEL TALA S.A. S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> LOPEZ,MILTON LEONARDO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>48) 00064/2015</font> !-->
+															<b>48) 00064/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>G G C/  S H S/ ACCION COMUN - INC. de Ejecucion de Honorarios ( LEGUIZAMON, HUGO HERNAN )</font> !-->
+																<b>GIMENEZ,GLORIA GRISELDA C/ SALINAS, HEBERT S/ ACCION COMUN - INC. de Ejecucion de Honorarios ( LEGUIZAMON, HUGO HERNAN )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >MANDAMIENTO OBSERVADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> LEGUIZAMON, HUGO HERNAN</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>49) 00357/2017</font> !-->
+															<b>49) 00357/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>G C C/  W M A S Y Q S/ ACCION COMUN</font> !-->
+																<b>GONZALEZ, CARLOS C/ WAL MART ARGENTINA S.R.L. Y/O Q.R.P.R S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311981'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311981, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> </font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>50) 00155/2005</font> !-->
+															<b>50) 00155/2005</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>G I G C/  E N 4 - J D C Y O Y Q R R S/ ACCION COMUN - Inc. de Inc. Ejec. de Sentencia( CARMEN GRACIELA, ROLON )</font> !-->
+																<b>GONZALEZ, ISABEL GUMERCINDA C/ ESCUELA NÂº 49 -SAN JOSE DE CALASANZ Y OTRA Y/O QUIEN RESULTE RESPONSABLE S/ ACCION COMUN - Inc. de Inc. Ejec. de Sentencia( CARMEN GRACIELA, ROLON )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CARMEN GRACIELA, ROLON</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>51) 00409/2016</font> !-->
+															<b>51) 00409/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>G L A C/  I S y o S/ Accion p/Accidente de Trabajo (Der. Comun)</font> !-->
+																<b>GONZALEZ, LUIS ALBERTO  C/  INC S.A. y otros  S/ Accion p/Accidente de Trabajo (Der. Comun)</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA LEY FIRMADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> VOLTA, Santiago Juan</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>52) 00210/2016</font> !-->
+															<b>52) 00210/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>J C A C/  C M A S/ Accion Comun</font> !-->
+																<b>JARA, CARLOS ALBERTO   C/  CRUZ, MIGUEL ANGEL  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311962'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311962, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> LEGUIZAMON, CARLOS FEDERICO</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311963'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311963, "16022018")' >Ver Proveido:</a><font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>53) 00058/2015</font> !-->
+															<b>53) 00058/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>L C C/  C S Y Q S/ ACCION COMUN</font> !-->
+																<b>LEZCANO, CLEMENTE C/ CAMILETTI S.A. Y/O Q.R.R S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> RODA,WALTER DANIEL</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>54) 00097/2016</font> !-->
+															<b>54) 00097/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>L A B C/  E A y o S/ Accion p/Accidente de Trabajo (Der. Comun)</font> !-->
+																<b>LOPEZ, ALBA BEATRIZ  C/  ESTABLECIMIENTO ALEGRIA y otros  S/ Accion p/Accidente de Trabajo (Der. Comun)</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> LEGUIZAMON, ALVARO EMANUEL</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>55) 00182/2011</font> !-->
+															<b>55) 00182/2011</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M A J L C/  F R S Y O S/ ACCION COMUN</font> !-->
+																<b>MANZUR ABOUAQUIN, JOSE LUIS C/ FORMOSA REFRESCOS S.A. Y/U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> </font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>56) 00107/2012</font> !-->
+															<b>56) 00107/2012</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M R M C/  E P S S/ ACCION COMUN</font> !-->
+																<b>MARTINEZ, RODRIGO MARCELO C/ EL PAJARITO S.A. S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CACACE,Gerardo Daniel</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>57) 00050/2015</font> !-->
+															<b>57) 00050/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M R G C/  E P C S Y Q S/ ACCION P/ACCID.DER.COMUN</font> !-->
+																<b>MARTINEZ, ROGER GABRIEL C/ EL PAJARITO CONSTRUCCIONES S.A. Y/O Q.R.J.R S/ ACCION P/ACCID.DER.COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> BARRIOS,JESSICA</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>58) 00065/2014</font> !-->
+															<b>58) 00065/2014</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M Y C C/  F R S y O S/ Accion Comun</font> !-->
+																<b>MARTINEZ, YONY CESAR  C/  FORMOSA REFRESCOS SA y Otros S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> DE LA ROSA, Ezequiel Rodrigo</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >OFICIO FIRMADO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>59) 00119/2012</font> !-->
+															<b>59) 00119/2012</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M G E G C/  G N Y O S/ ACCION COMUN</font> !-->
+																<b>MENDEZ GIMENEZ, ELVIS GLORIA C/ GARCIA, NELIDA Y/U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311991'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311991, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CANEPA,Jose Andres</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>60) 00456/2017</font> !-->
+															<b>60) 00456/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M M C/  S R S . Y Q S/ Accion Comun</font> !-->
+																<b>MENGUAL, MARCELINO  C/  SALTA REFRESCOS SA, .. Y/O Q.R.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> OLMEDO, IVONNE ELIZABETH</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>61) 00134/2014</font> !-->
+															<b>61) 00134/2014</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M C S C/  P C A S/ ACCION COMUN</font> !-->
+																<b>MERCO COMUNICACIONES S.A C/ PARADA, CRISTIAN ARIEL S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> DI BIASE,Hector Donato</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >OFICIO OBSERVADO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>62) 00432/2016</font> !-->
+															<b>62) 00432/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M R V C/  T G R Y Q S/ Accion Comun</font> !-->
+																<b>MIÑO, ROMINA VANESA  C/  TOLEDO, GUILLERMO RAMON Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >ACTA DE AUDIENCIA DE VISTA DE CAUSA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GARCIA LABARTHE, SANTIAGO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>63) 00172/2009</font> !-->
+															<b>63) 00172/2009</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M S F C/  B & B C Y O S/ ACCION COMUN</font> !-->
+																<b>MOLINAS, SEBASTIAN FELIX C/ B & B CONSTRUCCIONES Y/U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> MARTINEZ,ALEXIS NICOLAS</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>64) 00458/2017</font> !-->
+															<b>64) 00458/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M P A C/  E P S y o S/ Accion Comun</font> !-->
+																<b>MORINIGO, PABLO ARNALDO  C/  EL PAJARITO S.A. y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311868'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311868, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> SANTILLAN, VICTOR ADRIAN</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>65) 00205/2015</font> !-->
+															<b>65) 00205/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>M N B C/  Y C S y B J L y B P A y Q R J R . S/ Accion Comun</font> !-->
+																<b>MUÑOZ, NORA BEATRIZ C/  YUNKA COMBUSTIBLES S.A. y  BALDUS, JOSE LUIS y  BALDUS, PEDRO ALEJANDRO y  QUIEN RESULTE JURIDICAMENTE RESPONSABLE . S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GARRIDO, WALTER ORLANDO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>66) 00186/2013</font> !-->
+															<b>66) 00186/2013</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>N O C/  V J J Y Q S/ ACCION COMUN - INC. de Ejecucion de Honorarios ( CANESIN, JUAN PABLO )</font> !-->
+																<b>NAVARRO, OSCAR C/ VELOZO, JUSTO JAVIER Y/O Q.R.R S/ ACCION COMUN - INC. de Ejecucion de Honorarios ( CANESIN, JUAN PABLO )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >Autointerlocutorio - Embargo Ejecutivo: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CANESIN, JUAN PABLO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>67) 00004/2015</font> !-->
+															<b>67) 00004/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>N M M F C/  O 2 S S/ ACCION COMUN</font> !-->
+																<b>NUÑEZ MUNSON, MANUEL FERNANDO C/ ONDA 2001 SRL S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ORTELLADO,ORLANDO LUIS</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>68) 00028/2000</font> !-->
+															<b>68) 00028/2000</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>O R C/  A M D M D F ( S/ ACCION COMUN - Inc. de Ej. Sentencia( DRA. VIVIANA BARBIERI )</font> !-->
+																<b>OVIEDO ROBERTA C/ ASOCIACION MUTULISTA DE MAESTROS DE FORMOSA (AMMF) S/ ACCION COMUN - Inc. de Ej. Sentencia( DRA. VIVIANA BARBIERI )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA OBSERVADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> DRA. VIVIANA BARBIERI</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>69) 00145/2017</font> !-->
+															<b>69) 00145/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>P V C/  R C E Y Q S/ Accion Comun</font> !-->
+																<b>PAREDES, VICENTE  C/  RAMIREZ, CARMEN ELENA Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> MARTINEZ, ALEXIS NICOLAS</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>70) 00180/2016</font> !-->
+															<b>70) 00180/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>P H D C/  B R S y o S/ Accion Comun</font> !-->
+																<b>PENAYO, HUGO DIOSNEL  C/  BOCA ROJA S.A. y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311869'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311869, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;  Corresponde al SOLICITA LIBRAMIENTO DE CHEQUE   de fecha 15/02/2018  &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ARANDA CARABALLO, MAURO ORLANDO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>71) 00263/2017</font> !-->
+															<b>71) 00263/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>P A S C/  U N G S/ Accion Comun</font> !-->
+																<b>PINO, ANDREA SOLEDAD  C/  URBIETA, NELLY GRACIELA  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO LEY OBSERVADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> LARRACET, ALEJANDRO AGUSTIN</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>72) 00063/2016</font> !-->
+															<b>72) 00063/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>P R C/  J F O R Y Q S/ Accion Comun</font> !-->
+																<b>PUJOL, RAMONA  C/  JURE FRACHI, OLGA RADA Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA SECRETARIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> Gomez, Oscar Lorenzo</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>73) 00036/2017</font> !-->
+															<b>73) 00036/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>R J E C/  E P S Y Q S/ Accion Comun</font> !-->
+																<b>RAHN, JAVIER ENRIQUE  C/  EL PAJARITO S.A. Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311866'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311866, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;  Corresponde al ESCRITO   de fecha 14/02/2018  &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CACACE, Gerardo Daniel</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>74) 00016/2015</font> !-->
+															<b>74) 00016/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>R C F Y O C/  H G B Y Q S/ ACCION COMUN</font> !-->
+																<b>RAMIREZ, CLAUDIO FRANCISCO Y OTRO C/ HEYMAN, GRACIELA BEATRIZ Y/O Q.R.R S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO DILIGENCIADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> LEGUIZAMON,ALVARO EMANUEL</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>75) 00327/2016</font> !-->
+															<b>75) 00327/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>R R C/  A F Y Q S/ Accion Comun</font> !-->
+																<b>RAMIREZ, ROBERTO  C/  ALVARENGA, FRANCISCO Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >ACTA DE AUDIENCIA DE ART.26 CPL: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GARCIA LABARTHE, SANTIAGO</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311877'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311877, "16022018")' >Ver Proveido:</a><font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311929'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311929, "16022018")' >Ver Proveido:</a><font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>76) 00024/1999</font> !-->
+															<b>76) 00024/1999</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>R S I C/  G D S/ ACCION COMUN</font> !-->
+																<b>RECALDE SERGIO ISMAEL.- C/ GANCZ DAVID.- S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> MOLARES,Marcos Raul     (bis)</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>77) 00070/2017</font> !-->
+															<b>77) 00070/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>R J D R C/  E P S y o S/ Accion Comun</font> !-->
+																<b>RIVERO, JOSE DEL ROSARIO  C/  EL PAJARITO S.A. y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA SECRETARIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> JACQUEMIN, YAMILE ROXANA</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA OBSERVADA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >PROYECTO CEDULA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>78) 00312/2016</font> !-->
+															<b>78) 00312/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>R M U C/  L I V Y Q S/ Accion Comun</font> !-->
+																<b>RODRIGUEZ MOREL, URSULINA  C/  LELIUR, IRIS VALENTIN Y/O Q.R.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CANDIA, SIRILO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>79) 00319/2016</font> !-->
+															<b>79) 00319/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>R O S C/  A P R y o S/ Accion Comun</font> !-->
+																<b>ROJAS, OFELIA SOLEDAD  C/  ACOSTA, PAOLA ROXANA  y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> SERVIN, Eulalio</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>80) 00008/2018</font> !-->
+															<b>80) 00008/2018</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>R F F C/  B Y B S S/ Accion Comun</font> !-->
+																<b>ROMERO, FRANCISCO FABIAN  C/  B Y B S.R.L.  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311953'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311953, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> VOLTA, Santiago Juan</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>81) 00517/2017</font> !-->
+															<b>81) 00517/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>S F J C/  E P S S/ Accion Comun</font> !-->
+																<b>SALINA, FRANCISCO JAVIER  C/  EL PAJARITO S.A.  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311989'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311989, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> BUXMANN, ERWIN KARL</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>82) 00179/2012</font> !-->
+															<b>82) 00179/2012</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>S M D C/  L P Y O S/ ACCION COMUN - INC. de Ejecucion de Acuerdo Homologado ( CAMARICHI, HUGO ANTONIO )</font> !-->
+																<b>SANCHEZ, MAXIMILIANO DANIEL C/ LA PALMIRA Y/U OTROS S/ ACCION COMUN - INC. de Ejecucion de Acuerdo Homologado ( CAMARICHI, HUGO ANTONIO )</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >Autointerlocutorio - Regulacion de Honorarios: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CAMARICHI, HUGO ANTONIO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>83) 00093/2015</font> !-->
+															<b>83) 00093/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>S R C/  E P S Y O S/ ACCION P/ACCID.DER.COMUN</font> !-->
+																<b>SCHULZ, RICARDO C/ EL PAJARITO S.A. Y/U OTROS S/ ACCION P/ACCID.DER.COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CACACE,Gerardo Daniel</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>84) 00262/2017</font> !-->
+															<b>84) 00262/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>S L M C/  P A S S/ Accion p/Accidente de Trabajo Tarifada</font> !-->
+																<b>SOLIS, LIDIA MARIANA  C/  PREVENCION ART S.A.  S/ Accion p/Accidente de Trabajo Tarifada</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO LEY OBSERVADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GUTIERREZ, Hector Omar</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>85) 00106/1995</font> !-->
+															<b>85) 00106/1995</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>T A Y O C/  V Y P L P S Y M D L C D F S/ ACCION COMUN</font> !-->
+																<b>TELLEZ, ADOLFO Y OTROS C/ VENTURINO Y PERSONAL LA PLATA S.A. Y MUNICIPALIDAD DE LA CIUDAD DE FORMOSA S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTIFICACION: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CARBAJAL,Fernando</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>86) 00068/2010</font> !-->
+															<b>86) 00068/2010</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>T F C/  O L Y O S/ ACCION COMUN</font> !-->
+																<b>TORRES, FAUSTINO C/ OJEDA, LAURENCIA Y7U OTROS S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >SENTENCIA DEFINITIVA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GUTTNER,Rodolfo Horacio</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >PROVEIDO - TRASLADO PLANILLA DE SENTENCIA CON PLANILLA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>87) 00207/2016</font> !-->
+															<b>87) 00207/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>V M M C/  T F Y Q S/ Accion Comun</font> !-->
+																<b>VARGAS, MARCELO MARTIRES  C/  TOLEDO, FRANCISCO Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >OFICIO DILIGENCIADO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> GARRIDO, WALTER ORLANDO</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >OFICIO FIRMADO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>88) 00448/2016</font> !-->
+															<b>88) 00448/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>V B D C/  E P S Y Q S/ Accion Comun</font> !-->
+																<b>VEGA, BRENDA DEBORA  C/  EL PAJARITO S.A. Y/O Q.R.J.R. S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311867'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311867, "16022018")' >Ver Proveido:</a> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;  Corresponde al ESCRITO   de fecha 14/02/2018  &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> CACACE, Gerardo Daniel</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>89) 00342/2016</font> !-->
+															<b>89) 00342/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>V A C/  P A S S/ Accion Comun</font> !-->
+																<b>VILLA, ANTONIO  C/  PROVINCIA ART SA  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA DILIGENCIADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> SOTO, MARIA CLAUDIA</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> NUÑEZ PIVIDORI, PABLO CESAR</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >Nota - Aceptacion de Cargo: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>90) 00082/2015</font> !-->
+															<b>90) 00082/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>V J D C/  I S L J F S/ ACCION COMUN</font> !-->
+																<b>VILLALBA, JUAN DANIEL C/ INSTITUTO SUPERIOR LUIS JORGE FONTANA S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> </font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>91) 00029/2015</font> !-->
+															<b>91) 00029/2015</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>V P D C/  N S S/ ACCION COMUN</font> !-->
+																<b>VILLALBA, PAULO DANIEL C/ NEOGAME S.A. S/ ACCION COMUN</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ZUCCHET,PAULA ANDREA</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'><font id='NoOculto' >CEDULA A REMITIR A UJIERIA: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>92) 00319/2017</font> !-->
+															<b>92) 00319/2017</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>Z P P C/  R C J y o S/ Accion Comun</font> !-->
+																<b>ZORRILLA PEREZ, PEDRO  C/  RIGONATTO, CESAR JAVIER y otros  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >CEDULA OBSERVADA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> GARCIA, Griselda Olga</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> ECHEVERRIA, FABIAN CAMILO</font>													
+													</td>															
+													</tr><tr>
+													<td colspan='3'><hr style='width: 100%; height: 1px;'></hr></td>
+												</tr><tr>
+														<td width='125' valign='top'>
+															<!-- <font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>93) 00110/2016</font> !-->
+															<b>93) 00110/2016</b>
+														</td>
+														<td colspan='2'>
+															<b>
+																<!-- <font style='font-size:10px;' face='Arial, Helvetica, sans-serif'>Z M A C/  E P S S/ Accion Comun</font> !-->
+																<b>ZORRILLA, MARCELO ARIEL  C/  EL PAJARITO SA  S/ Accion Comun</b>
+															</b>
+														</td>
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'> <font id='NoOculto' >NOTA: &nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>
+														<!--
+															<td align='right'><font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b>Juez:</b> DUARTE de ZUCCHET, Marta I.</font>
+															</td>
+														!-->
+													<td align='right' style='width:200px;'>
+														<font style='font-size:10px;' face='Arial, Helvetica, sans-serif'><b></b> SANTILLAN, VICTOR ADRIAN</font>													
+													</td>															
+													</tr><tr>
+														<td></td>
+														<td valign='top'>
+															<font style='font-size: 10px;' face='Arial, Helvetica, sans-serif'>	<a id='mostrarProveido311891'  style='cursor:pointer;color:blue;' onclick='LeerProveido(311891, "16022018")' >Ver Proveido:</a><font id='NoOculto' >PROVEIDO: &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;  </font>
+															</font>
+														</td>													
+													</tr>
+									<tr style='height:30px;'>
+									</tr>
+									<tr>
+										<td colspan='4'>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'>
+												En el dia de la fecha siendo las 07:15 hs. se procede a cerrar la presente Lista de Despacho
+												con un total de 93 Exptes.,<br> dejandolo a disposici&oacute;n de los Se&ntilde;ores Profesionales en Mesa de Entradas.<br>Conste.-
+											</font>
+										</td>
+									</tr>
+									<tr>
+										<td colspan='4' align='left'>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'><br><b>SECRETARIA, Viernes, 16 de Febrero del 2018.-</b>
+											</font>
+										</td>
+									</tr>
+								</tbody></table><table  border='0' width='100%' cellspacing='0' cellpadding='0' id='tabla_despacho' name ='tabla_despacho' ><tbody><tr	style='height:50px;'>
+									<td colspan='4'><b>
+										<font style='font-family:Arial,Helvetica, sans-serif; font-size: 11px;color:#3366FF;'><br></br></font></b>
+									</td>
+								</tr><tr>
+										<td colspan='4' align='left'>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'><br><b>No se ha Publicado Lista de INHIBIDOS de Despacho para la Fecha y Sala Seleccionada </b>
+											</font>
+										</td>
+									</tr></tbody></table><table  border='0' width='100%' cellspacing='0' cellpadding='0' id='tabla_despacho' name ='tabla_despacho' ><tbody><tr	style='height:50px;'>
+									<td colspan='4'><b>
+										<font style='font-family:Arial,Helvetica, sans-serif; font-size: 11px;color:#3366FF;'><br></br></font></b>
+									</td>
+								</tr><tr>
+										<td colspan='4' align='left'>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'><br><b>No se ha Publicado Lista Con Habilitaci&oacute;n de Despacho para la Fecha y Sala Seleccionada </b>
+											</font>
+										</td>
+									</tr></tbody></table><table  border='0' width='100%' cellspacing='0' cellpadding='0' id='tabla_despacho' name ='tabla_despacho' ><tbody><tr	style='height:50px;'>
+									<td colspan='4'><b>
+										<font style='font-family:Arial,Helvetica, sans-serif; font-size: 11px;color:#3366FF;'><br></br></font></b>
+									</td>
+								</tr><tr>
+										<td colspan='4' align='left'>
+											<font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'><br><b>No se ha Publicado Lista Ampliatoria de Despacho para la Fecha y Sala Seleccionada </b>
+											</font>
+										</td>
+									</tr></tbody></table></div></body></head>
+							</html>	
+<a id="various1" href="#inline1" title="&copy; 2014 Copyright DSI: Direcci&oacute;n de Sistemas Inform&aacute;ticos." style="display:none;">Inline</a>
+		
+	<div style="display:none;"  >
+		<div id="inline1" style="height:auto;"> <!-- style="width:1500px;height:500px;overflow:auto;"> !-->
+				Nada	para mostrar
+		</div>
+	</div>	

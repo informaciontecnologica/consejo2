@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Consultar Lista de Despacho  - El Colorado</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="description"  content="Lista de Despacho de Civil 7"/>
+        <meta name="keywords" content=""/>
+        <meta name="author" content="Romero Melodi Marisel" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap/css/bootstrap.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>-->
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/fullcalendar/fullcalendar.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/datatables/media/css/dataTables.bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/components.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/plugins.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/layout.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/light.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-select/bootstrap-select.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/icheck/skins/square/_all.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="assets/plugins/jquery-multi-select/css/multi-select.css"/>-->
+        <link rel="stylesheet" type="text/css" href="assets/css/loading.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-modal/css/bootstrap-modal.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css"/>
+       
+        <link rel="stylesheet" type="text/css" href="assets/css/gestionEstilos/general.css"/>   <!-- HOJA DE ESTILOS GENERAL -->
+        <link rel="stylesheet" type="text/css" href="assets/css/gestionEstilos/sisthemis.css"/>   <!-- HOJA DE ESTILOS GENERAL -->
+    
+    
+        <link rel="stylesheet" href="assets/css/estilodespacho_print.css" type="text/css"/>	
+    </head>	
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+	
+
+<script type="text/javascript" src="assets/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script type="text/javascript" src="assets/plugins/uniform/jquery.uniform.min.js"></script>
+<!--<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>-->
+<script type="text/javascript" src="assets/plugins/datatables/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="assets/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/plugins/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/plugins/fullcalendar/lang/es.js"></script>
+<script type="text/javascript" src="assets/plugins/fullcalendar/lib/moment.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
+
+<script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/plugins/icheck/icheck.min.js"></script>
+<script type="text/javascript" src="assets/js/metronic.js"></script>
+<script type="text/javascript" src="assets/js/layout.js"></script>
+
+<script type="text/javascript" src="assets/js/components-pickers.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-inputmask/inputmask/jquery.inputmask.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-inputmask/inputmask/jquery.inputmask.date.extensions.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-inputmask/inputmask/jquery.inputmask.js"></script>
+
+<script>
+
+    jQuery(document).ready(function() {
+        nobackbutton();   //Deshabilita el boton volver del navegador
+        
+        Metronic.init();
+	ComponentsPickers.init();
+	Layout.init();
+       
+          
+        $('.dataTable').DataTable({
+            'aoColumnDefs': [{
+                 'bSortable': false,
+                 'aTargets': ['noSort']
+             }],
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ning�n dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "�ltimo",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"},
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"}
+            }
+        });
+     
+
+          $('.daterangerpicker').daterangepicker({
+            startDate: moment().subtract('days', 29),
+            format: 'DD/MM/YYYY',
+            "autoApply": true,
+            "applyClass": "btn daterangerpicker-boton",
+            "cancelClass": "btn grey-silver",
+                locale: {
+                    applyLabel: 'Aplicar',
+                    cancelLabel: "Cancelar",
+                    fromLabel: 'Desde',
+                    toLabel: 'Hasta',
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                }
+            },
+            function (start, end) {
+                $('.daterangerpicker').val(start.format('D/MM/YYYY') + ' - ' + end.format('D/MM/YYYY'));
+            }
+        );
+
+ 
+        $('.daterangerpicker').val(moment().subtract('days', 29).format('D/MM/YYYY') + ' - ' + moment().format('D/MM/YYYY'));
+      
+      
+     });
+    
+    function QuitarCargando() {
+        //Una vez habilitado todo, se quita el icono de "cargando" de la pantalla (despues de un segundo)
+        setTimeout(function(){
+            document.getElementById('cargando').style.display   =   "none";
+            document.body.style.cursor                          =   "auto";   //Coloca el cursor por defecto
+        }, 1000);
+    }
+     
+  
+
+</script><script>
+		
+    window.onload = function(){
+       
+      //Una vez habilitado todo, se quita el icono de "cargando" de la pantalla (despues de un segundo)
+        setTimeout(function () {
+            document.getElementById('cargando').style.display = "none";
+        }, 1000);
+    };
+       
+    function ImprimirPDF(id_registro) {
+        document.getElementById('id_registro').value       =      id_registro;
+        document.getElementById('textoTramite_PDF').action       =   "imprimirTextoTramite.php";
+        document.getElementById('textoTramite_PDF').method       =   "post";
+        $('#textoTramite_PDF').attr('target','_bank');
+        document.getElementById('textoTramite_PDF').submit();
+    }
+</script>
+
+<body>
+    <style type="text/css" media="print,screen" >
+
+body{
+    font-family: Arial;
+    font-style: normal;
+    font-size: 12px;
+	/* Text color */
+    color: #333;
+	/* Remove the background color to make it transparent */
+    background-color: #fff;
+    margin: 20px;
+    }
+body.documento{
+    width: 16cm;
+    min-height: 21cm; 
+    padding: 2cm 2cm;
+    // Escritos:    confeccionados con margen izquierdo de 5 cm., 
+    //              derecho de 1,5cm (los que se invertir�n en el reverso). 
+    //              El margen superior deber� ser de 5cm., el inferior de 2,5 cm. 
+    
+    margin-top: 5px;
+    background: white;
+    font-family:Arial;
+    font-size: 13px;
+    line-height: 1.6;
+    position: absolute; 
+    left: 50%;
+    transform: translate(-50%);
+}
+ 
+.encabezado{
+    text-align: center;
+    alignment-adjust: central;
+}
+body table{
+    margin-top:0.5cm;
+    margin-bottom:0.5cm;
+    text-align: justify;
+}
+th {
+    font-family:Arial;
+    color:black;
+    background-color:lightgrey;
+    text-align: justify;
+
+}
+
+thead {
+    display:table-header-group;
+}
+
+tbody {
+    display:table-row-group;
+
+}
+
+table td {
+    border-bottom:1px solid grey;            
+    text-align: justify;
+
+}
+
+</style>
+        
+<body class="documento">
+    <form id="formularioVolverEncabezado" class="form-horizontal" action="resultados_listaDespachoCivil7.php" method="post">
+            <!--Estos par�metros son para volver a la tabla actual con los cirterios de b�squeda ates seleccionados-->
+            <input type="hidden" id="fechaSimple" name="fechaSimple" value="" />
+            <input type="hidden" id="rangoFecha" name="rangoFecha" value=""/>
+            <input type="hidden" id="tipoFecha" name="tipoFecha" value="" />
+            <input type="hidden" id="tipoListaDespacho" name="tipoListaDespacho" value=""/>
+            <input type="hidden" id="tipoJuzgado" name="tipoJuzgado" value="" />
+         
+            <br />
+        
+    </form>
+    <div>
+          <!--ICONO DE "CARGANDO"--> 
+            <div id="cargando" class="loaderNew-wrapper">
+                <div class="loaderNew"></div>
+            </div>
+             <!--ICONO DE "CARGANDO"-->   
+                
+    
+        <div class="encabezado"><br />
+            <img align="center" src="assets/img/escudo_formosa.gif" border="0"> <br />
+            <font style='font-size: 14px;' face='Arial, Helvetica, sans-serif'><b>PROVINCIA DE FORMOSA		</b><br />	</font>
+            <font style='font-size: 14px;' face='Arial, Helvetica, sans-serif'><b>PODER JUDICIAL		</b><br /> 	</font>
+            <font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'> <b>Juzgado de Primera Instancia en lo Civil, Comercial y del Trabajo - Clorinda </b><br /> </font>
+            <br />     
+        </div>   
+        
+        <p style="text-align: justify;"><strong>Lista de Despacho Ordinaria - Correspondiente al d&iacute;a: 03/04/2018 </strong></p>
+        <p>Siendo las 07:15 hs. del d&iacute;a 03 de Abril del a&ntilde;o 2018 se procede a dar apertura a la siguiente Lista de Despacho: </p>
+        
+           
+ <table border= "0"  cellpadding="5" ><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>1) 00080/18</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>A. A. D. C/ A. C. D. S/ Filiación</strong> <br /> 1er Proveído : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>2) 00447/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ACEVEDO, LELIS C/ RONCO, JUAN S/ ORDINARIO (USUCAPION)</strong> <br />	<a id='mostrarTexto1013784'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013784)' > Agréguese En Autos</a> : 28/03/2018 -- 	<a id='mostrarTexto1013785'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013785)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>3) 01313/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ARCE DIAZ, Dario S/ Juicios Sucesorios</strong> <br /> Oficio  Librado/a: 27/03/2018 --  Art. 142 RIAJ (Juicio Sucesorio)  Librado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>4) 01196/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ARCE, CLAUDELINA C/ ALARCON, MANUEL REINERIO S/ EJECUTIVO (EJECUTIVO)</strong> <br /> Constancia : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>5) 00678/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. C. E. C/ M. J. C. S/ Filiacion</strong> <br /> Proveído Simple : 28/03/2018 --  Proveído Simple : 28/03/2018 --  Proveído Simple : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>6) 01145/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>BARBOZA, Pabla Lucila S/ Juicios Sucesorios</strong> <br /> Oficio  Librado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>7) 00746/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>BENITEZ, FELIX LUIS ALBERTO C/ MAIDANA ,ROSA Y OTROS S/ ORDINARIO (Reivindicacion)</strong> <br />	<a id='mostrarTexto1013793'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013793)' > Fijación De Audiencia</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>8) 00728/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>BOGADO, Romina Noemi C/ SEGOBIA, Carolina Carmen S/ Juicio Ejecutivo</strong> <br />	<a id='mostrarTexto1013794'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013794)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>9) 00132/18</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CABRERA, Fabricio Lisandro Manuel C/ DIAZ, Juan Carlos S/ Juicio Ejecutivo</strong> <br />	<a id='mostrarTexto1013795'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013795)' > 1er Proveído</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>10) 00827/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CARDOZO ALEJO C/ HERTELENDY Y MARANA ANIBAL JORGE Y S/ ORDINARIO (ESCRITURACION)</strong> <br />	<a id='mostrarTexto1013796'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013796)' > Proveído Simple</a> : 28/03/2018 --  Cédula   Diligenciado/a: 20/02/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>11) 00144/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CETROGAR S.A. C/ ARCE WALTER SEBASTIAN Y OTRO S/ EJECUTIVO</strong> <br />	<a id='mostrarTexto1013798'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013798)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>12) 00835/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CETROGAR S.A. C/ MARTINEZ MILAN NELSON S/ EJECUTIVO</strong> <br /> Cédula  333/2018 Librado/a: 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>13) 00639/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>COMETTO,DARIO JAVIER C/ FIGUEIRA,JOSÉ AUGUSTO S/ EJECUTIVO (EJECUTIVO)</strong> <br />	<a id='mostrarTexto1013800'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013800)' > Liquidación</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>14) 00079/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>COOPERATIVA DE VIVIENDA, CREDITO Y C/ MARTINEZ MARIA DEL ROCIO S/ EJECUTIVO</strong> <br /> Confección De Cheque : 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>15) 00196/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>COOPERATIVA DE VIVIENDA, CRÉDITO Y C/ SANCHEZ, MIGUEL ANGEL S/ EJECUTIVO (EJECUTIVO)</strong> <br /> Mandamiento  23/18 Librado/a: 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>16) 00611/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>Cooperativa De Vivienda, Credito Y Consumo Palmares Ltda. C/ RAMIREZ, Gladys Elizabeth S S/ Juicio Ejecutivo</strong> <br /> Mandamiento  22/18 Librado/a: 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>17) 01235/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>Cooperativa De Vivienda, Credito Y Consumo Palmares Ltda. C/ TIMON, Graciela S/ Juicio Ejecutivo</strong> <br /> Mandamiento  24/18 Librado/a: 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>18) 01252/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>Cooperativa De Vivienda, Credito Y Consumo Palmares Ltda. C/ ZARATE, Carlos Andres S/ Juicio Ejecutivo</strong> <br /> Mandamiento  25/18 Librado/a: 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>19) 00339/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>DIDELÓN, MIRYAN ANTONIA Y OTROS C/ ARANDA, ROGELIO Y/U OTRO Y/O QUIEN S/ ORDINARIO (DAÑOS Y PERJUICIOS)</strong> <br />	<a id='mostrarTexto1013806'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013806)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>20) 01327/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ELIAS, Mirta Beatriz C/ ALABERT, Maria Antonia y/o Q. R. J. R. S/ Acción Común</strong> <br />	<a id='mostrarTexto1013807'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013807)' > Suspensión De Audiencia</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>21) 01260/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ESPINOZA, Sonia Raquel C/ MOREIRA, Silvia Gladis S/ Acción Común</strong> <br /> Cédula  330/18 Librado/a: 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>22) 00933/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ESTIGARRIBIA RUIZ DIAZ, Rosa Andresa C/ DAUGERO, Orlando y/u Otros y/o Q. R. J. R. S/ Acción Común (Indemnizacion por fallecimiento (ART. 248 LCT))</strong> <br />	<a id='mostrarTexto1013809'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013809)' > Fijación De Audiencia</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>23) 00432/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>24) 00578/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>25) 00812/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>26) 00893/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>27) 00312/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>F. R. C/ V. C. S/ Filiacion (FILIACION)<br>INC. de Benef. de litigar sin gasto (SR. ROBERTO FERNANDEZ)</strong> <br /> Oficio  Observado/a: 27/03/2018 --  Cédula   Observado/a: 27/03/2018 --  Cédula   Observado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>28) 00525/10</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FIGUEREDO NIDIA RAMONA C/ DOMECQ LUIS BUENAVENTURA Y OTRA S/ ORDINARIO (DAÑOS Y PERJUICIOS)</strong> <br />	<a id='mostrarTexto1013817'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013817)' > Cheque</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>29) 00877/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GALEANO, JUAN SIXTO S/ SUCESORIO (SUCESORIO)</strong> <br /> Cédula  315/18 Librado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>30) 00822/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GAMARRA, Marciana S/ Juicios Sucesorios</strong> <br /> Oficio  Observado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>31) 01034/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GARAY,CLAUDIA RAQUEL C/ MORINIGO,LUCIANO S/ ORDINARIO (USUCAPIÓN)</strong> <br /> Audiencia : 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>32) 00055/91</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GOMEZ DE RAMIREZ, ENRIQUETA S/ SUCESORIO (SUCESORIO)<br>INC. de Varios (Fijación Canon Locativo) (GOMEZ, Mirian Noemi)</strong> <br /> Cédula   Observado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>33) 00286/01</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GONZALEZ, CARLOS AGUSTIN C/ MALDONADO, OSCAR FRANCISCO Y OTRA S/ ORDINARIO ((Reivindicacion ))<br>INC. de Ejec. de Sentencia (GONZALEZ, CARLOS AGUSTIN)</strong> <br /> Confección De Cheque : 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>34) 00309/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GUTIERREZ, KAREN YANINA C/ YUNKA, COMBUSTIBLES S.A Y/U OTRO Y/O PERS. FIS. O JURID. QUE RES. RESP. S/ LABORAL</strong> <br /> Oficio  Librado/a: 28/03/2018 --  Oficio  Observado/a: 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>35) 00851/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>HERBEL, Bernardo y/u Otros C/ FERREIRA, Elsa Ramona y/o Q. R. J. R. S/ Juicio Ordinario (Daños y Perjuicios)<br>INC. de Beneficio de Litigar sin Gastos (FERREIRA, Elsa Ramona)</strong> <br />	<a id='mostrarTexto1013825'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013825)' > 1er Proveído</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>36) 00851/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>HERBEL, Bernardo y/u Otros C/ FERREIRA, Elsa Ramona y/o Q. R. J. R. S/ Juicio Ordinario (Daños y Perjuicios)<br>INC. de Beneficio de Litigar sin Gastos (HERBEL, Bernardo)</strong> <br />	<a id='mostrarTexto1013826'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013826)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>37) 00851/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>HERBEL, Bernardo y/u Otros C/ FERREIRA, Elsa Ramona y/o Q. R. J. R. S/ Juicio Ordinario (Daños y Perjuicios)<br>INC. de Beneficio de Litigar sin Gastos (HERBEL, Veronica Fabiana)</strong> <br />	<a id='mostrarTexto1013827'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013827)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>38) 00822/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>LARREA, ROMILIO C/ RIQUELME, AURELIA ALBERTINA S/ DIVORCIO VINCULAR (DIVORCIO VINCULAR)</strong> <br /> Fijación De Audiencia : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>39) 00885/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>LOPEZ JULIO NESTOR C/ GOMEZ MARCIANA Y OTROS Y/O QUIEN RE S/ ORDINARIO (DAÑOS Y PERJUICIOS)</strong> <br /> Cédula   Observado/a: 27/03/2018 --  Cédula   Observado/a: 27/03/2018 --  Cédula   Observado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>40) 01085/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>M. M. L. V. C/ B. R. A. S/ Filiación</strong> <br /> Proveído Simple : 28/03/2018 --  Oficio  Observado/a: 28/03/2018 --  Cédula   Observado/a: 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>41) 01294/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MANSILLA, Rosario Alberto y/u Otros S/ Juicios Sucesorios</strong> <br /> Oficio  Observado/a: 27/03/2018 --  Oficio  Observado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>42) 00245/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MAYANS FRANCISCO C/ VILLAMAYOR MARIA DE LOS ANGELES S/ EJECUTIVO</strong> <br />	<a id='mostrarTexto1013837'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013837)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>43) 00815/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MAYANS, FRANCISCO C/ CAMARGO, ADOLFINA Y OTRO S/ EJECUTIVO (EJECUTIVO)</strong> <br />	<a id='mostrarTexto1013838'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013838)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>44) 00451/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MAYANS, FRANCISCO C/ GARCIA, SILVIA DEL CARMEN S/ EJECUTIVO (EJECUTIVO)</strong> <br />	<a id='mostrarTexto1013839'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013839)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>45) 00820/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MAYANS, FRANCISCO C/ ROMAN, CRISTINA ELIZABETH S/ EJECUTIVO (EJECUTIVO)</strong> <br /> Confección De Cheque : 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>46) 00172/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MICHATEK AURELIANO RAMON C/ CHAVEZ WALTER S/ EJECUTIVO</strong> <br />	<a id='mostrarTexto1013841'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013841)' > Proveído Simple</a> : 28/03/2018 --  Cédula   Diligenciado/a: 16/03/2018 --  Cédula   Diligenciado/a: 15/03/2018 --  Cédula   Diligenciado/a: 15/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>47) 00986/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>Mondelez Argentina C/ Municipalidad De La Ciudad De Clorinda S/ Actuaciones Varias (Expte N° 11/14 - Excmo Superior Tribunal de Justicia de la Provincia de Formosa)</strong> <br /> Audiencia : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>48) 00699/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MORINIGO, Aristides Ramon S/ Juicios Sucesorios</strong> <br /> Art. 142 RIAJ (Juicios De Quiebra Y/O Concurso)  Observado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>49) 00097/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MURDOCH JULIO EVARISTO C/ GONZALEZ MARIELA ROSANA S/ DIVORCIO VINCULAR (DIVORCIO VINCULAR)</strong> <br /> Cédula   Observado/a: 27/03/2018 --  Cédula   Observado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>50) 00653/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>O. M. T. C/ S. D. S/ Divorcio</strong> <br /> Constancia : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>51) 00847/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>OLMEDO ARNALDO MILCIADES C/ NEOGAME S.A S/ LABORAL<br>INC. de Ejecución Parcial (Sentencia) (OLMEDO, Milciades Arnaldo)</strong> <br />	<a id='mostrarTexto1013850'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013850)' > 1er Proveído</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>52) 00518/08</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>OVANDO CEFERINO S/ SUCESORIO (SUCESORIO)</strong> <br /> Mandamiento  18 Librado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>53) 00474/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>PEDROZO, RODOLFO C/ ROMAN, CARMEN IRENE Y OTRA S/ EJECUTIVO (EJECUTIVO)</strong> <br />	<a id='mostrarTexto1013852'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013852)' > Cheque</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>54) 00751/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>PINTOS, ROCIO NATALIA S/ MEDIDA AUTOSATISFACTIVA<br>INC. de Ejecución de Honorarios (SARMIENTO, Alberto Mario)</strong> <br />	<a id='mostrarTexto1013853'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013853)' > 1er Proveído</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>55) 00227/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RIQUELME, NESTOR DAMIÁN C/ CURIZZI, ROBERTO JOSE CARMELO Y/U OTRO Y/O PERSONA FÍSICA O JURÍDICA QUE RES. RESP. S/ LABORAL</strong> <br />	<a id='mostrarTexto1013854'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013854)' > Suspensión De Audiencia</a> : 28/03/2018 --  Cédula   Diligenciado/a: 23/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>56) 01146/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RIVERO, Raquel Liliana C/ ORLANDI, Mario S/ Juicio Ordinario (Usucapión)</strong> <br />	<a id='mostrarTexto1013856'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013856)' > Agréguese En Autos</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>57) 00161/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ROA NARCIZA C/ RIQUELME PEDRO RICARDO Y/O CUALQUIE S/ ORDINARIO (DESALOJO)</strong> <br />	<a id='mostrarTexto1013857'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013857)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>58) 00405/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RODRIGUEZ FANNY MARLENE C/ PAREDES MARIA FIDELINA S/ EJECUTIVO</strong> <br /> Confección De Cheque : 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>59) 00851/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SANCHEZ ADELAIDA SOLEDAD C/ STEIMBRECHER ADOLFO DAVID Y OTROS S/ ORDINARIO (REIVINDICACION)</strong> <br /> Oficio  Librado/a: 27/03/2018 --  Oficio  Librado/a: 27/03/2018 --  Oficio  Librado/a: 27/03/2018 --  Cédula  305/2018 Librado/a: 27/03/2018 --  Cédula  306/2018 Librado/a: 27/03/2018 --  Cédula  307/2018 Librado/a: 27/03/2018 --  Cédula  308/2018 Librado/a: 27/03/2018 --  Cédula  310/2018 Librado/a: 27/03/2018 --  Cédula  309/2018 Librado/a: 27/03/2018 --  Cédula  311/2018 Librado/a: 27/03/2018 --  Cédula  312/2018 Librado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>60) 00220/11</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SCHAERER HUMBERTO MANUEL C/ LEZCANO ROCIO ANABEL Y OTRA S/ EJECUTIVO</strong> <br />	<a id='mostrarTexto1013870'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013870)' > Agréguese En Autos</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>61) 00716/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SILVA ELBA TURIANA S/ SUCESORIO</strong> <br /> Mandamiento  19/18 Librado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>62) 00127/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SOTELO GUILFRIDO GUMERCINDO C/ PAOLONI ROMEO MANLIO S/ ORDINARIO (ESCRITURACION)<br>Inc.de Terceria de Dominio (Prom. Inocencia Mendoza)</strong> <br />	<a id='mostrarTexto1013872'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013872)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>63) 00469/07</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>TOMMASI SILVIO C/ JOJOT HUGO GUILLERMO Y/O CUALQUIER S/ ORDINARIO (ORDINARIO REIVINDICACION)</strong> <br />	<a id='mostrarTexto1013873'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013873)' > Proveído Simple</a> : 27/03/2018 --  Cédula Acordada   Observado/a: 27/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>64) 00950/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>TORRES, JOSE GABRIEL C/ SOLER, CAMBILA DELELI S/ EJECUTIVO (EJECUTIVO)</strong> <br /> Constancia : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>65) 01130/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>TORRES,MARINA ADELAIDA C/ REFSA Y/O QUIEN RES.RESP S/ ORDINARIO (DAÑOS Y PERJUICIOS Y DAÑO)</strong> <br />	<a id='mostrarTexto1013876'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013876)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>66) 00120/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>VALIENTE ROMULO ANTONIO C/ PAOLONI ROMEO MANLIO S/ ORDINARIO (ESCRITURACION)<br>Inc.de Terceria de Dominio (Prom. Inocencia Mendoza)</strong> <br />	<a id='mostrarTexto1013877'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013877)' > Proveído Simple</a> : 28/03/2018 -- 	<a id='mostrarTexto1013878'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013878)' > Proveído Simple</a> : 28/03/2018 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>67) 00130/07</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>VAUVER JOSE MARIA DEJESUS C/ DIEZ DE KAZELIAN ESTELA MARIS S/ ORDINARIO (ORDINARIO (USUCAPION))<br>INC. DE TERCERIA DE DOMINIO DE MEJOR DER (MIGUEL PARRILLA (c- IEH 23-4-15) (I))</strong> <br />	<a id='mostrarTexto1013879'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013879)' > Proveído Simple</a> : 28/03/2018 -- 	<a id='mostrarTexto1013880'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(1013880)' > Proveído Simple</a> : 28/03/2018 -- </td></tr></table>            <p style="text-align: justify;">En el d&iacute;a de la fecha siendo las 07:15 hs. se procede a cerrar la correpondiente
+                Lista de Despacho con un total de 67 expedientes, dejando a disposici&oacute;n de los Se&ntilde;ores 
+            Profesionales en Mesa de Entradas.</p>
+            <p  style="text-align: justify;">Conste.- </p>
+           
+            <p style="text-align: justify "><strong>SECRETAR&Iacute;A, 03 de Abril de 2018.-</strong></p>
+
+    </div> 
+     <form id="formularioVolverPie" class="form-horizontal" action="resultados_listaDespachoCivil7.php" method="post">
+            <!--Estos par�metros son para volver a la tabla actual con los cirterios de b�squeda ates seleccionados-->
+            <input type="hidden" id="fechaSimple" name="fechaSimple" value="" />
+            <input type="hidden" id="rangoFecha" name="rangoFecha" value=""/>
+            <input type="hidden" id="tipoFecha" name="tipoFecha" value="" />
+            <input type="hidden" id="tipoListaDespacho" name="tipoListaDespacho" value=""/>
+            <input type="hidden" id="tipoJuzgado" name="tipoJuzgado" value="" />
+      
+       <br />
+        <!--<button type="submit" class="btn btn-circle tooltips"  style="font-size: 12px; font-style: italic;" data-original-title="Volver a los Resultados de la B&uacute;squeda" data-placement="top" style="margin-left: 2%; margin-right:2%"> <i class="fa fa-arrow-left"></i> Volver a los Resultados de la B&uacute;squeda </button> -->
+   
+    </form>
+            <form id="textoTramite_PDF" action="imprimirTextoTramite.php" method="post" target="_bank">
+                <input type="hidden" id="id_registro" name="id_registro" />
+             
+            </form>  
+            
+
+</body>
+
+</html>

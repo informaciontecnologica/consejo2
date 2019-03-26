@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Consultar Lista de Despacho  - El Colorado</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="description"  content="Lista de Despacho de Civil 7"/>
+        <meta name="keywords" content=""/>
+        <meta name="author" content="Romero Melodi Marisel" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap/css/bootstrap.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>-->
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/fullcalendar/fullcalendar.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/datatables/media/css/dataTables.bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/components.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/plugins.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/layout.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/light.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-select/bootstrap-select.min.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/icheck/skins/square/_all.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="assets/plugins/jquery-multi-select/css/multi-select.css"/>-->
+        <link rel="stylesheet" type="text/css" href="assets/css/loading.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-modal/css/bootstrap-modal.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css"/>
+       
+        <link rel="stylesheet" type="text/css" href="assets/css/gestionEstilos/general.css"/>   <!-- HOJA DE ESTILOS GENERAL -->
+        <link rel="stylesheet" type="text/css" href="assets/css/gestionEstilos/sisthemis.css"/>   <!-- HOJA DE ESTILOS GENERAL -->
+    
+    
+        <link rel="stylesheet" href="assets/css/estilodespacho_print.css" type="text/css"/>	
+    </head>	
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+	
+
+<script type="text/javascript" src="assets/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script type="text/javascript" src="assets/plugins/uniform/jquery.uniform.min.js"></script>
+<!--<script type="text/javascript" src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>-->
+<script type="text/javascript" src="assets/plugins/datatables/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="assets/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/plugins/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/plugins/fullcalendar/lang/es.js"></script>
+<script type="text/javascript" src="assets/plugins/fullcalendar/lib/moment.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
+
+<script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/plugins/icheck/icheck.min.js"></script>
+<script type="text/javascript" src="assets/js/metronic.js"></script>
+<script type="text/javascript" src="assets/js/layout.js"></script>
+
+<script type="text/javascript" src="assets/js/components-pickers.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-inputmask/inputmask/jquery.inputmask.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-inputmask/inputmask/jquery.inputmask.date.extensions.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery-inputmask/inputmask/jquery.inputmask.js"></script>
+
+<script>
+
+    jQuery(document).ready(function() {
+        nobackbutton();   //Deshabilita el boton volver del navegador
+        
+        Metronic.init();
+	ComponentsPickers.init();
+	Layout.init();
+       
+          
+        $('.dataTable').DataTable({
+            'aoColumnDefs': [{
+                 'bSortable': false,
+                 'aTargets': ['noSort']
+             }],
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ning�n dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "�ltimo",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"},
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"}
+            }
+        });
+     
+
+          $('.daterangerpicker').daterangepicker({
+            startDate: moment().subtract('days', 29),
+            format: 'DD/MM/YYYY',
+            "autoApply": true,
+            "applyClass": "btn daterangerpicker-boton",
+            "cancelClass": "btn grey-silver",
+                locale: {
+                    applyLabel: 'Aplicar',
+                    cancelLabel: "Cancelar",
+                    fromLabel: 'Desde',
+                    toLabel: 'Hasta',
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                }
+            },
+            function (start, end) {
+                $('.daterangerpicker').val(start.format('D/MM/YYYY') + ' - ' + end.format('D/MM/YYYY'));
+            }
+        );
+
+ 
+        $('.daterangerpicker').val(moment().subtract('days', 29).format('D/MM/YYYY') + ' - ' + moment().format('D/MM/YYYY'));
+      
+      
+     });
+    
+    function QuitarCargando() {
+        //Una vez habilitado todo, se quita el icono de "cargando" de la pantalla (despues de un segundo)
+        setTimeout(function(){
+            document.getElementById('cargando').style.display   =   "none";
+            document.body.style.cursor                          =   "auto";   //Coloca el cursor por defecto
+        }, 1000);
+    }
+     
+  
+
+</script><script>
+		
+    window.onload = function(){
+       
+      //Una vez habilitado todo, se quita el icono de "cargando" de la pantalla (despues de un segundo)
+        setTimeout(function () {
+            document.getElementById('cargando').style.display = "none";
+        }, 1000);
+    };
+       
+    function ImprimirPDF(id_registro) {
+        document.getElementById('id_registro').value       =      id_registro;
+        document.getElementById('textoTramite_PDF').action       =   "imprimirTextoTramite.php";
+        document.getElementById('textoTramite_PDF').method       =   "post";
+        $('#textoTramite_PDF').attr('target','_bank');
+        document.getElementById('textoTramite_PDF').submit();
+    }
+</script>
+
+<body>
+    <style type="text/css" media="print,screen" >
+
+body{
+    font-family: Arial;
+    font-style: normal;
+    font-size: 12px;
+	/* Text color */
+    color: #333;
+	/* Remove the background color to make it transparent */
+    background-color: #fff;
+    margin: 20px;
+    }
+body.documento{
+    width: 16cm;
+    min-height: 21cm; 
+    padding: 2cm 2cm;
+    // Escritos:    confeccionados con margen izquierdo de 5 cm., 
+    //              derecho de 1,5cm (los que se invertir�n en el reverso). 
+    //              El margen superior deber� ser de 5cm., el inferior de 2,5 cm. 
+    
+    margin-top: 5px;
+    background: white;
+    font-family:Arial;
+    font-size: 13px;
+    line-height: 1.6;
+    position: absolute; 
+    left: 50%;
+    transform: translate(-50%);
+}
+ 
+.encabezado{
+    text-align: center;
+    alignment-adjust: central;
+}
+body table{
+    margin-top:0.5cm;
+    margin-bottom:0.5cm;
+    text-align: justify;
+}
+th {
+    font-family:Arial;
+    color:black;
+    background-color:lightgrey;
+    text-align: justify;
+
+}
+
+thead {
+    display:table-header-group;
+}
+
+tbody {
+    display:table-row-group;
+
+}
+
+table td {
+    border-bottom:1px solid grey;            
+    text-align: justify;
+
+}
+
+</style>
+        
+<body class="documento">
+    <form id="formularioVolverEncabezado" class="form-horizontal" action="resultados_listaDespachoCivil7.php" method="post">
+            <!--Estos par�metros son para volver a la tabla actual con los cirterios de b�squeda ates seleccionados-->
+            <input type="hidden" id="fechaSimple" name="fechaSimple" value="" />
+            <input type="hidden" id="rangoFecha" name="rangoFecha" value=""/>
+            <input type="hidden" id="tipoFecha" name="tipoFecha" value="" />
+            <input type="hidden" id="tipoListaDespacho" name="tipoListaDespacho" value=""/>
+            <input type="hidden" id="tipoJuzgado" name="tipoJuzgado" value="" />
+         
+            <br />
+        
+    </form>
+    <div>
+          <!--ICONO DE "CARGANDO"--> 
+            <div id="cargando" class="loaderNew-wrapper">
+                <div class="loaderNew"></div>
+            </div>
+             <!--ICONO DE "CARGANDO"-->   
+                
+    
+        <div class="encabezado"><br />
+            <img align="center" src="assets/img/escudo_formosa.gif" border="0"> <br />
+            <font style='font-size: 14px;' face='Arial, Helvetica, sans-serif'><b>PROVINCIA DE FORMOSA		</b><br />	</font>
+            <font style='font-size: 14px;' face='Arial, Helvetica, sans-serif'><b>PODER JUDICIAL		</b><br /> 	</font>
+            <font style='font-size: 12px;' face='Arial, Helvetica, sans-serif'> <b>Juzgado de Primera Instancia en lo Civil, Comercial, del Trabajo y de Menores - Las Lomitas </b><br /> </font>
+            <br />     
+        </div>   
+        
+        <p style="text-align: justify;"><strong>Lista de Despacho Ordinaria - Correspondiente al d&iacute;a: 07/11/2017 </strong></p>
+        <p>Siendo las 07:15 hs. del d&iacute;a 07 de Noviembre del a&ntilde;o 2017 se procede a dar apertura a la siguiente Lista de Despacho: </p>
+        
+           
+ <table border= "0"  cellpadding="5" ><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>1) 00551/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>A. N. E. En Representación de su Hijo Menor C/ C. F. N. y/u Otros S/ Alimentos</strong> <br /> Nota De Secretaría  : 06/11/2017 ( Constancia ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>2) 00499/10</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>A. Z. Y. P. G. E. R. C/ C. L. A. S/ FILIACION-DAÑOS Y PERJ.-</strong> <br /> Nota De Secretaría  : 27/10/2017 ( Constancia ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>3) 00499/10</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>A. Z. Y. P. G. E. R. C/ C. L. A. S/ FILIACION-DAÑOS Y PERJ.-<br>Inc. Alimentos Provisorios (YAMILE PAOLA GISELLE ARCE ZALAZAR)</strong> <br /> Proveído Simple : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>4) 00296/09</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ALBORNOZ, LORENZO JUSTO C/ LUCENA, EVA S/ ORDINARIO</strong> <br /> Nota De Secretaría  : 07/11/2017 ( Elevación ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>5) 00338/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ALBORNOZ, REINERIO S/ SUCESORIO</strong> <br />	<a id='mostrarTexto946839'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946839)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 23/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>6) 00371/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>AVALOS CATALINA CONCEPCION C/ MONTENEGRO CELIA NORBERTA S/ EJECUTIVO</strong> <br />	<a id='mostrarTexto946840'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946840)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>7) 00560/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. E. G. C/ B. N. J. S/ Alimentos</strong> <br /> Cédula   Librado/a: 03/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>8) 00546/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. E. L. C/ G. A. A. S/ Divorcio</strong> <br /> Proveído Simple : 06/11/2017 (  Escrito: 01/11/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>9) 00047/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. L. R. C/ D. M. S/ DIVORCIO POR PRES.CONJUNT</strong> <br /> Intimación Previa : 06/11/2017 (  Escrito: 23/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>10) 00048/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. L. R. C/ D. M. S/ HOMOLOGACION DE CONVENIO</strong> <br /> Intimación Previa : 06/11/2017 (  Escrito: 23/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>11) 00041/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. M. E. Y. C/ G. R. A. S/ DIVORCIO</strong> <br /> Proveído Simple : 06/11/2017 (  Escrito: 31/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>12) 00485/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>B. R. N. S/ CURATELA</strong> <br /> Proveído Simple : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>13) 00318/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>BOONMAN ROBINSON OMAR DARIO C/ JACQUEMIN REINALDO LEON S/ ACC. DE EJECUCION (EJECUTIVO)</strong> <br /> Cédula   Librado/a: 03/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>14) 00416/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>BRIZUELA ROBERTO OSCAR C/ ALMARAZ BENITO Y OTRA S/ EJECUTIVO</strong> <br /> Sentencia  284/17: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>15) 00564/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>C. C. J. E. R. C/ C. D. A. S/ ALIMENTOS</strong> <br /> Agréguese En Autos : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>16) 00586/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>C. E. C/ C. T. Y. S/ Homologación Acuerdo</strong> <br /> 1er Proveído : 06/11/2017 (  Escrito: 24/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>17) 00407/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>C. G. E. C/ G. M. H. S/ FILIACION, DAÑOS Y PERJUI</strong> <br /> Informes  : 31/10/2017 ( Médico ) --  Proveído Simple : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>18) 00474/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>C. P. V. En Representación del Menor C/ L. A. E. S/ Alimentos</strong> <br /> Acta De Audiencia   : 23/10/2017 ( De Conciliación ) --  Oficio  Observado/a: 06/11/2017 --  Proveído Simple : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>19) 00499/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>C. V. J. C/ M. H. F. S/ Alimentos</strong> <br /> Agréguese En Autos : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>20) 00436/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CABALLERO, HILARIO Y GONZALEZ, MICA S/ SUCESORIO<br>Inc. de exclusión de bienes (Presman, Gabriel)</strong> <br /> Cédula   Diligenciado/a: 26/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>21) 00118/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CABRERA, RAMON ROQUE C/ GOMEZ, JAIME LUCAS S/ EJECUTIVO</strong> <br /> Agréguese En Autos : 31/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>22) 00126/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CABRERA, RAMÓN ROQUE C/ GOMEZ, JAIME LUCAS S/ EJECUTIVO</strong> <br /> Agréguese En Autos : 31/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>23) 00507/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CAMPOS, GILDA ELIZABETH C/ ARGAÑARAZ, ANDRES MARIO S/ ORDINARIO</strong> <br />	<a id='mostrarTexto946860'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946860)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>24) 00039/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>CENTURIÓN, CARLOS ENRIQUE S/ SUCESORIO</strong> <br /> Cédula   Diligenciado/a: 25/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>25) 00072/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>D. N. G. E. R. D. S. C/ F. J. C. S/ FILIACION - DAÑOS Y PERJ.</strong> <br /> Agréguese En Autos : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>26) 00685/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>D. O. V. M. E. R. C/ P. S. S/ ALIMENTOS</strong> <br /> Socio Ambiental : 06/11/2017 --  Socio Ambiental : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>27) 00503/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>DI STEFANO LUIS CARLOS C/ RUIZ ROSANA ELISABET S/ SUMARISIMO (INTERDICTO DE RECOBRAR)</strong> <br /> Auto Interlocutorio  488/17: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>28) 00144/11</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>DIAZ, VALENTIN VALERIO.- C/ ARAOZ, MIGUEL E. Y OTROS.- S/ ORDINARIO.-<br>Caducidad de Instancia (MIGUEL ENRIQUE ARAOZ)</strong> <br /> Cédula   Diligenciado/a: 30/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>29) 00347/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>E. E. B. E. R. C/ L. J. S/ ALIMENTOS<br>INC. de Ejecución de Honorarios (R. N. Z.)</strong> <br /> Sentencia  283/17: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>30) 00395/02</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>E. G. M. I. C/ Z. C. S/ ALIMENTOS (ALIMENTOS)</strong> <br /> Agréguese En Autos : 03/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>31) 00153/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>E. S. R. C/ J. R. H. S/ DIVORCIO<br>INC.CUOTA ALIMENTARIA (SONIA RAMONA ESCALADA)</strong> <br /> Oficio  Diligenciado/a: 01/11/2017 --  Pasen Autos A Sentencia : 06/11/2017 (  Escrito: 03/11/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>32) 00564/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>33) 00549/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO ( Dr. PERALTA, Freddy Ramon     y/u Otros )</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>34) 00516/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO ( Dra. GOMEZ, Monica Beatriz )</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>35) 00476/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>EXPEDIENTE RESERVADO ( Dra. SILVA, Patricia Karina Soledad )</strong> <br /></td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>36) 00413/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>F. O. T. C/ M. M. A. S/ DIVORCIO</strong> <br /> Pasen Autos A Sentencia : 06/11/2017 (  Escrito: 24/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>37) 00092/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FAGA FEDERICO C/ DOMINGUEZ VICENTE S/ EJECUTIVO</strong> <br />	<a id='mostrarTexto946876'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946876)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>38) 00121/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>FERNANDEZ FRANCISCO CIRILO S/ SUCESORIO</strong> <br />	<a id='mostrarTexto946877'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946877)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 24/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>39) 00542/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>G. J. N. En Representación de su Hijo C/ L. O. D. S/ Alimentos</strong> <br /> Cédula   Librado/a: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>40) 00509/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>G. M. R. S. S/ Venia Judicial</strong> <br /> Informes  : 20/10/2017 ( Psicológico ) --  Proveído Simple : 23/10/2017 (  Escrito: 23/10/2017 ) --  Pasen Autos A Sentencia : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>41) 00567/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>G. S. N. En Representación de su Hijo Menor C/ L. B. H. D. S/ Alimentos</strong> <br /> Pase A Proveer / Vuelva A Despacho : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>42) 00522/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GOMEZ ANDRESA CINTIA Y OTRO C/ CARABAJAL SERGIO NORMANDO S/ ORDINARIO (DAÑOS Y PERJUICIOS)</strong> <br /> Cédula   Diligenciado/a: 25/10/2017 --  Cédula   Diligenciado/a: 25/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>43) 00572/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>GONZALEZ, Maria Elisa C/ MORENO, Axel Omar S/ Homologación Acuerdo</strong> <br /> Cédula   Librado/a: 03/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>44) 00078/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>H. M. B. C/ R. D. S/ FILIACION</strong> <br /> Agréguese En Autos : 31/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>45) 00591/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>J. F. E. S/ Restricción de la Capacidad (Curatela)</strong> <br /> 1er Proveído : 06/11/2017 (  Escrito: 26/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>46) 00475/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>J. G. En Representación del Menor C/ A. M. S/ Filiación</strong> <br /> Cédula   Librado/a: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>47) 00340/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>JAIME, RAFAEL Y OTRA E.R.D.S.H.M C/ DIMAS, ELIAS REIMUNDO Y OTROS S/ ORDINARIO</strong> <br />	<a id='mostrarTexto946889'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946889)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 25/10/2017 ) --  Cédula   Librado/a: 06/11/2017 --  Cédula   Librado/a: 06/11/2017 --  Cédula   Librado/a: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>48) 00493/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>JAQUEMIN PEDRO RAMON S/ SUCESORIO</strong> <br />	<a id='mostrarTexto946893'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946893)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 24/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>49) 00520/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>JUAREZ RUFINO S/ SUCESORIO</strong> <br />	<a id='mostrarTexto946894'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946894)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 23/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>50) 00050/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>JUAREZ, GEORGINA MARIFE C/ ROSSI, NESTOR FABIAN Y OTROS S/ ORDINARIO</strong> <br />	<a id='mostrarTexto946895'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946895)' > Pasen Autos A Sentencia</a> : 06/11/2017 (  Escrito: 24/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>51) 00455/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>L. M. E. C/ M. G. A. S/ DIVORCIO</strong> <br /> Sentencia  282/17: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>52) 00292/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>L. M. R. C/ B. N. I. S/ RESPONSABILIDAD PARENTAL</strong> <br /> Sentencia  280/17: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>53) 00493/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>LUNA, Liberato S/ Juicios Voluntarios (Inscripción Tardia de Defuncion)</strong> <br /> Sentencia  281/17: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>54) 00570/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>M. A. M. E. C/ N. A. D. S/ ALIMENTOS Y ALIM. PROVISO</strong> <br /> Cédula   Librado/a: 03/11/2017 --  Oficio  Librado/a: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>55) 00252/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>M. L. E. C/ G. A. V. S/ ACCIONES DE ESTADO</strong> <br /> Proveído Simple : 06/11/2017 (  Escrito: 24/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>56) 00564/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>M. R. I. C/ G. E. S/ Uniones Convivenciales  CESE (Art. 523, 524 y SSTES del CcyC)</strong> <br /> Cédula   Librado/a: 31/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>57) 00559/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>M. S. P. C/ M. J. M. S/ Alimentos</strong> <br /> Cédula   Librado/a: 03/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>58) 00105/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MALDONADO NORMA C/ GALARZA WALTER ORLANDO S/ EJECUTIVO<br>INC. DE MODALIZACION (WALTER ORLANDO GALARZA)</strong> <br /> Auto Interlocutorio  490/17: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>59) 00698/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MEDINA AMALIO ROQUE Y OTRA C/ FERREIRA DE FLEITAS FAUSTINA Y OPTR S/ ORDINARIO</strong> <br /> Cédula   Diligenciado/a: 24/10/2017 --  Cédula   Diligenciado/a: 24/10/2017 --  Cédula   Diligenciado/a Con Resultado Negativo: 25/10/2017 --  Agréguese En Autos : 30/10/2017 --  Agréguese En Autos : 30/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>60) 00088/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MENDIETA, VERONICA NOEMÍ C/ TORRES, JORGE ARMANDO S/ HOMOLOGACION DE CONVENIO<br>Inc. de Ejec. de Sentencia</strong> <br /> Cédula   Diligenciado/a: 25/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>61) 00681/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MOLDES PEDRO RAMON C/ EMPRESA NORPLAN AUTOMOTORES S.R.L. Y OTRO S/ ORDINARIO</strong> <br />	<a id='mostrarTexto946911'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946911)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 24/10/2017 ) --  Carta Documento : 07/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>62) 00216/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>MORENO RAUL ENRIQUE S/ SUCESORIO</strong> <br /> Oficio  Con Cargo Recepción: 27/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>63) 00082/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>NIVEYRO JOSE ANTONIO C/ FRIAS JUAN AMERICO Y/U OTROS S/ ORDINARIO (ORDINARIO)</strong> <br /> Cédula   Diligenciado/a: 27/10/2017 --  Cédula   Diligenciado/a: 26/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>64) 00571/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>O. J. D. En Representación de su Hijo Menor C/ R. I. A. S/ Alimentos</strong> <br /> Oficio  Librado/a: 06/11/2017 --  Cédula   Librado/a: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>65) 00375/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>P. A. C/ C. S. N. S/ DIVORCIO</strong> <br /> Cédula   Diligenciado/a: 26/10/2017 --  Proveído Simple : 06/11/2017 (  Escrito: 23/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>66) 00553/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>P. S. C. C/ S. C. L. S/ DIVORCIO VINCULAR</strong> <br /> Proveído Simple : 06/11/2017 (  Escrito: 20/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>67) 00690/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>PALAVECINO MARIA MARTA POR SI Y EN C/ BANEGAS JUAN DOMINGO Y OTROS S/ ORDINARIO (ORDINARIO)</strong> <br />	<a id='mostrarTexto946921'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946921)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>68) 00373/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>PALOMO, EULOGIO C/ HONORABLE CONSEJO DELIBERANTE DE LA S/ EJECUTIVO</strong> <br />	<a id='mostrarTexto946922'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946922)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>69) 00039/04</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>PROVINCIA DE FORMOSA C/ VILLALBA, RAUL S/ ACC. DE EJECUCION (APREMIO)</strong> <br /> Agréguese En Autos : 30/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>70) 00276/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>R. E. C/ C. R. S/ alimentos<br>Inc. Aumento de cuota alimenta</strong> <br /> Nota De Secretaría  : 04/10/2017 ( Constancia ) --  Auto Interlocutorio  489/17: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>71) 00328/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>R. E. E. C/ R. L. S/ ALIMENTOS<br>Inc. de Ejecución de Honorario (NORA DE PRESMAN - VICTORIA GUGLIELMONE)</strong> <br /> Agréguese En Autos : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>72) 00294/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>R. J. . G. E. C/ M. S. J. S/ FILIACIÓN</strong> <br /> Audiencia  : 03/11/2017 ( De Conciliación ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>73) 00390/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>R. J. M. C/ Z. N. R. S/ DIVORCIO<br>Inc. Med. Prov. Cuidado Person (ROMERO JUAN MARCELO)</strong> <br /> Oficio  Diligenciado/a: 25/10/2017 --  Informes  : 06/11/2017 ( Psicológico ) --  Informes  : 06/11/2017 ( Psicológico ) --  Informes  : 06/11/2017 ( Psicológico ) --  Proveído Simple : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>74) 00652/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>R. U. P. E. R. C/ A. M. A. S/ FILIACION, DAÑOS Y PERJ.</strong> <br /> Cédula   Observado/a: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>75) 00610/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RAIA ENRIQUE ELIAS C/ NAVARRETE MAXIMIANO S/ Sumarisimo (cobro de peso<br>Inc.de Ejecucion de Honorarios (Brizuela, Roberto)</strong> <br /> Agréguese En Autos : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>76) 00535/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RAIA, ENRIQUE ELIAS C/ FERNANDEZ, DIEGO ARMANDO S/ EJECUTIVO<br>Ejecución de Honorarios 2º (ROBERTO OSCAR BRIZUELA)</strong> <br /> Sentencia  285/17: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>77) 00373/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RISVERO HELIANA BELEN C/ OBREGON SERGIO S/ EJECUTIVO</strong> <br />	<a id='mostrarTexto946936'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946936)' > 1er Proveído</a> : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>78) 00372/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RIVERO HELIANA BELEN C/ ALMIRON ROXANA SOLEDAD S/ EJECUTIVO</strong> <br />	<a id='mostrarTexto946937'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946937)' > 1er Proveído</a> : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>79) 00137/11</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>RODRIGUEZ, GABRIEL ARCANGEL.- C/ MOSSMAN, JORGE ALBERTO Y/O RESPONSA S/ ACCION COMUN<br>Inc. de ejec. de convenio (DR. SERGIO AGUERO)</strong> <br /> Cédula   Diligenciado/a: 30/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>80) 00615/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ROLAESER LITA PATRICIA C/ RUIZ MARILEN ELIZABETH S/ EJECUTIVO</strong> <br /> Agréguese En Autos : 03/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>81) 00453/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ROLDAN, Jose Francisco S/ Juicios Sucesorios (Sucesión Ab-Intestato)</strong> <br /> Oficio  Diligenciado/a: 27/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>82) 00375/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>S. E. M. E. C/ R. S. I. S/ ALIMENTOS<br>Ejecución de Honorarios (NORA DE PRESMAN)</strong> <br /> Agréguese En Autos : 31/10/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>83) 00552/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SALVATIERRA, Berta S/ Juicios Sucesorios</strong> <br />	<a id='mostrarTexto946942'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946942)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>84) 00304/13</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SANTILLAN, FELIPE SANTIAGO C/ GONZALEZ, ELOISA Y/U OCUPANTES S/ DESALOJO<br>INC. de Nulidad (Por Simulacion) (ABOUD, Eid Salim Angel y/u Otros)</strong> <br />	<a id='mostrarTexto946943'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946943)' > Proveído Simple</a> : 06/11/2017 (  Escrito: 01/11/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>85) 00030/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SUAREZ, MELVA C/ R.B. COMBUSTIBLES Y OTROS S/ ACCION COMUN</strong> <br /> Constancia : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>86) 00030/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>SUAREZ, MELVA C/ R.B. COMBUSTIBLES Y OTROS S/ ACCION COMUN<br>INC. de Ejecución de Honorarios (RODRIGUEZ, Nora Zulma y/u Otros)</strong> <br />	<a id='mostrarTexto946945'  style='cursor:pointer;color:blue;' onclick='javascript:ImprimirPDF(946945)' > 1er Proveído</a> : 06/11/2017 (  Escrito: 25/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>87) 00545/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>T. G. En Representación de los Menores C/ R. H. B. S/ Alimentos</strong> <br /> Nota De Secretaría  : 06/11/2017 ( Constancia ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>88) 00011/09</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>T. L. C/ F. J. S/ VIOLENCIA  FLIAR.</strong> <br /> Cuentas Judiciales  : 06/11/2017 ( Depósito ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>89) 00482/15</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>V. B. J. E. C/ D. F. D. S/ ALIMENTOS</strong> <br /> Radiograma  Con Cargo Recepción: 31/10/2017 --  Radiograma  Con Cargo Recepción: 03/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>90) 00421/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>V. H. E. C/ C. S. S/ ALIMENTOS</strong> <br /> Proveído Simple : 06/11/2017 (  Escrito: 20/10/2017 ) -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>91) 00537/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>V. M. En Representación de su Hijo C/ R. J. C. M. S/ Alimentos</strong> <br /> Oficio  Librado/a: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>92) 00498/12</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>VEGA, PATRICIA Y OTRO C/ DIAZ, LUIS BENICIO Y OTRO S/ ORDINARIO</strong> <br /> Cédula   Librado/a: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>93) 00098/17</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>VICENTI ALEJANDRO C/ BALDERRAMA EVA DEL VALLE S/ EJECUTIVO</strong> <br /> Cédula  1332 Librado/a: 06/11/2017 --  Oficio  Librado/a: 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>94) 00110/14</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>VILLALBA JULIO CESAR C/ GARNICA LADY ESTER S/ HOMOLOGACION DE CONVENIO</strong> <br /> Agréguese En Autos : 06/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>95) 00550/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>Z. A. S. B. E. R. C/ M. R. O. S/ ALIMENTOS</strong> <br /> Oficio  Con Cargo Recepción: 01/11/2017 -- </td></tr><tr nobr="true" ><td width="20%" style="border-top: 1px solid black; border-bottom: 1px solid black;"><strong>96) 00576/16</strong> </td><td width="80%" style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: justify " nobr="true"><strong>ZALAZAR MONICA BEATRIZ S/ MEDIDA AUTOSATISFACTIVA</strong> <br /> Agréguese En Autos : 06/11/2017 -- </td></tr></table>            <p style="text-align: justify;">En el d&iacute;a de la fecha siendo las 07:15 hs. se procede a cerrar la correpondiente
+                Lista de Despacho con un total de 96 expedientes, dejando a disposici&oacute;n de los Se&ntilde;ores 
+            Profesionales en Mesa de Entradas.</p>
+            <p  style="text-align: justify;">Conste.- </p>
+           
+            <p style="text-align: justify "><strong>SECRETAR&Iacute;A, 07 de Noviembre de 2017.-</strong></p>
+
+    </div> 
+     <form id="formularioVolverPie" class="form-horizontal" action="resultados_listaDespachoCivil7.php" method="post">
+            <!--Estos par�metros son para volver a la tabla actual con los cirterios de b�squeda ates seleccionados-->
+            <input type="hidden" id="fechaSimple" name="fechaSimple" value="" />
+            <input type="hidden" id="rangoFecha" name="rangoFecha" value=""/>
+            <input type="hidden" id="tipoFecha" name="tipoFecha" value="" />
+            <input type="hidden" id="tipoListaDespacho" name="tipoListaDespacho" value=""/>
+            <input type="hidden" id="tipoJuzgado" name="tipoJuzgado" value="" />
+      
+       <br />
+        <!--<button type="submit" class="btn btn-circle tooltips"  style="font-size: 12px; font-style: italic;" data-original-title="Volver a los Resultados de la B&uacute;squeda" data-placement="top" style="margin-left: 2%; margin-right:2%"> <i class="fa fa-arrow-left"></i> Volver a los Resultados de la B&uacute;squeda </button> -->
+   
+    </form>
+            <form id="textoTramite_PDF" action="imprimirTextoTramite.php" method="post" target="_bank">
+                <input type="hidden" id="id_registro" name="id_registro" />
+             
+            </form>  
+            
+
+</body>
+
+</html>
