@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-header("Content-Type: application/json");
+//header("Content-Type: application/json");
 require_once 'Eventos.php';
 //get the data
 $json = file_get_contents("php://input");
@@ -44,14 +44,14 @@ switch ($tipo) {
 // 
         exit();
         break;
-    case 'listaimagen':
+    case 'listaimagenes':
 
-        $ideventos = $data->ideventos;
         $eve = new Eventos();
 
-        echo json_encode($eve->ListaImagenEventos($ideventos));
+        echo json_encode($eve->ListaImagen());
 
         break;
+    
     case 'Modificar':
         $ideventos = $data->ideventos;
         $titulo = $data->titulo;
@@ -64,11 +64,14 @@ switch ($tipo) {
 
     case 'TodosEventosAgrupados':
         $eve = new Eventos();
-
+        
         echo json_encode($eve->TodosEventosAgrupados());
 // 
         exit();
         break;
+    
+     
+    
     case 'Borrar_eventos':
         $eve = new Eventos();
         $ideventos = $data->ideventos;

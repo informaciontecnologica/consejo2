@@ -53,11 +53,12 @@ and open the template in the editor.
             </div>
 
             <div class="col-xs-12">
+                <div class="docuinformacion" ng-repeat="archi in doc">
+                    {{archi.idevento}} asdasdasd
+                    <!--                                            <a ng-href="../documentos/{{archi.path}}/{{archi}}" download=""></a> -->
+
+                </div>
                 <div class="row">
-
-
-
-
 
                     <div class='btn-group'>
                         <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
@@ -83,26 +84,27 @@ and open the template in the editor.
                                 <div class="panel panel-default col-xs-12 col-md-12 "> 
                                     <div class="panel-heading">Documentos Información </div>
                                     <div class="panel-body">
-                                        <div class="docuinformacion" ng-repeat="archi in doc">
+                                        <div class="col-xs-12">
+                                            <div class="docuinformacion" ng-repeat="archi in doc ">
+                                                {{archi.imagen}} 
+                                                                                            <a ng-href="../documentos/{{archi.path}}/{{archi}}" download=""></a> 
 
-                                            <a ng-href="../documentos/{{archi.path}}/{{archi.documento}}" download="">{{archi.documento}}</a> 
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div>      
 
-                                        </div>
-                                    </div>   
-                                </div>
-                            </div>      
-
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class='btn-group'>
+                            <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+                            <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+                            <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage >= usuarios.length / pageSize - 1'  ng-click='currentPage = currentPage + 1'>&raquo;</button>
                         </div>
-                    </div> 
-                </div>
-                <div class="row">
-                    <div class='btn-group'>
-                        <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
-                        <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
-                        <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage >= usuarios.length / pageSize - 1'  ng-click='currentPage = currentPage + 1'>&raquo;</button>
                     </div>
                 </div>
-            </div>
 
         </section>
 
@@ -112,113 +114,5 @@ and open the template in the editor.
 
 
     </body>
-    <script>
-        var app = angular.module('App', ['ngSanitize']);
-        app.controller('eventos', function ($scope, $http, $filter) {
-            $scope.tipo = 'Agregar';
-            $scope.formData = {};
-            id = {};
-            console.log($scope.ideventos);
-
-
-            $scope.listauno = function (valor) {
-
-                $http({
-                    url: '../controles/clases/intermedio.php',
-                    method: "POST",
-                    data: {tipo: 'eventosid', ideventos: valor}
-                }).then(function (response) {
-                    $scope.evento = response.data.eventos;
-                    //   $scope.documentos(valor, "doc");
-                    console.log(response.data);
-
-
-                });
-            };
-
-            $scope.listacc = function (ideventos, tipo) {
-                $http({
-                    url: '../controles/clases/GetDocumento.php',
-                    method: "POST",
-                    data: {'idevento': ideventos, 'tipo': tipo}
-                }).then(function (response) {
-                    $scope.doc = response.data.documento;
-                    console.log(response.data.documento);
-                });
-            };
-
-
-            $scope.lista = function (valor,tipo) {
-                $http({
-                    url: '../controles/clases/intermedio.php',
-                    method: "POST",
-                    data: {tipo: tipo,ideventos:valor}
-                }).then(function (response) {
-                    $scope.listacc(valor, 'doc');
-    //                    console.log("Llego!!");
-                    $scope.evento = response.data.eventos;
-                    console.log(response.data.eventos);
-                });
-            };
-
-
-            $scope.accion = function (valor) {
-                if (!valor)
-                    console.log("uno '' ");
-                if (valor > 0) {
-                    console.log('valor :' + valor);
-//                    $scope.listacc(valor, 'doc');
-                    $scope.lista(valor,'eventosid');
-                    //$scope.search ={ideventos:valor};
-
-                } else {
-                     $scope.lista(valor,'TodosEventosAgrupados');
-                 }
-   
-
-            };
-
-
-            $scope.currentPage = 0;
-            $scope.pageSize = 10; // Esta la cantidad de registros que deseamos mostrar por página
-            $scope.pages = [];
-            // 
-            $scope.configPages = function () {
-                $scope.pages.length = 0;
-                var ini = $scope.currentPage - 4;
-                var fin = $scope.currentPage + 5;
-                if (ini < 1) {
-                    ini = 1;
-                    if (Math.ceil($scope.evento.length / $scope.pageSize) > 10)
-                        fin = 10;
-                    else
-                        fin = Math.ceil($scope.evento.length / $scope.pageSize);
-                } else {
-                    if (ini >= Math.ceil($scope.evento.length / $scope.pageSize) - 10) {
-                        ini = Math.ceil($scope.evento.length / $scope.pageSize) - 10;
-                        fin = Math.ceil($scope.evento.length / $scope.pageSize);
-                    }
-                }
-                if (ini < 1)
-                    ini = 1;
-                for (var i = ini; i <= fin; i++) {
-                    $scope.pages.push({no: i});
-                }
-                if ($scope.currentPage >= $scope.pages.length)
-                    $scope.currentPage = $scope.pages.length - 1;
-            };
-            $scope.setPage = function (index) {
-                $scope.currentPage = index - 1;
-            };
-        });
-        app.filter('startFromGrid', function () {
-            return function (input, start) {
-                if (!input || !input.length) {
-                    return;
-                }
-                start = +start;
-                return input.slice(start);
-            };
-        });
-    </script>
+    <script src="../js/eventos.js" type="text/javascript"></script>
 </html>

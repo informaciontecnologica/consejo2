@@ -39,6 +39,25 @@ class Eventos {
         }
     }
 
+    function ListaImagen() {
+       
+            $pdo = new conexion();
+            $string = "SELECT * FROM imagenes";
+            $consulta = $pdo->prepare($string);
+            $consulta->execute();
+            if ($consulta->rowCount() > 0) {
+                while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                    $rows[] = $registro;
+                }
+                $pa = array("imagenes" => $rows);
+                return $pa;
+            } else {
+            
+                $pa = array('imagenes' => $rows);
+                return $pa;
+            }
+       
+    }
     function ListaImagenEventos($ideventos) {
         if ($ideventos != "") {
             $pdo = new conexion();
@@ -95,16 +114,16 @@ class Eventos {
             return $pa;
         } else {
 
-            return "noimage.png";
+            return array("eventos" => "no");
         }
     }
 
-    function TodosEventosAgrupados() {
+    function TodosEventosAgrupados() { // e left join imageneventos ie on e.ideventos=ie.ideventos  group by e.ideventos
         $pdo = new conexion();
-        $string = "select e.*,ie.imagenevento from eventos e left join imageneventos ie on e.ideventos=ie.ideventos  group by e.ideventos order by fecha desc";
+        $string = "select * from eventos order by fecha desc";
         $consulta = $pdo->prepare($string);
         $consulta->execute();
-        if ($consulta->rowCount() > 0) {
+      if ($consulta->rowCount() > 0) {
             while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 $rows[] = $registro;
             }
@@ -112,9 +131,10 @@ class Eventos {
 
             return $pa;
         } else {
-
-            return "noimage.png";
+            $pa = array("eventos" => "OK");
+            return $pa;
         }
+        
     }
 
     function Eventosid($ideventos) {
