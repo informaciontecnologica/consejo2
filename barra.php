@@ -22,7 +22,7 @@
             <li class="active"><a href="../vistas/eventos.php">Eventos</a></li>
             <li class="active"><a href="../vistas/jabogados.php">Jov.Abogados</a></li>
             <li class="active"><a href="../vistas/honorarios.php">Honorarios</a></li>
-            <li class="active"><a href="../vistas/despachos.php">Despachos</a></li>
+            <!--<li class="active"><a href="../vistas/despachos.php">Despachos</a></li>-->
             <li class="active"><a href="../vistas/nosotros.php">Nosotros</a></li>
             <li class="active"><a href="../vistas/registrarse.php">Registrarse</a></li>
             <li class="active"><a href="../vistas/link.php">Link</a></li>

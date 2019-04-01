@@ -45,6 +45,7 @@ app.controller('eventos', function ($scope, $http, $filter) {
             method: "POST",
             data: {tipo: 'todos'}
         }).then(function (response) {
+            console.log(response)
             if (response.data!=null){
             $scope.evento = response.data.eventos;
            

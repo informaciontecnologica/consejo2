@@ -40,24 +40,24 @@ class Eventos {
     }
 
     function ListaImagen() {
-       
-            $pdo = new conexion();
-            $string = "SELECT * FROM imagenes";
-            $consulta = $pdo->prepare($string);
-            $consulta->execute();
-            if ($consulta->rowCount() > 0) {
-                while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                    $rows[] = $registro;
-                }
-                $pa = array("imagenes" => $rows);
-                return $pa;
-            } else {
-            
-                $pa = array('imagenes' => $rows);
-                return $pa;
+
+        $pdo = new conexion();
+        $string = "SELECT * FROM imagenes";
+        $consulta = $pdo->prepare($string);
+        $consulta->execute();
+        if ($consulta->rowCount() > 0) {
+            while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                $rows[] = $registro;
             }
-       
+            $pa = array("imagenes" => $rows);
+            return $pa;
+        } else {
+
+            $pa = array('imagenes' => $rows);
+            return $pa;
+        }
     }
+
     function ListaImagenEventos($ideventos) {
         if ($ideventos != "") {
             $pdo = new conexion();
@@ -118,12 +118,76 @@ class Eventos {
         }
     }
 
+    function TodosEve() {
+        $pdo = new conexion();
+        $string = "select * from eventos ";
+        $consulta = $pdo->prepare($string);
+        $consulta->execute();
+        if ($consulta->rowCount() > 0) {
+            while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                $eventos[] = $registro;
+            }
+            $string = "SELECT  p.idevento,p.path,p.idpagina, GROUP_CONCAT(r.imagen SEPARATOR ',') as imagen FROM
+                        imagenes r
+                        LEFT JOIN 
+                        imagenes p ON r.idimagenes=p.idimagenes
+                        GROUP BY p.idevento ";
+            $consulta = $pdo->prepare($string);
+            $consulta->execute();
+            
+            
+            
+            if ($consulta->rowCount() > 0) {
+                while ($registro2 = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                    $imagenes[] = $registro2;
+                }
+                  
+                foreach ($eventos as $eventoid => $valoreve) {
+                 
+                    foreach ($imagenes as $imagenid => $valorimag) {
+                        
+                        if ($valoreve['ideventos'] == $valorimag['idevento']) {
+                          
+//                            if (!array_key_exists(valorimag['idevento'],$eve))
+                            $eventos[$eventoid]['imagen']=explode(',', $valorimag['imagen']);
+//                            $eventos[$eventoid]['path']= $valorimag['path'];
+//                            $eventos[$eventoid]['idpagina']= $valorimag['idpagina'];
+                             
+//                            if (array_key_exists(valorimag['idevento'],$eve))
+//                           array_push($eve[$valorimag['idevento']],$valorimag['idevento'],$valorimag['imagen']);
+                        }
+                    }
+                }
+            }
+            $pa = array("eventos" => $eventos);
+
+            return $pa;
+        } else {
+
+            return array("eventos" => "no");
+        }
+    }
+
+    function prueba() {
+        $requisito[] = array("nombre" => "Pedro", "apellido" => "Herrera", "fec_nac" =>
+            "28/06/2000");
+        $requisito[] = array("nombre" => "Maria", "apellido" => "Sucre", "fec_nac" =>
+            "08/01/1998");
+        $requisito[0]['documentos'] = [
+            array("id" => "imagen1"),
+            array("id" => "imagen1"),
+            array("id" => "imagen1")]
+        ;
+
+        return array("eventos" => $requisito);
+    }
+
     function TodosEventosAgrupados() { // e left join imageneventos ie on e.ideventos=ie.ideventos  group by e.ideventos
         $pdo = new conexion();
         $string = "select * from eventos order by fecha desc";
         $consulta = $pdo->prepare($string);
         $consulta->execute();
-      if ($consulta->rowCount() > 0) {
+        if ($consulta->rowCount() > 0) {
             while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 $rows[] = $registro;
             }
@@ -134,7 +198,6 @@ class Eventos {
             $pa = array("eventos" => "OK");
             return $pa;
         }
-        
     }
 
     function Eventosid($ideventos) {
@@ -142,7 +205,7 @@ class Eventos {
         $string = "select e.*,ie.imagenevento from eventos e left join imageneventos ie on e.ideventos=ie.ideventos  where e.ideventos=:ideventos";
         $consulta = $pdo->prepare($string);
         $consulta->bindparam(':ideventos', $ideventos);
-         $consulta->execute();
+        $consulta->execute();
         if ($consulta->rowCount() > 0) {
             while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 $rows[] = $registro;

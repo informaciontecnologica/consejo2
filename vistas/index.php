@@ -34,12 +34,24 @@ and open the template in the editor.
             <div class="col-md-12 col-xs-12 Precios_jus" >
                 <h4>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h4>
             </div>
-            <aside class="col-xs-12 col-md-4 " style="float: right" >
+             <aside class="col-xs-12 col-md-4 " style="float: right" >
                  <div class="col-xs-12 col-md-12 noticias">
                      <h3 style="text-align: center; ">Noticias</h3>
-               
+                     <article>
+                          <h4 style="text-align: center">DIPLOMATURA EN DERECHO PENAL</h4>
+                          <h5><strong>Proxima clase 5 de abril 2019</strong></h5>
+                    <p>El día viernes 22 de Marzo, en la sede del Consejo Profesional de la Abogacía se llevó a 
+                        cabo la primera clase de la DIPLOMATURA EN DERECHO PENAL  a cargo del director de la misma,
+                        el Dr. Gonzalo Javier Molina, quien abordó el tema “DELITOS CONTRA LAS PERSONAS. ÚLTIMAS 
+                        REFORMAS AL CÓDIGO PENAL”.
+                        El programa, que continuará el próximo 05 de Abril, tiene el objetivo de promover la 
+                        permanente actualización y capacitación de los colegas del foro, quienes en este primer 
+                        módulo colmaron las instalaciones del salón de conferencias, contabilizándose la presencia
+                        de mas de 200 profesionales.. <br><strong>Formosa, 27 de marzo de 2019.</strong></p>
+                         
+                     </article>
                     <h4 style="text-align: center">DIPLOMATURA EN DERECHO PENAL</h4>
-                    <h5>Preinscripción</h5>
+                    <h5><strong>Preinscripción</strong></h5>
                     <p>El Consejo Profesional de la Abogacía solicita a los interesados preinscriptos para la 
                         “DIPLOMATURA EN DERECHO PENAL” que se inicia el Viernes 22 de Marzo de 2019 a las 14 hs,
                         que confirmen su inscripción ante el Consejo, concurriendo a su sede de calle San Martín 569 
@@ -50,7 +62,7 @@ and open the template in the editor.
                  <h3 style="text-align: center; ">Efemerides</h3>
                
                     <h4 style="text-align: center">DIA INTERNACIONAL DE LA MUJER</h4>
-                    <h5>DIA INTERNACIONAL DE LA MUJER</h5>
+                    <h5><strong>DIA INTERNACIONAL DE LA MUJER</strong></h5>
                     <p>El Consejo Profesional de la Abogacía adhiere y saluda a las colegas y en su nombre a todas las mujeres en su día:
 A aquellas que nos representan en los campos de la ciencia, la tecnología, la ingeniería, la docencia, los oficios, las comunicaciones y a todas quienes abogan por innovaciones sensibles al género que conformarán las sociedades del futuro.
 A aquellas emprendedoras sociales; las que trabajan a favor de la igualdad de género para eliminar barreras y acelerar los avances hacia ese objetivo.

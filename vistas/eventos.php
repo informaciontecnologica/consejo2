@@ -53,11 +53,7 @@ and open the template in the editor.
             </div>
 
             <div class="col-xs-12">
-                <div class="docuinformacion" ng-repeat="archi in doc">
-                    {{archi.idevento}} asdasdasd
-                    <!--                                            <a ng-href="../documentos/{{archi.path}}/{{archi}}" download=""></a> -->
-
-                </div>
+              
                 <div class="row">
 
                     <div class='btn-group'>
@@ -80,14 +76,14 @@ and open the template in the editor.
                         <div class="panel panel-default col-xs-12 col-md-4 "> 
                             <div class="panel-heading">Folletos </div>
                             <div class="panel-body">
-                                <img class=" img-thumbnail " ng-src="../imagenes/eventos/{{eve.imagenevento}}" title=""/> 
+                                <!--<img class=" img-thumbnail " ng-src="../imagenes/eventos/{{eve.imagenevento}}" title=""/>--> 
                                 <div class="panel panel-default col-xs-12 col-md-12 "> 
                                     <div class="panel-heading">Documentos Información </div>
                                     <div class="panel-body">
-                                        <div class="col-xs-12">
-                                            <div class="docuinformacion" ng-repeat="archi in doc ">
-                                                {{archi.imagen}} 
-                                                                                            <a ng-href="../documentos/{{archi.path}}/{{archi}}" download=""></a> 
+                                        <div class="col-xs-12"> 
+                                            <div class="docuinformacion" ng-repeat="archi in eve.imagen ">
+                                                {{eve.imagen}} 
+                                             <!--<a ng-href="../documentos/{{eve.path}}/{{archi.imagen}}" download=""></a>--> 
 
                                             </div>
                                         </div>   

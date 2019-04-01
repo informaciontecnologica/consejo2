@@ -70,7 +70,13 @@ switch ($tipo) {
         exit();
         break;
     
-     
+       case 'TodosEve':
+        $eve = new Eventos();
+        
+        echo json_encode($eve->TodosEve());
+// 
+        exit();
+        break;
     
     case 'Borrar_eventos':
         $eve = new Eventos();
@@ -79,6 +85,7 @@ switch ($tipo) {
 // 
         exit();
         break;
+    
     case 'Borrarimagen':
         $eve = new Eventos();
         $idimagenevento = $data->idimagenevento;
