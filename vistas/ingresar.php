@@ -10,28 +10,9 @@
             <?php include '../barra.php'; ?> 
         </header> 
         
-        <div class="container" style="margin-top: 70px;">
-            <div class="row ">
-                <div class="navbar navbar-default col-md-6 col-md-push-2 col-xs-12 " role="navigation">
-                    <div class="navbar-header">
-<!--                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                            <span class="sr-only">Desplegar navegación</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>-->
-                        <a class="navbar-brand" href="#">Ingresar</a>
-                        <ul class="nav navbar-nav col-xs-1">
-
-                        <li><a href="ayuda.php?tag=ingresar" class="glyphicon glyphicon-question-sign"></a></li>
-
-                    </ul>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            <button onclick="cerrar();">session</button>
+        <div class="container" style="margin-top: 150px;">
+  
+         
             <?php
             if (!isset($_SESSION['nombre'])) {
                 ?>

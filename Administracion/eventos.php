@@ -27,7 +27,7 @@
                 $fecha = "";
                 $texto = "";
                 ?>
-                <div id="dedos"></div>
+              
 
             </div>
             <div ng-show="formulario" class="row">
@@ -39,18 +39,19 @@
                                 <div class="col-md-4 col-xs-4">
                                     <label >Titulo</label>
                                     <input class="form-control" type="text" ng-model="formData.titulo" id="titulo" name="titulo" required  autofocus value="<?php echo $titulo ?>" />
-                                    <input type="hidden" name="tipo" id="tipo" ng-model="tipo" value="{{tipo}}" />
+                                    <input type="hidden" name="tipo" id="tipo" ng-model="formData.tipo" value="{{tipo}}" />
                                     <input type="hidden" name="ideventos" id="ideventos"   ng-model="formData.ideventos" value="{{formData.ideventos}}" />
 
 
                                 </div>
                             </div>
-                              <div class="form-group">  
+                            <div class="form-group">  
                                 <div class="col-md-2  col-xs-2">
                                     <label >Tipo de Eventos</label>
-                                    <select ng-model="paginas" id="paginas"  class="form-control" required 
-                                        ng-options="operator.pagina for operator  in pag track by operator.idpagina" >
-                                </select>
+                                    <select ng-model="formData.idpagina" id="idpagina" name="idpagina"  class="form-control" required 
+                                            ng-options="operator.pagina for operator  in pag track by operator.idpagina" >
+                                    </select>
+                                                              
                                 </div>
                             </div>
                             <div class="form-group">  
@@ -63,10 +64,10 @@
 
                                 <div class="col-md-12 col-lg-12 col-xs-12">
                                     <label >Texto</label>
-                                    
+
                                     <!--<div ng-model="formData.texto" id="summernote">Hello Summernote</div>-->
-                                    
-                                    <textarea class="form-control" type="text" ng-model="formData.texto" name="content"  required id="summernote" rows="280" cols="80" name="texto"> </textarea>
+
+                                    <textarea class="form-control" type="text" ng-model="formData.texto" name="content"  required id="summernote" rows="180" cols="80" name="texto"> </textarea>
 
                                 </div>
                             </div>
@@ -81,22 +82,7 @@
                 </form>  
             </div>
         </div>
-        <div class="row" >  
-            <div class="imagenes" ng-show="archivo">
-                <input id="input-id" name="imagenes[]"  multiple=true type="file" class="file" data-preview-file-type="text"/>
-                <div class="listaimagen">
-                    <div class="" ng-repeat="x in imagenes" >
-                        <div style="float: left;position: relative;">
-                            <img src="../icons/if_Cancel_1063907.png" title="Eliminar" class="borrarimagen" id="eliminarimagen" ng-click="eliminarimagen(x.idimagenevento, x.imagenevento)"  />
 
-                            <img class="img-thumbnail" ng-src="../imagenes/eventos/{{x.imagenevento}}" style="float: left;position: relative;
-                                 z-index:0; " width="250" height="150">
-                        </div>   
-                    </div>
-                </div>
-
-            </div>
-        </div>
 
 
 
@@ -126,7 +112,7 @@
                             Baja
                         </th>
                         <th style="width: 80px">
-                           Documentos
+                            Documentos
                         </th>
                         <th style="width: 80px">
                             Borrar
@@ -145,11 +131,27 @@
                             {{x.titulo}}
                         </td>
                         <td>
-                            <button  data-titulo="{{x.titulo}}" data-ideventos="{{x.ideventos}}" ng-click="EditarImagen(x.ideventos);" class="btn btn-primary">Imagenes</button>
+                            <button  data-titulo="{{x.titulo}}" data-path="{{x.path}}" data-idevento="{{x.ideventos}}" ng-click="EditarImagen(x.ideventos,x.path,x.titulo);" class="btn btn-primary">Imagenes</button>
                         </td>
-<!--                            <td>
-                            <button id="upload1" data-titulo="{{x.titulo}}" data-ideventos="{{x.ideventos}}" ng-click="docu(x.ideventos);" class="btn btn-primary">Documentos</button>
-                        </td>-->
+                          <div id="dedos"></div>
+                        <div class="row" >  
+                            <div class="imagenes" ng-show="archivo">
+                                <input id="input-id" name="imagenes[]"  multiple=true type="file" class="file" data-preview-file-type="text"/>
+                                <div class="listaimagen">
+                                    <div class="" ng-repeat="x in imagenes" >
+                                        <div style="float: left;position: relative;">
+                                            <img src="../icons/if_Cancel_1063907.png" title="Eliminar" class="borrarimagen" id="eliminarimagen" ng-click="eliminarimagen(x.idimagenes, x.idevento)"  />
+
+                                            <img class="img-thumbnail" ng-src="../imagenes/eventos/{{x.path}}/{{x.imagen}}" style="float: left;position: relative; z-index:0; " width="250" height="150">
+                                        </div>   
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                <!--                            <td>
+                                            <button id="upload1" data-titulo="{{x.titulo}}" data-ideventos="{{x.ideventos}}" ng-click="docu(x.ideventos);" class="btn btn-primary">Documentos</button>
+                                        </td>-->
                         <td>
                             <button ng-click="caco(x.ideventos)" class="btn btn-primary">Editar texto</button>
                         </td>
@@ -175,13 +177,13 @@
         </div>
     </body>
     <script src="../js/Admin_evento.js" type="text/javascript"></script>
-<script>
-$(document).ready(function() {
-  $('#summernote').summernote({
-     height: "500px" 
-  });
-  
-});
+    <script>
+                                    $(document).ready(function () {
+                                        $('#summernote').summernote({
+                                            height: "300px"
+                                        });
 
-</script>
+                                    });
+
+    </script>
 </html>

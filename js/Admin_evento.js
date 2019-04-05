@@ -9,6 +9,8 @@ app.controller('eventos', function ($scope, $http, $filter) {
 
     $scope.grilla = true;
     $scope.formData = {};
+    var imagenes={};
+ $scope.ima=[];
     
      $scope.eliminarimagen=function(idimagenevento,imagenevento){
       $http({
@@ -64,6 +66,8 @@ app.controller('eventos', function ($scope, $http, $filter) {
     $scope.consulta = function (valor) {
         $scope.archivo = false;
         if (valor) {
+             $scope.formData = {};
+           $("#summernote").summernote("code","");
             $scope.grilla = false;
             $scope.formulario = true;
             $scope.tipo = 'Agregar';
@@ -114,28 +118,41 @@ app.controller('eventos', function ($scope, $http, $filter) {
         $http({
             url: '../controles/clases/intermedio.php',
             method: "POST",
-            data: {tipo: 'listaimagen', ideventos: id}
+            data: {tipo: 'listaimagenes', idevento: id}
         }).then(function (response) {
-           console.log(response.data); 
+           console.log(response); 
            if (response.data.imagenes=='noimage.png'){
-           $scope.imagenes ={};
+          
        } else {
            $scope.imagenes = response.data.imagenes;  
+           console.log(response); 
+           
        };
             
 
         });
     };
 
-    $scope.EditarImagen = function (ideventos) {
+    $scope.EditarImagen = function (ideventos,path,titulo) {
 //       $scope.grilla = false;
 //       Scope.formulario=false;
         $scope.ListaImagenes(ideventos);
-        $scope.archivo = !$scope.archivo;
+        
+        $scope.archivo = true;
         $scope.id = ideventos;
-
+        $scope.path=path;
+        $scope.titulo=titulo;   
+       
+console.log($scope.ima);
 
     };
+    
+        $scope.ver = function () {
+               $scope.ima= ["../imagenes/eventos/evento_3_35/images _1_.jpg",
+        "../imagenes/eventos/evento_3_35/gintonic.jpg"];
+        
+        }
+    
         $scope.SubirDoc = function (ideventos) {
 //       $scope.grilla = false;
 //       Scope.formulario=false;
@@ -145,6 +162,7 @@ app.controller('eventos', function ($scope, $http, $filter) {
 
 
     };
+    
     
 
 
@@ -156,12 +174,16 @@ app.controller('eventos', function ($scope, $http, $filter) {
         MaxFilecount: 5,
         showPreview: true,
         showRemove: true,
-//        initialPreview: [
-//            "../imagenes/eventos/"+id,
+        initialPreview:
+           $scope.ver()
+//            "../imagenes/eventos/curso_1/DIPLO1.jpg",
+//             "../imagenes/eventos/curso_1/DIPLO2.jpg"
 //            "http://lorempixel.com/800/460/people/2"
-//        ],
-//        initialPreviewAsData: true, // identify if you are sending preview data only and not the raw markup
-//        initialPreviewFileType: 'image',
+        
+            
+         ,
+        initialPreviewAsData: true, // identify if you are sending preview data only and not the raw markup
+        initialPreviewFileType: 'image',
 //        initialPreviewConfig: [
 //            {caption: "People-1.jpg", size: 576237, width: "120px", url: "/site/file-delete", key: 1},
 //            {caption: "People-2.jpg", size: 932882, width: "120px", url: "/site/file-delete", key: 2},
@@ -169,7 +191,9 @@ app.controller('eventos', function ($scope, $http, $filter) {
         elErrorContainer: "#dedos",
         uploadExtraData: function () {
             var data = {
-                ideventos: $scope.id,
+                idevento: $scope.id,
+                path:$scope.path
+             
 
             };
             return data;
@@ -223,20 +247,22 @@ $(function () {
 //        {
 //            formData.append("publicar", 0);
 //        }
-
+console.log($("#idpagina").val());
         var data = {};
         data = {
-            'ideventos': $('#ideventos').val(),
+           
             'fecha': $('#fecha').val(),
             'texto': $('#summernote').val(),
             'titulo': $('#titulo').val(),
             'tipo': $('#tipo').val(),
-            'idpaginas': $('#idpaginas').val()
+            'idpagina':$("#idpagina").val()
+            
+           
         };
        
         var content = encodeURIComponent($('#summernote').contents());
         
-        console.log( data.idpaginas);
+        
         data = JSON.stringify(data);
         //Llamamos a la función AJAX de jQuery       
         $.ajax({

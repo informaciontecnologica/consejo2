@@ -4,48 +4,72 @@
  * and open the template in the editor.
  */
 
-var app = angular.module('App', []);
+var app = angular.module('App', ['ngSanitize']);
 app.controller('index', function ($scope, $http, $filter) {
 //    $scope.tipo = 'Agregar';
     $scope.formData = {};
     
-    $scope.lista = function () {
+    $scope.da = function () {
         $http({
             url: '../controles/clases/intermedio.php',
             method: "POST",
-            data: {tipo: 'TodosEventos'}
+            data: {tipo: 'TodosEve'}
         }).then(function (response) {
             $scope.evento = response.data.eventos;
-            console.log(response.data.evento);
-
-        });
-    };
-    $scope.ListaImagenes = function (id) {
-        $http({
-            url: '../controles/clases/intermedio.php',
-            method: "POST",
-            data: {tipo: 'listaimagen', ideventos: id}
-        }).then(function (response) {
-            $scope.imagenes = response.data.imagenes;
             console.log(response);
+        });
 
+    };
+ $scope.da();
+    
+     $scope.Listaresolucion = function () {
+        $http({
+            url: '../controles/clases/resoluciones.php',
+            method: "POST",
+            data: {tipo: 'todos'}
+        }).then(function (response) {
+
+            if (response.data != null) {
+                $scope.resoluciones = response.data.resoluciones;
+
+            } else
+            {
+               
+            }
+            console.log(response.data);
         });
     };
- $scope.ValoresHonorarios = function () {
+
+
+    $scope.Listaresolucion();
+//    
+//    $scope.ListaImagenes = function (id) {
+//        $http({
+//            url: '../controles/clases/intermedio.php',
+//            method: "POST",
+//            data: {tipo: 'listaimagen', ideventos: id}
+//        }).then(function (response) {
+//            $scope.imagenes = response.data.imagenes;
+//            console.log(response);
+//
+//        });
+//    };
+    $scope.ValoresHonorarios = function () {
         $http({
             url: '../controles/controles/valores_jus.php',
             method: "POST",
             data: {tipo: 'Lista'}
         }).then(function (response) {
             $scope.Vhonorarios = response.data.Estado;
-            console.log(response);
+            console.log(response.data);
         });
 
     };
     
        $scope.ValoresHonorarios();
 
-    $scope.lista();
+   
+    
     $scope.currentPage = 0;
     $scope.pageSize = 2; // Esta la cantidad de registros que deseamos mostrar por página
     $scope.pages = [];
@@ -77,26 +101,7 @@ app.controller('index', function ($scope, $http, $filter) {
     $scope.setPage = function (index) {
         $scope.currentPage = index - 1;
     };
-     $scope.Listaresolucion = function () {
-        $http({
-            url: '../controles/clases/resoluciones.php',
-            method: "POST",
-            data: {tipo: 'todos'}
-        }).then(function (response) {
-
-            if (response.data != null) {
-                $scope.resoluciones = response.data.resoluciones;
-
-            } else
-            {
-               
-            }
-            console.log(response.data);
-        });
-    };
-
-
-    $scope.Listaresolucion();
+    
     
 
 });

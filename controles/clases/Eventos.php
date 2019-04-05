@@ -39,23 +39,23 @@ class Eventos {
         }
     }
 
-    function ListaImagen() {
+    function ListaImagen($idevento) {
 
         $pdo = new conexion();
-        $string = "SELECT * FROM imagenes";
+        $string = "SELECT * FROM imagenes where  idevento=:idevento";
         $consulta = $pdo->prepare($string);
+        $consulta->bindparam(':idevento', $idevento);
         $consulta->execute();
         if ($consulta->rowCount() > 0) {
             while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 $rows[] = $registro;
             }
             $pa = array("imagenes" => $rows);
-            return $pa;
         } else {
 
-            $pa = array('imagenes' => $rows);
-            return $pa;
+            $pa = array('imagenes' => null);
         }
+        return $pa;
     }
 
     function ListaImagenEventos($ideventos) {
@@ -80,28 +80,36 @@ class Eventos {
         }
     }
 
-    function InsertarEventos($titulo, $fecha, $texto) {
-//
-//        $pdo1 = new conexion();
-//        $cadena1 = "insert into imageneventos (imagenevento) values (:imagenevento)";
-//        $consulta1 = $pdo1->prepare($cadena1);
-//        $consulta1->bindparam(':imagenevento', $_FILES["file"]["name"]);
-//        $consulta1->execute();
-//        $id= $pdo1->lastInsertId(); 
+    function InsertarEventos($titulo, $fecha, $texto, $idpagina) {
+
 
         $pdo3 = new conexion();
-        $cadena2 = "insert into eventos (fecha, titulo, texto) values (:fecha, :titulo, :texto)";
+        $rs =$pdo3->prepare("SELECT MAX(ideventos) AS id FROM eventos");
+        $rs->execute();
+        if ($row = $rs->fetch(PDO::FETCH_ASSOC)) {
+            $id[]=$row;
+            }
+            print_r($id);
+        $path = "evento_" . $idpagina."_".($id[0]['id']+1);
+
+
+        $cadena2 = "insert into eventos (fecha, titulo, texto,path,idpagina) values (:fecha, :titulo, :texto,:path,:idpagina)";
         $consulta = $pdo3->prepare($cadena2);
         $consulta->bindparam(':titulo', $titulo);
         $consulta->bindparam(':texto', $texto);
         $consulta->bindparam(':fecha', $fecha);
+        $consulta->bindparam(':path', $path);
+        $consulta->bindparam(':idpagina', $idpagina);
 //        $consulta->bindparam(':idimagenevento',$id);
         $consulta->execute();
+        if ($consulta) {
+            
+        }
     }
 
     function TodosEventos() {
         $pdo = new conexion();
-        $string = "select * from eventos ";
+        $string = "select * from eventos order by fecha desc ";
         $consulta = $pdo->prepare($string);
 
         $consulta->execute();
@@ -120,64 +128,92 @@ class Eventos {
 
     function TodosEve() {
         $pdo = new conexion();
-        $string = "select * from eventos ";
+        $string = "select * from eventos order by fecha desc ";
         $consulta = $pdo->prepare($string);
         $consulta->execute();
         if ($consulta->rowCount() > 0) {
             while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 $eventos[] = $registro;
             }
-            $string = "SELECT  p.idevento,p.path,p.idpagina, GROUP_CONCAT(r.imagen SEPARATOR ',') as imagen FROM
-                        imagenes r
-                        LEFT JOIN 
-                        imagenes p ON r.idimagenes=p.idimagenes
-                        GROUP BY p.idevento ";
+            // consulta de documentos 
+
+            $string = "SELECT  p.id_evento, GROUP_CONCAT(r.archivo SEPARATOR ',') as archivo FROM
+                        documentos r
+                        LEFT JOIN documentos p ON r.iddocumento=p.iddocumento
+                        
+                        GROUP BY p.id_evento ";
             $consulta = $pdo->prepare($string);
             $consulta->execute();
-            
-            
-            
             if ($consulta->rowCount() > 0) {
                 while ($registro2 = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                    $imagenes[] = $registro2;
+                    $documentos[] = $registro2;
                 }
-                  
-                foreach ($eventos as $eventoid => $valoreve) {
-                 
-                    foreach ($imagenes as $imagenid => $valorimag) {
+
+                //  consulta  de imagenes
+
+                $string = "SELECT  p.idevento, GROUP_CONCAT(r.imagen SEPARATOR ',') as imagen FROM
+                        imagenes r
+                        LEFT JOIN imagenes p ON r.idimagenes=p.idimagenes
                         
-                        if ($valoreve['ideventos'] == $valorimag['idevento']) {
-                          
+                        GROUP BY p.idevento ";
+                $consulta = $pdo->prepare($string);
+                $consulta->execute();
+                if ($consulta->rowCount() > 0) {
+                    while ($registro2 = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                        $imagenes[] = $registro2;
+                    }
+
+
+                    //------------------------------------
+
+
+                    foreach ($eventos as $eventoid => $valoreve) {
+
+                        foreach ($imagenes as $imagenid => $valorimag) {
+
+                            if ($valoreve['ideventos'] == $valorimag['idevento']) {
+
 //                            if (!array_key_exists(valorimag['idevento'],$eve))
-                            $eventos[$eventoid]['imagen']=explode(',', $valorimag['imagen']);
-//                            $eventos[$eventoid]['path']= $valorimag['path'];
+                                $eventos[$eventoid]['folletos'] = explode(',', $valorimag['imagen']);
+
 //                            $eventos[$eventoid]['idpagina']= $valorimag['idpagina'];
-                             
-//                            if (array_key_exists(valorimag['idevento'],$eve))
-//                           array_push($eve[$valorimag['idevento']],$valorimag['idevento'],$valorimag['imagen']);
+                            }
+                        }
+
+                        foreach ($documentos as $documid => $valordocumento) {
+
+                            if ($valoreve['ideventos'] == $valordocumento['id_evento']) {
+
+//                            if (!array_key_exists(valorimag['idevento'],$eve))
+                                $eventos[$eventoid]['documentos'] = explode(',', $valordocumento['archivo']);
+
+//                            $eventos[$eventoid]['idpagina']= $valorimag['idpagina'];
+                            }
                         }
                     }
                 }
+                $pa = array("eventos" => $eventos);
+
+                return $pa;
+            } else {
+
+                return array("eventos" => "no");
             }
-            $pa = array("eventos" => $eventos);
-
-            return $pa;
-        } else {
-
-            return array("eventos" => "no");
         }
     }
 
     function prueba() {
-        $requisito[] = array("nombre" => "Pedro", "apellido" => "Herrera", "fec_nac" =>
-            "28/06/2000");
-        $requisito[] = array("nombre" => "Maria", "apellido" => "Sucre", "fec_nac" =>
-            "08/01/1998");
-        $requisito[0]['documentos'] = [
-            array("id" => "imagen1"),
-            array("id" => "imagen1"),
-            array("id" => "imagen1")]
-        ;
+//            $requisito[] = array("nombre" => "Pedro", "apellido" => "Herrera", "fec_nac" =>
+//                "28/06/2000");
+//            $requisito[] = array("nombre" => "Maria", "apellido" => "Sucre", "fec_nac" =>
+//                "08/01/1998");
+//            $requisito[0]['documentos'] = [
+//                array("id" => "imagen1"),
+//                array("id" => "imagen1"),
+//                array("id" => "imagen1")]
+//            ;
+        $requisito[] = array("../imagenes/eventos/curso_1/DIPLO1.jpg", "../imagenes/eventos/curso_1/DIPLO2.jpg");
+
 
         return array("eventos" => $requisito);
     }

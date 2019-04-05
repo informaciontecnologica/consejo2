@@ -23,9 +23,10 @@ switch ($tipo) {
         $titulo = $data->titulo;
         $fecha = $data->fecha;
         $texto = $data->texto;
-        $idpaginas = $data->idpaginas;
-
-        $result = $eve->InsertarEventos($titulo, $fecha, $texto,$idpaginas,$path);
+        $idpagina = $data->idpagina;
+        
+       
+        $result = $eve->InsertarEventos($titulo, $fecha, $texto,$idpagina);
         echo json_encode(array("Estado" => "ok"));
         exit();
         break;
@@ -45,10 +46,10 @@ switch ($tipo) {
         exit();
         break;
     case 'listaimagenes':
-
+        $idevento = $data->idevento;
         $eve = new Eventos();
 
-        echo json_encode($eve->ListaImagen());
+        echo json_encode($eve->ListaImagen($idevento));
 
         break;
     
@@ -97,6 +98,17 @@ switch ($tipo) {
         } else {
         echo json_encode(array("Estado"=>"false"));    
         }
+ 
+        exit();
+        break;
+         case 'prueba':
+        $eve = new Eventos();
+//        $idimagenevento = $data->idimagenevento;
+//        $imagenevento = $data->imagenevento;
+      
+       echo json_encode($eve->prueba());
+             
+       
  
         exit();
         break;

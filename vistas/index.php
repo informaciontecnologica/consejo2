@@ -16,6 +16,7 @@ and open the template in the editor.
     <body ng-app="App" ng-controller="index">
         <header>
             <?php include '../barra.php'; ?> 
+             <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
         </header> 
 
         <div  style="margin-top:70px;">
@@ -37,6 +38,14 @@ and open the template in the editor.
              <aside class="col-xs-12 col-md-4 " style="float: right" >
                  <div class="col-xs-12 col-md-12 noticias">
                      <h3 style="text-align: center; ">Noticias</h3>
+                     <article class="bg-info">
+                         <H3>ATENCIÓN</H3>
+                         <h5><strong>CURSOS DICTADOS EN EL CONSEJO DE ABOGADOS</strong></h5>
+                         <P><strong>Consultas</strong> llamar al Consejo o  concurrir a su sede de calle San Martín 569 
+                             ó llamando al <strong>teléfono 3704 430340 </strong>. <br><strong>Formosa, 14 de marzo de 2019.</strong></p> 
+                         
+                     </article>
+
                      <article>
                           <h4 style="text-align: center">DIPLOMATURA EN DERECHO PENAL</h4>
                           <h5><strong>Proxima clase 5 de abril 2019</strong></h5>
@@ -50,13 +59,7 @@ and open the template in the editor.
                         de mas de 200 profesionales.. <br><strong>Formosa, 27 de marzo de 2019.</strong></p>
                          
                      </article>
-                    <h4 style="text-align: center">DIPLOMATURA EN DERECHO PENAL</h4>
-                    <h5><strong>Preinscripción</strong></h5>
-                    <p>El Consejo Profesional de la Abogacía solicita a los interesados preinscriptos para la 
-                        “DIPLOMATURA EN DERECHO PENAL” que se inicia el Viernes 22 de Marzo de 2019 a las 14 hs,
-                        que confirmen su inscripción ante el Consejo, concurriendo a su sede de calle San Martín 569 
-                        ó llamando al teléfono 3704 430340. A tales fines se otorga un plazo hasta el día LUNES 18 de
-                        MARZO a las 20 horas. <br><strong>Formosa, 14 de marzo de 2019.</strong></p>    
+
                 </div>
                  <div class="col-xs-12 col-md-12 efemerides">
                  <h3 style="text-align: center; ">Efemerides</h3>
@@ -74,7 +77,7 @@ A todas, nuestros cordiales saludos y nuestro reconocimiento.
                 </div>
 
             </aside>
-            <section class="col-md-8 col-xs-12 bg-success ">
+            <section class="col-md-8 col-xs-12 bg-success " style="min-height: 450px; max-height:750px; ">
                 <div class="row">
                     <div >
                         <h4 class="text-center">Cursos</h4>
@@ -92,9 +95,16 @@ A todas, nuestros cordiales saludos y nuestro reconocimiento.
                         <div class="">
                             <!--                    <h3>{{eve.titulo}}</h3>
                                                 <h5>Fecha del evento: {{eve.fecha| date:'dd/MM/yyyy'}}</h5>-->
-                            <a  ng-href="eventos.php?id={{eve.ideventos}}"  >
-                                <img target="Click al Ingresar" media="(max-width: 550px)" class="img-responsive" ng-src="../imagenes/eventos/{{eve.imagenevento}}" title=""/></a>
-                            <!--<p>//{{eve.texto|cortarTexto:500}} Mas++</p>--> 
+                            <a ng-href="eventos.php?id={{eve.ideventos}}"><h5 class="bg-success text-warning text-center"> {{eve.titulo}}</h5> </a>
+                                <div class="col-xs-12 col-md-12  " ng-bind-html="eve.texto |cortarTexto:400"></div>
+<!--                           <p>{{eve.texto|cortarTexto:100}} Mas++</p> -->
+                           
+                            <div class="col-md-12 col-xs-12 img-thumbnail" ng-repeat="folleto in eve.folletos | limitTo:2" >
+                                <img target="Click al Ingresar" class="img-responsive" width="350px" ng-src="../imagenes/eventos/{{eve.path_imagen}}/{{folleto}}" title=""/>
+                                
+                              </div>
+                                  
+                           
 
                         </div>
 
@@ -109,15 +119,12 @@ A todas, nuestros cordiales saludos y nuestro reconocimiento.
                 </div>
 
             </section> 
-            <section class="col-md-offset-2 col-md-8 col-xs-12 " style="padding:10px;" >
+            <section class="col-md-offset-2 col-md-6 col-xs-12 " style="padding:10px; " >
                 <?php
-//            include 'conexion.php';
 
-    
-    //put your code here
     function dede ($idpagina){ 
      $re = new Conexion();
-        $sql = "select * from imagenes where idpagina=8";
+        $sql = "select * from imagenes where idpagina=:idpagina";
         $consulta = $re->prepare($sql);
         $consulta->bindParam(":idpagina", $idpagina);
         $consulta->execute();
@@ -156,7 +163,7 @@ A todas, nuestros cordiales saludos y nuestro reconocimiento.
                         
                        $re=($index==$fila-1)? $clas='active':"";?>
                         <div class="item <?php echo $clas  ?>">
-                            <img src="../imagenes/eventos/curso_1/<?php  echo $rows[$index]['imagen']; ?>" alt="..."/>
+                            <img  src="../imagenes/eventos/curso_1/<?php  echo $rows[$index]['imagen']; ?>" alt="..."/>
                             <div class="carousel-caption" style="color: black; background-color:  aliceblue;">
                           <?php  echo $rows[$index]['descripcion_evento']; ?>
                             </div>

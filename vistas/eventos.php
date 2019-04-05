@@ -53,7 +53,7 @@ and open the template in the editor.
             </div>
 
             <div class="col-xs-12">
-              
+
                 <div class="row">
 
                     <div class='btn-group'>
@@ -74,41 +74,63 @@ and open the template in the editor.
                         <div class="col-xs-12 col-md-8  " ng-bind-html="eve.texto"></div>
 
                         <div class="panel panel-default col-xs-12 col-md-4 "> 
-                            <div class="panel-heading">Folletos </div>
+                            <div class="panel-heading text-center">Información </div>
                             <div class="panel-body">
-                                <!--<img class=" img-thumbnail " ng-src="../imagenes/eventos/{{eve.imagenevento}}" title=""/>--> 
+
+                                <!--//-                Folletos ----------------------->
                                 <div class="panel panel-default col-xs-12 col-md-12 "> 
-                                    <div class="panel-heading">Documentos Información </div>
+                                    <div class="panel-heading  text-center">Folletos </div>
                                     <div class="panel-body">
-                                        <div class="col-xs-12"> 
-                                            <div class="docuinformacion" ng-repeat="archi in eve.imagen ">
-                                                {{eve.imagen}} 
-                                             <!--<a ng-href="../documentos/{{eve.path}}/{{archi.imagen}}" download=""></a>--> 
+                                        <!--<img class=" img-thumbnail " ng-src="../imagenes/eventos/{{eve.imagenevento}}" title=""/>--> 
 
-                                            </div>
-                                        </div>   
-                                    </div>
-                                </div>      
 
+                                        <div class="docuinformacion" ng-repeat="folleto in eve.folletos">
+                                            <img class=" img-thumbnail " ng-src="../imagenes/eventos/{{eve.path}}/{{folleto}}" title=""/>
+                                            
+
+
+
+                                        </div>
+                                    </div> 
+                                </div>
+                                    <!--//-------------------------------------------------------->
+
+
+                                    <div class="panel panel-default col-xs-12 col-md-12 "> 
+                                        <div class="panel-heading  text-center">Documentos Información </div>
+                                        <div class="panel-body">
+                                            <div class="col-xs-12"> 
+
+                                                <div class="docuinformacion" ng-repeat="archi in eve.documentos">
+
+                                                    <!--                                                {{archi}} -->
+                                                    <!--<a ng-href="../documentos/{{eve.imagen.path}}/{{archi}}" download=""></a>--> 
+                                                    <a ng-href="../documentos/{{eve.path}}/{{archi}}" download="">{{archi}}</a> 
+
+                                                </div>
+                                            </div>   
+                                        </div>
+                                    </div>      
+
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class='btn-group'>
+                                <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+                                <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+                                <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage >= usuarios.length / pageSize - 1'  ng-click='currentPage = currentPage + 1'>&raquo;</button>
                             </div>
-                        </div> 
-                    </div>
-                    <div class="row">
-                        <div class='btn-group'>
-                            <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
-                            <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
-                            <button type='button' class='btn btn-default btn-sm' ng-disabled='currentPage >= usuarios.length / pageSize - 1'  ng-click='currentPage = currentPage + 1'>&raquo;</button>
                         </div>
                     </div>
-                </div>
 
-        </section>
-
-
-        <?php include '../pie.php'; ?> 
+                    </section>
 
 
+                    <?php include '../pie.php'; ?> 
 
-    </body>
-    <script src="../js/eventos.js" type="text/javascript"></script>
-</html>
+
+
+                    </body>
+                    <script src="../js/eventos.js" type="text/javascript"></script>
+                    </html>
