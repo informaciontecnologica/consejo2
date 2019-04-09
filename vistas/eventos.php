@@ -41,7 +41,7 @@ and open the template in the editor.
                         <div class="navbar-header"><a class="navbar-brand" href="#">Eventos</a>
                             <ul class="nav navbar-nav">
 
-                                <li><a ng-click="accion('todos')" >Todos</a></li>
+                                <li><a ng-click="accion(null)" >Todos</a></li>
                             </ul></div>
                         <ul class="nav navbar-nav">
 
@@ -67,7 +67,7 @@ and open the template in the editor.
                     <div class="col-xs-12 col-md-12 TarjertaEventos" ng-repeat="eve in evento| filter:search | startFromGrid: currentPage * pageSize | limitTo: pageSize">
                         <div class="col-xs-12 col-md-12">
                             <h3 >{{eve.titulo}} Fecha del evento: {{eve.fecha| date:'dd/MM/yyyy'}}
-                                <a  class="pull-right" target="Bajas documentación" ng-href='../imagenes/eventos/{{eve.imagenevento}}' >{{eve.imagenevento != null ? "download" : "" }}</a></h3>
+                                <!--<a  class="pull-right" target="Bajas documentación" ng-href='../imagenes/{{eve.path}}/documentos/{{eve.}}' >{{eve.imagenevento != null ? "download" : "" }}</a></h3>-->
                             <h5></h5>
                         </div>
 
@@ -85,7 +85,7 @@ and open the template in the editor.
 
 
                                         <div class="docuinformacion" ng-repeat="folleto in eve.folletos">
-                                            <img class=" img-thumbnail " ng-src="../imagenes/eventos/{{eve.path}}/{{folleto}}" title=""/>
+                                            <img class=" img-thumbnail " ng-src="../imagenes/{{eve.path}}/folletos/{{folleto}}" title=""/>
                                             
 
 
@@ -105,7 +105,7 @@ and open the template in the editor.
 
                                                     <!--                                                {{archi}} -->
                                                     <!--<a ng-href="../documentos/{{eve.imagen.path}}/{{archi}}" download=""></a>--> 
-                                                    <a ng-href="../documentos/{{eve.path}}/{{archi}}" download="">{{archi}}</a> 
+                                                    <!--<a ng-href="../imagenes/{{eve.path}}/documentos/{{archi}}" download="">{{archi}}</a>--> 
 
                                                 </div>
                                             </div>   

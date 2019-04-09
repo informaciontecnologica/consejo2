@@ -27,19 +27,19 @@ app.controller('eventos', function ($scope, $http, $filter) {
         });
     };
 
- 
-    
-    
+
+
+
     $scope.listauno = function (valor) {
 
         $http({
             url: '../controles/clases/intermedio.php',
             method: "POST",
-            data: {tipo: 'eventosid', ideventos: valor}
+            data: {tipo: 'eventosid', idevento: valor}
         }).then(function (response) {
             $scope.evento = response.data.eventos;
             //   $scope.documentos(valor, "doc");
-            console.log(response.data);
+            console.log(response);
 
 
         });
@@ -65,9 +65,9 @@ app.controller('eventos', function ($scope, $http, $filter) {
             method: "POST",
             data: {tipo: tipo}
         }).then(function (response) {
-            //  $scope.listacc(valor, 'doc');
+            $scope.listacc(valor, 'doc');
             console.log("Llego!!");
-            $scope.evento = response.data.eventos;
+            $scope.listauno(valor);
             console.log(response);
         });
     };
@@ -87,6 +87,8 @@ app.controller('eventos', function ($scope, $http, $filter) {
     };
 
     $scope.accion = function (valor) {
+      
+        
         if (!valor) {
             console.log("uno =Todos ");
             $scope.listas();
@@ -94,10 +96,10 @@ app.controller('eventos', function ($scope, $http, $filter) {
 //            $scope.listaImagenes();
         }
         if (valor > 0) {
-//                    console.log('valor :' + valor);
-////                    $scope.listacc(valor, 'doc');
-//                    $scope.lista(valor,'eventosid');
-//                    //$scope.search ={ideventos:valor};
+            console.log('valor :' + valor);
+
+            $scope.listauno(valor);
+            //$scope.search ={ideventos:valor};
 
         }
 

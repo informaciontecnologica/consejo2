@@ -18,7 +18,13 @@ $eve = new Eventos();
 
 switch ($tipo) {
 
-
+    case'banner':
+       
+            
+        echo json_encode($eve->TodosEve());
+        exit();
+        break;
+    
     case'Agregar':
         $titulo = $data->titulo;
         $fecha = $data->fecha;
@@ -32,8 +38,8 @@ switch ($tipo) {
         break;
     
      case'eventosid':
-        $ideventos = $data->ideventos;
-        $result = $eve-> Eventosid($ideventos);
+        $idevento = $data->idevento;
+        $result = $eve-> Eventosid($idevento);
         echo json_encode($result);
         exit();
         break;
@@ -45,7 +51,7 @@ switch ($tipo) {
 // 
         exit();
         break;
-    case 'listaimagenes':
+    case 'AgregarArchivo':
         $idevento = $data->idevento;
         $eve = new Eventos();
 
@@ -54,12 +60,14 @@ switch ($tipo) {
         break;
     
     case 'Modificar':
-        $ideventos = $data->ideventos;
+          $eve = new Eventos();
+        $idevento = $data->idevento;
         $titulo = $data->titulo;
         $fecha = $data->fecha;
         $texto = $data->texto;
-        $eve = new Eventos();
-        $result = $eve->SetEventos($ideventos, $titulo, $fecha, $texto);
+        $idpagina= $data->idpagina;
+    
+        $result = $eve->SetEventos($idevento, $titulo, $fecha, $texto,$idpagina);
         echo json_encode($result);
         break;
 

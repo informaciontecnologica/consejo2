@@ -4,28 +4,28 @@
  * and open the template in the editor.
  */
 
-var app = angular.module('App',[] );
+var app = angular.module('App', []);
 app.controller('eventos', function ($scope, $http, $filter) {
 
     $scope.grilla = true;
     $scope.formData = {};
-    var imagenes={};
- $scope.ima=[];
-    
-     $scope.eliminarimagen=function(idimagenevento,imagenevento){
-      $http({
+    var imagenes = {};
+    $scope.ima = [];
+
+    $scope.eliminarimagen = function (idimagenevento, imagenevento) {
+        $http({
             url: '../controles/clases/intermedio.php',
             method: "POST",
-            data: {tipo: 'Borrarimagen',idimagenevento:idimagenevento,imagenevento:imagenevento}
+            data: {tipo: 'Borrarimagen', idimagenevento: idimagenevento, imagenevento: imagenevento}
         }).then(function (response) {
             console.log(response.data);
-          window.location.reload();
-           
-     });
- };
+            window.location.reload();
+
+        });
+    };
 
 
-   $scope.ListaPaginas = function () {
+    $scope.ListaPaginas = function () {
         $http({
             url: '../controles/clases/Get_imagenes.php',
             method: "POST",
@@ -45,29 +45,31 @@ app.controller('eventos', function ($scope, $http, $filter) {
         $http({
             url: '../controles/clases/intermedio.php',
             method: "POST",
-            data: {tipo: 'todos'}
+            data: {tipo: 'TodosEve'}
         }).then(function (response) {
             console.log(response)
-            if (response.data!=null){
-            $scope.evento = response.data.eventos;
-           
-        } else
-        {
-          $scope.grilla = false;
-        }
-         
+            if (response.data != null) {
+                
+                $scope.evento = response.data.eventos;
+
+            } else
+            {
+                $scope.grilla = false;
+            }
+
         });
     };
-    
+ $scope.Listaeventos();
+ 
     if ($scope.grilla) {
         $scope.Listaeventos();
     }
-    
+
     $scope.consulta = function (valor) {
         $scope.archivo = false;
         if (valor) {
-             $scope.formData = {};
-           $("#summernote").summernote("code","");
+            $scope.formData = {};
+            $("#summernote").summernote("code", "");
             $scope.grilla = false;
             $scope.formulario = true;
             $scope.tipo = 'Agregar';
@@ -88,10 +90,11 @@ app.controller('eventos', function ($scope, $http, $filter) {
         $scope.formData.ideventos = $scope.registro[0].ideventos;
         $scope.formData.idimagenevento = $scope.registro[0].idimagenevento;
         $scope.formData.titulo = $scope.registro[0].titulo;
-      
+        $scope.formData.idpagina = {idpagina: $scope.registro[0].idpagina};
+
         $scope.formData.fecha = new Date($scope.registro[0].fecha);
         $scope.formData.texto = $scope.registro[0].texto;
-        $("#summernote").summernote("code",$scope.registro[0].texto);
+        $("#summernote").summernote("code", $scope.registro[0].texto);
         if ($scope.registro[0].imagenevento != null) {
             $scope.formData.imagen = $scope.registro[0].imagenevento;
         } else {
@@ -99,89 +102,98 @@ app.controller('eventos', function ($scope, $http, $filter) {
         }
         $scope.tipo = 'Modificar';
         $scope.accion = 'Modificar';
-   };
-
-       $scope.BorrarEventos = function (ideventos){
-         $http({
-            url: '../controles/clases/intermedio.php',
-            method: "POST",
-            data: {tipo: 'Borrar_eventos',ideventos:ideventos}
-        }).then(function (response) {
-                 console.log(response);
-           location.reload();
-        });
-        
     };
 
-   
-   $scope.ListaImagenes = function (id) {
+    $scope.BorrarEventos = function (ideventos) {
         $http({
             url: '../controles/clases/intermedio.php',
             method: "POST",
-            data: {tipo: 'listaimagenes', idevento: id}
+            data: {tipo: 'Borrar_eventos', ideventos: ideventos}
         }).then(function (response) {
-           console.log(response); 
-           if (response.data.imagenes=='noimage.png'){
-          
-       } else {
-           $scope.imagenes = response.data.imagenes;  
-           console.log(response); 
-           
-       };
-            
+            console.log(response);
+            location.reload();
+        });
+
+    };
+
+
+    $scope.Archivos = function (ideventos, tipo) {
+        $http({
+            url: '../controles/clases/intermedio.php',
+            method: "POST",
+            data: {tipo: tipo, idevento: ideventos}
+        }).then(function (response) {
+            console.log(response);
+            if (response.data.imagenes == 'noimage.png') {
+
+            } else {
+                $scope.imagenes = response.data.imagenes;
+                console.log(response);
+
+            }
+            ;
+
 
         });
     };
-
-    $scope.EditarImagen = function (ideventos,path,titulo) {
+var archivos;
+    $scope.Aimagenes = function (ideventos, path, titulo) {
 //       $scope.grilla = false;
 //       Scope.formulario=false;
-        $scope.ListaImagenes(ideventos);
-        
         $scope.archivo = true;
         $scope.id = ideventos;
-        $scope.path=path;
-        $scope.titulo=titulo;   
-       
-console.log($scope.ima);
-
+        $scope.titulo = titulo;
+        $scope.tipo = "imagenes";
+        $scope.path = path;//"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
+        console.log("ideventos : " + ideventos);
+        archivos="upfile_imagenes.php";
     };
-    
-        $scope.ver = function () {
-               $scope.ima= ["../imagenes/eventos/evento_3_35/images _1_.jpg",
-        "../imagenes/eventos/evento_3_35/gintonic.jpg"];
-        
-        }
-    
-        $scope.SubirDoc = function (ideventos) {
+
+   
+
+    $scope.SubirDoc = function (ideventos, path) {
 //       $scope.grilla = false;
 //       Scope.formulario=false;
-        $scope.ListaImagenes(ideventos);
-        $scope.archivo = !$scope.archivo;
+//        $scope.Archivo(ideventos,"AgregarArchivo");
+        $scope.archivo = true;
         $scope.id = ideventos;
-
+        $scope.tipo = "documentos"
+          $scope.path = path;
+          archivos="upfile_documentos.php";
 
     };
-    
-    
+    $scope.Afolletos = function (ideventos, path) {
+//       $scope.grilla = false;
+//       Scope.formulario=false;
+//        $scope.Archivo(ideventos,"AgregarArchivo");
+        $scope.archivo = true;
+        $scope.id = ideventos;
+        $scope.tipo = "folletos";
+         $scope.path = path;
+      //"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
+        console.log("ideventos : " + ideventos);
+         archivos="upfile_folletos.php";
+    };
+
 
 
     $("#input-id").fileinput({
+
         language: "es",
-        uploadUrl: '../imagenes/eventos/up.php',
+        uploadUrl: "../controles/controles/upfile.php",
         uploadAsync: true,
         minFilecount: 1,
         MaxFilecount: 5,
         showPreview: true,
         showRemove: true,
-        initialPreview:
-           $scope.ver()
+//        initialPreview:
+
 //            "../imagenes/eventos/curso_1/DIPLO1.jpg",
 //             "../imagenes/eventos/curso_1/DIPLO2.jpg"
 //            "http://lorempixel.com/800/460/people/2"
-        
-            
-         ,
+
+
+//        ,
         initialPreviewAsData: true, // identify if you are sending preview data only and not the raw markup
         initialPreviewFileType: 'image',
 //        initialPreviewConfig: [
@@ -192,14 +204,15 @@ console.log($scope.ima);
         uploadExtraData: function () {
             var data = {
                 idevento: $scope.id,
-                path:$scope.path
-             
-
+                path: $scope.path,
+                tipo: $scope.tipo,
+                titulo:$scope.titulo
             };
             return data;
         }
+
     });
-    
+
 
 });
 
@@ -228,10 +241,10 @@ $(function () {
         //Evitamos que se envíe por defecto
         e.preventDefault();
         //Creamos un FormData con los datos del mismo formulario
-       
+
         if ($('#tipo').val() == 'Agregar') {
             $('#mensaje').html("Agrega Evento ?");
-            
+
         } else {
             $('#mensaje').html("Modifica un evento ?");
         }
@@ -247,22 +260,22 @@ $(function () {
 //        {
 //            formData.append("publicar", 0);
 //        }
-console.log($("#idpagina").val());
+        console.log($("#idpagina").val());
         var data = {};
         data = {
-           
+            'idevento': $('#ideventos').val(),
             'fecha': $('#fecha').val(),
             'texto': $('#summernote').val(),
             'titulo': $('#titulo').val(),
             'tipo': $('#tipo').val(),
-            'idpagina':$("#idpagina").val()
-            
-           
+            'idpagina': $("#idpagina").val()
+
+
         };
-       
+
         var content = encodeURIComponent($('#summernote').contents());
-        
-        
+
+
         data = JSON.stringify(data);
         //Llamamos a la función AJAX de jQuery       
         $.ajax({

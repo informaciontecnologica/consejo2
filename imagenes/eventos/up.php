@@ -12,8 +12,16 @@ $data = json_decode($json);
 
 $ideventos=$_POST['idevento'];
 $path=$_POST['path'];
-
-$carpetaAdjunta="./".$path;
+$tipo=$_POST['tipo'];
+switch ($tipo){
+    case "documento":
+        $carpetaAdjunta="../documentos/".$path;
+        break;
+    case "imagenes":
+        $carpetaAdjunta="./".$path;
+        break;
+}
+        
 
 if (!file_exists($carpetaAdjunta)) {
     mkdir($carpetaAdjunta, 0777, true);

@@ -21,6 +21,21 @@ app.controller('index', function ($scope, $http, $filter) {
 
     };
  $scope.da();
+ 
+ 
+     $scope.banner = function () {
+        $http({
+            url: '../controles/clases/intermedio.php',
+            method: "POST",
+            data: {tipo: 'banner'}
+        }).then(function (response) {
+            $scope.banner = response.data.eventos;
+            console.log(response);
+        });
+
+    };
+ $scope.banner();
+ 
     
      $scope.Listaresolucion = function () {
         $http({
@@ -36,24 +51,12 @@ app.controller('index', function ($scope, $http, $filter) {
             {
                
             }
-            console.log(response.data);
+            console.log(response);
         });
     };
 
 
-    $scope.Listaresolucion();
-//    
-//    $scope.ListaImagenes = function (id) {
-//        $http({
-//            url: '../controles/clases/intermedio.php',
-//            method: "POST",
-//            data: {tipo: 'listaimagen', ideventos: id}
-//        }).then(function (response) {
-//            $scope.imagenes = response.data.imagenes;
-//            console.log(response);
-//
-//        });
-//    };
+
     $scope.ValoresHonorarios = function () {
         $http({
             url: '../controles/controles/valores_jus.php',
