@@ -21,7 +21,21 @@ class Eventos {
     private $foto;
     private $idevento;
     public $nombre_carpeta = "../../imagenes/eventos";
-
+ function ListaPagina($idpagina) {
+        
+            $pdo = new conexion();
+            $string = "select * from paginas where idpagina=:idpagina";
+            $consulta = $pdo->prepare($string);
+            $consulta->bindparam(':idpagina', $idpagina);
+            $consulta->execute();
+            if ($consulta){
+             while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                $rows[] = $registro;
+            }
+           return $rows;
+            }
+        }
+    
     function GetFotoEvento($ideventos) {
         if ($ideventos != "") {
             $pdo = new conexion();
@@ -317,10 +331,10 @@ class Eventos {
         }
     }
 
-    function SetEventos($idevento, $titulo, $fecha, $texto, $idpagina) {
-       //if (empty($path)) $path = "_" . $idpagina . "_" . ($id[0]['id'] + 1);
+    function SetEventos($idevento, $titulo, $fecha, $texto, $idpagina,$path) {
+      //  echo "$idevento, $titulo, $fecha, $texto, $idpagina,$path";
         $pdo3 = new conexion();
-        $cadena2 = "update eventos set fecha = :fecha, titulo = :titulo, texto =:texto, idpagina=:idpagina path=:path where ideventos = :ideventos";
+        $cadena2 = "update eventos set fecha = :fecha, titulo = :titulo, texto =:texto, idpagina=:idpagina, path=:path where ideventos = :ideventos";
         $consulta = $pdo3->prepare($cadena2);
         $consulta->bindparam(':titulo', $titulo);
         $consulta->bindparam(':texto', $texto);
@@ -331,10 +345,11 @@ class Eventos {
         $consulta->execute();
         if ($consulta) {
             $pa = array("Estado" => 'ok');
-            return $pa;
+            
         } else {
             $pa = array("Estado" => 'false');
         }
+        return $pa;
     }
 
     function SetImagenes() {

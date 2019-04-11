@@ -66,9 +66,30 @@ switch ($tipo) {
         $fecha = $data->fecha;
         $texto = $data->texto;
         $idpagina= $data->idpagina;
-    
-        $result = $eve->SetEventos($idevento, $titulo, $fecha, $texto,$idpagina);
-        echo json_encode($result);
+        $idpathold= $data->idpathold;
+        $pathold= $data->pathold;
+       
+     
+         
+        if ($idpagina!=$idpathold){
+             $paginao=$eve->ListaPagina($idpathold);
+             $pathold=$paginao[0]['pagina']."_" . $idpathold. "_" .$idevento;
+             $paginan=$eve->ListaPagina($idpagina);
+             $pathnew = $paginan[0]['pagina']."_" . $idpagina . "_" .$idevento;
+             $dd="../../imagenes/".$pathold."-../../imagenes/".$pathnew;
+             if (!rename("../../imagenes/".$pathold."/","../../imagenes/".$pathnew."/"))
+                 die("error nombrar");
+             $path=$pathnew;
+            
+        } else {
+             $pagina=$eve->ListaPagina($idpagina);
+             $pathnew = $pagina[0]['pagina']."_" . $idpagina . "_" .$idevento;
+             $path=$pathnew;
+             
+        }
+        
+        $result = $eve->SetEventos($idevento, $titulo, $fecha, $texto,$idpagina,$path);
+        echo json_encode(array("Estado"=>$result));
         break;
 
     case 'TodosEventosAgrupados':

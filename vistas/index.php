@@ -25,11 +25,56 @@ and open the template in the editor.
 
             <section  class=" col-xs-12  col-md-6 col-md-offset-3" > 
                 <?php
-                include '../controles/clases/ClaseCarrucel.php';
-                $carr = new Carrucel();
-                $carr->VerCarrucel(1);
-                ?>
+              $idevento = '26';
+              include '../controles/clases/conexion.php';
+                $rea = new Conexion();
+                $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento";
+                $consultas = $rea->prepare($sql);
+                $consultas->bindParam(":idevento", $idevento);
+                $consultas->execute();
+                if ($consultas) {
+                    while ($registro = $consultas->fetch(PDO::FETCH_ASSOC)) {
+                        $rows[] = $registro;
+                    }
+                    $fila = count($rows);
+                }
 
+                ?>
+                <div id="carousel-example-generic" class="carousel slide  " style=" text-align: center;  height:500px; margin-top: 25px; margin: auto;" data-ride="carousel" >
+                    <!--Indicators--> 
+                    <ol class="carousel-indicators">
+                        <?php
+                        for ($index = 0; $index < $fila; $index++) {
+
+                            $re = ($index == 0) ? $clas = 'class="active"' : "";
+                            ?>
+                            <li data-target="#carousel-example-generic" data-slide-to="<?php echo $index ?>" <?php echo $clas ?>></li>
+
+
+                        </ol>
+
+                        <!--Wrapper for slides--> 
+                        <div class="carousel-inner" role="listbox">
+                            <?php
+                            for ($index = 0; $index < $fila; $index++) {
+
+                                $re = ($index == $fila - 1) ? $clas = 'active' : "";
+                                ?>
+                                <div class="item <?php echo $clas ?>">
+       
+                                    <img style="height: 500px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
+                                    <div class="carousel-caption"  >
+                                        <p style="background-color:  #555;">
+                                       <?php 
+                                       echo $rows[$index]['titulo'];  
+                                       
+                                       ?>
+                                       
+                                    </div>
+                                </div>
+                        <?php }}
+                ?>
+                        </div></div>
             </section>
 
             <div class="col-md-12 col-xs-12 Precios_jus" >
@@ -120,10 +165,10 @@ and open the template in the editor.
 
             </section> 
 
-            <section class=" col-md-12 col-xs-12 " style="padding:10px; display: block; border-bottom:  #008200 solid 1px;" >
+            <section class="col-xs-12  col-md-6 col-md-offset-3" style="padding:10px; display: block; border-bottom:  #008200 solid 1px; height: 550px;" >
                 <?php
               
-                $idevento = '22';
+               
                 $rea = new Conexion();
                 $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento";
                 $consultas = $rea->prepare($sql);
@@ -137,7 +182,7 @@ and open the template in the editor.
                 }
 
                 ?>
-                <div id="carousel-example-generic" class="carousel slide  " style=" text-align: center;width: 50%; margin-top: 25px; margin: auto;" data-ride="carousel" >
+                <div id="carousel-example-generic" class="carousel slide  " style=" text-align: center; height:500px; margin-top: 25px; margin: auto;" data-ride="carousel" >
                     <!--Indicators--> 
                     <ol class="carousel-indicators">
                         <?php
@@ -159,14 +204,14 @@ and open the template in the editor.
                                 ?>
                                 <div class="item <?php echo $clas ?>">
        
-                                    <img style="height: 400px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
+                                    <img style="height: 500px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
                                     <div class="carousel-caption"  >
                                         <p style="background-color:  #555;">
                                        <?php 
                                        echo $rows[$index]['titulo'];  
                                        
                                        ?>
-                                        <br>Segunda clase con el Dr. Nelson Pessoa</p>
+                                       
                                     </div>
                                 </div>
     <?php }; ?>

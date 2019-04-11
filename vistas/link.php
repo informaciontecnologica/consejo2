@@ -18,12 +18,58 @@ and open the template in the editor.
         </header>
         <div class="container" style="margin-top:70px;">
             <div class="barrasuperior">Consejo Profesional de la Abogacia Formosa</div>
-            <section style="width:  70%; height: 100%; margin: auto; background-color:  #000000; margin-top: 5px; "> 
+     <section  class="col-md-offset-2 col-xs-12  col-md-8" style=" height: 100%;  background-color:  #000000; margin-top: 5px;"  > 
                 <?php
-                include '../controles/clases/ClaseCarrucel.php';
-                $carr = new Carrucel();
-                $carr->VerCarrucel(6);
+              $idevento = '26';
+              include '../controles/clases/conexion.php';
+                $rea = new Conexion();
+                $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento";
+                $consultas = $rea->prepare($sql);
+                $consultas->bindParam(":idevento", $idevento);
+                $consultas->execute();
+                if ($consultas) {
+                    while ($registro = $consultas->fetch(PDO::FETCH_ASSOC)) {
+                        $rows[] = $registro;
+                    }
+                    $fila = count($rows);
+                }
+
                 ?>
+                <div id="carousel-example-generic" class="carousel slide  " style=" text-align: center;  height:500px; margin-top: 25px; margin: auto;" data-ride="carousel" >
+                    <!--Indicators--> 
+                    <ol class="carousel-indicators">
+                        <?php
+                        for ($index = 0; $index < $fila; $index++) {
+
+                            $re = ($index == 0) ? $clas = 'class="active"' : "";
+                            ?>
+                            <li data-target="#carousel-example-generic" data-slide-to="<?php echo $index ?>" <?php echo $clas ?>></li>
+
+
+                        </ol>
+
+                        <!--Wrapper for slides--> 
+                        <div class="carousel-inner" role="listbox">
+                            <?php
+                            for ($index = 0; $index < $fila; $index++) {
+
+                                $re = ($index == $fila - 1) ? $clas = 'active' : "";
+                                ?>
+                                <div class="item <?php echo $clas ?>">
+       
+                                    <img style="height: 500px; " src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
+                                    <div class="carousel-caption"  >
+                                        <p style="background-color:  #555;">
+                                       <?php 
+                                       echo $rows[$index]['titulo'];  
+                                       
+                                       ?>
+                                        
+                                    </div>
+                                </div>
+                        <?php }}
+                ?>
+                        </div></div>
             </section>
 
             <article class="col-md-12 col-xs-12 ">

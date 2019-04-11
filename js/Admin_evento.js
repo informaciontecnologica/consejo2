@@ -90,8 +90,13 @@ app.controller('eventos', function ($scope, $http, $filter) {
         $scope.formData.ideventos = $scope.registro[0].ideventos;
         $scope.formData.idimagenevento = $scope.registro[0].idimagenevento;
         $scope.formData.titulo = $scope.registro[0].titulo;
+        
         $scope.formData.idpagina = {idpagina: $scope.registro[0].idpagina};
-
+        
+        $scope.pagin = $scope.registro[0].idpagina;
+        
+        $scope.formData.path = $scope.registro[0].path;
+        
         $scope.formData.fecha = new Date($scope.registro[0].fecha);
         $scope.formData.texto = $scope.registro[0].texto;
         $("#summernote").summernote("code", $scope.registro[0].texto);
@@ -268,7 +273,9 @@ $(function () {
             'texto': $('#summernote').val(),
             'titulo': $('#titulo').val(),
             'tipo': $('#tipo').val(),
-            'idpagina': $("#idpagina").val()
+            'idpagina': $("#idpagina").val(),
+            'idpathold': $("#idpathold").val(),
+            'pathold': $("#pathold").val()
 
 
         };

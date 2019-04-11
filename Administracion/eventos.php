@@ -41,6 +41,9 @@
                                     <input class="form-control" type="text" ng-model="formData.titulo" id="titulo" name="titulo" required  autofocus value="<?php echo $titulo ?>" />
                                     <input type="hidden" name="tipo" id="tipo" ng-model="formData.tipo" value="{{tipo}}" />
                                     <input type="hidden" name="ideventos" id="ideventos"   ng-model="formData.ideventos" value="{{formData.ideventos}}" />
+                                    <input type="hidden" name="pathold" id="pathold"   ng-model="formData.pathold" value="{{formData.path}}" />
+                                    <input type="hidden" name="idpathold" id="idpathold"   ng-model="formData.idpathold" value="{{pagin}}" />
+                               
                                 </div>
                             </div>
                             <div class="form-group">  
@@ -49,7 +52,7 @@
                                     <select ng-model="formData.idpagina" id="idpagina" name="idpagina"  class="form-control" required 
                                             ng-options="operator.pagina for operator  in pag track by operator.idpagina" >
                                     </select>
-
+     {{formData.path}}-{{formData.idpathold}}
                                 </div>
                             </div>
                             <div class="form-group">  
@@ -104,6 +107,9 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                         <th style="width: 25px">
+                            id
+                        </th>
                         <th style="width: 200px">
                             Titulo
                         </th>
@@ -137,6 +143,9 @@
                 </thead>
                 <tbody ng-repeat="x in evento">
                     <tr>
+                         <th >
+                           {{x.ideventos}}
+                        </th>
                         <td>
                             {{x.titulo}}
                         </td>

@@ -17,7 +17,7 @@ class Carrucel {
     //put your code here
     function VerCarrucel ($idpagina){ 
      $re = new Conexion();
-        $sql = "select * from imagenes where idpagina=:idpagina";
+        $sql = "select * from a where idpagina=:idpagina";
         $consulta = $re->prepare($sql);
         $consulta->bindParam(":idpagina", $idpagina);
         $consulta->execute();
