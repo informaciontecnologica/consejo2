@@ -25,8 +25,8 @@ and open the template in the editor.
 
             <section  class=" col-xs-12  col-md-6 col-md-offset-3" > 
                 <?php
-              $idevento = '26';
-              include '../controles/clases/conexion.php';
+                $idevento = '26';
+                include '../controles/clases/conexion.php';
                 $rea = new Conexion();
                 $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento";
                 $consultas = $rea->prepare($sql);
@@ -38,9 +38,8 @@ and open the template in the editor.
                     }
                     $fila = count($rows);
                 }
-
                 ?>
-                <div id="carousel-example-generic" class="carousel slide  " style=" text-align: center;  height:500px; margin-top: 25px; margin: auto;" data-ride="carousel" >
+                <div id="carousel-example-generic" class="carousel slide  " style=" text-align: center;  height:400px; margin-top: 25px; margin: auto;" data-ride="carousel" >
                     <!--Indicators--> 
                     <ol class="carousel-indicators">
                         <?php
@@ -61,28 +60,44 @@ and open the template in the editor.
                                 $re = ($index == $fila - 1) ? $clas = 'active' : "";
                                 ?>
                                 <div class="item <?php echo $clas ?>">
-       
-                                    <img style="height: 500px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
+
+                                    <img style="height: 400px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
                                     <div class="carousel-caption"  >
                                         <p style="background-color:  #555;">
-                                       <?php 
-                                       echo $rows[$index]['titulo'];  
-                                       
-                                       ?>
-                                       
+                                            <?php
+                                            echo $rows[$index]['titulo'];
+                                            ?>
+
                                     </div>
                                 </div>
-                        <?php }}
-                ?>
-                        </div></div>
+    <?php }
+}
+?>
+                    </div></div>
             </section>
 
             <div class="col-md-12 col-xs-12 Precios_jus" >
                 <h4>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h4>
             </div>
+            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
+                <h4 style=" color: #761c19;  ">ATENCIÓN: DIPLOMATURA EN DERECHO PENAL SUSPENSION DE CLASES </h4>
+                <p >El Consejo Profesional de la Abogacía informa a los alumnos de la Diplomatura que la clase del día <strong>Viernes 12 de Abril de 2019 SE SUSPENDE </strong> por razones de salud del Dr. Marcelo SANCINETTI, hasta nuevo aviso.
+                    <strong>Formosa, 11 de Abril de 2019</strong>.</p>
+            </div>
+
+
+
             <aside class="col-xs-12 col-md-4 " style="float: right" >
                 <div class="col-xs-12 col-md-12 noticias" >
                     <h3 style="text-align: center">Noticias</h3>
+
+                    <article>
+                        <h4 style="text-align: center">DIPLOMATURA EN DERECHO PENAL</h4>
+                        <h5>TERCERA CLASE: 12 de Abril de 2019 de 14 a 20 hs Disertante: Dr. Marcelo SANCINETTI</h5>
+                        <p >El Consejo Profesional de la Abogacía recuerda a los profesionales que cursan la “DIPLOMATURA EN DERECHO PENAL” que las clases continúan en su sede el día Viernes 12 de Abril de 2019 desde las 14.00 horas.
+                            <strong>Formosa, 11 de Abril de 2019</strong>.</p>
+
+                    </article>
                     <article class="bg-info" style="padding-left: 5px; padding-right: 5px;" >
                         <H3  style="padding-left: 5px;">ATENCIÓN</H3>
                         <h5><strong>CURSOS DICTADOS EN EL CONSEJO DE ABOGADOS</strong></h5>
@@ -91,19 +106,6 @@ and open the template in the editor.
 
                     </article>
 
-                    <article>
-                        <h4 style="text-align: center">DIPLOMATURA EN DERECHO PENAL</h4>
-                        <h5><strong>Proxima clase 5 de abril 2019</strong></h5>
-                        <p>El día viernes 22 de Marzo, en la sede del Consejo Profesional de la Abogacía se llevó a 
-                            cabo la primera clase de la DIPLOMATURA EN DERECHO PENAL  a cargo del director de la misma,
-                            el Dr. Gonzalo Javier Molina, quien abordó el tema “DELITOS CONTRA LAS PERSONAS. ÚLTIMAS 
-                            REFORMAS AL CÓDIGO PENAL”.
-                            El programa, que continuará el próximo 05 de Abril, tiene el objetivo de promover la 
-                            permanente actualización y capacitación de los colegas del foro, quienes en este primer 
-                            módulo colmaron las instalaciones del salón de conferencias, contabilizándose la presencia
-                            de mas de 200 profesionales.. <br><strong>Formosa, 27 de marzo de 2019.</strong></p>
-
-                    </article>
 
                 </div>
                 <div class="col-xs-12 col-md-12 efemerides">
@@ -165,10 +167,8 @@ and open the template in the editor.
 
             </section> 
 
-            <section class="col-xs-12  col-md-6 col-md-offset-3" style="padding:10px; display: block; border-bottom:  #008200 solid 1px; height: 550px;" >
+            <section class="col-xs-12  col-md-6 col-md-offset-3" style="padding:10px; display: block; border-bottom:  #008200 solid 1px; height: 450px;" >
                 <?php
-              
-               
                 $rea = new Conexion();
                 $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento";
                 $consultas = $rea->prepare($sql);
@@ -180,16 +180,15 @@ and open the template in the editor.
                     }
                     $fila = count($rows);
                 }
-
                 ?>
-                <div id="carousel-example-generic" class="carousel slide  " style=" text-align: center; height:500px; margin-top: 25px; margin: auto;" data-ride="carousel" >
+                <div id="carousel-example-generic" class="carousel slide  " style=" text-align: center; height:400px; margin-top: 25px; margin: auto;" data-ride="carousel" >
                     <!--Indicators--> 
                     <ol class="carousel-indicators">
-                        <?php
-                        for ($index = 0; $index < $fila; $index++) {
+                <?php
+                for ($index = 0; $index < $fila; $index++) {
 
-                            $re = ($index == 0) ? $clas = 'class="active"' : "";
-                            ?>
+                    $re = ($index == 0) ? $clas = 'class="active"' : "";
+                    ?>
                             <li data-target="#carousel-example-generic" data-slide-to="<?php echo $index ?>" <?php echo $clas ?>></li>
 
 
@@ -197,24 +196,23 @@ and open the template in the editor.
 
                         <!--Wrapper for slides--> 
                         <div class="carousel-inner" role="listbox">
-                            <?php
-                            for ($index = 0; $index < $fila; $index++) {
+    <?php
+    for ($index = 0; $index < $fila; $index++) {
 
-                                $re = ($index == $fila - 1) ? $clas = 'active' : "";
-                                ?>
+        $re = ($index == $fila - 1) ? $clas = 'active' : "";
+        ?>
                                 <div class="item <?php echo $clas ?>">
-       
-                                    <img style="height: 500px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
+
+                                    <img style="height: 400px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
                                     <div class="carousel-caption"  >
                                         <p style="background-color:  #555;">
-                                       <?php 
-                                       echo $rows[$index]['titulo'];  
-                                       
-                                       ?>
-                                       
+        <?php
+        echo $rows[$index]['titulo'];
+        ?>
+
                                     </div>
                                 </div>
-    <?php }; ?>
+                                        <?php }; ?>
 
                         </div>
 
@@ -228,11 +226,11 @@ and open the template in the editor.
                         </a>
                     </div> 
 
-                    <?php
-                }
+    <?php
+}
 
-                ;
-                ?>
+;
+?>
 
             </section>
 
@@ -265,8 +263,8 @@ and open the template in the editor.
             </section>
 
         </div>
-        <?php include '../pie.php';
-        ?> 
+<?php include '../pie.php';
+?> 
     </body>
     <script src="../js/index.js" type="text/javascript"></script>
 </html>
