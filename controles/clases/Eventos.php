@@ -123,7 +123,7 @@ class Eventos {
             $pa = array("noticias" => $rows);
         } else {
 
-            $pa = array('noticias' => null);
+            $pa = array('noticias' => "mal");
         }
         return $pa;
     }

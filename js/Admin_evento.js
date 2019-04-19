@@ -145,7 +145,7 @@ app.controller('eventos', function ($scope, $http, $filter) {
     $scope.Aimagenes = function (ideventos, path, titulo) {
 //       $scope.grilla = false;
 //       Scope.formulario=false;
-        $scope.grilla= false;
+        $scope.grilla = false;
         $scope.id = ideventos;
         $scope.titulo = titulo;
         $scope.tipo = "imagenes";
@@ -251,34 +251,62 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 
 app.controller("ControlNoticias", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
-        $scope.mensaje = "variable1='" + $routeParams.idevento + "' y variable2='" + $routeParams.path + "'";
 
-//        $scope.valor = true;
-//        $scope.id = $routeParams.idevento;
-//        $scope.tipo = "noticias";
-//        $scope.path = $routeParams.path;
-//        $scope.titulo = $routeParams.titulo;
+
+        $scope.grilla = true;
+        $scope.id = $routeParams.idevento;
+        $scope.tipo = "noticias";
+        $scope.path = $routeParams.path;
+        $scope.titulo = $routeParams.titulo;
 //        //"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
 
         $scope.cargarnoticias = function (ideventos) {
             $http({
                 url: '../controles/clases/intermedio.php',
                 method: "POST",
-                data: {tipo: 'Listanoticias', idevento: ideventos}
+                data: {tipo: 'ListaNoticias', idevento: ideventos}
             }).then(function (response) {
-                $scope.noticias = response.data.imagenes;
+                $scope.noticias = response.data.noticias;
                 console.log(response);
-                console.log($scope.noticias[0].imagen);
-                var length = $scope.noticias.length;
-                console.log("Largo " + length);
-                $scope.notic = [];
-                for (i = 0; i < length; i++) {
-//      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
-                    $scope.notic.push('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/' + $scope.noticias[i].imagen);
 
-                };
-            })};
-      
+
+
+            })
+        };
+        $scope.cargarnoticias(40);
+
+        $scope.ANoticias = function () {
+
+            $scope.Formul = true;
+            $scope.grilla = false;
+            $scope.form = {};
+            $scope.form.tipo = "Agregar";
+        };
+        $scope.ENoticias = function (ideventos, path, titulo, texto, fecha) {
+
+            $scope.Formul = true;
+            $scope.grilla = false;
+            $scope.form = {};
+            $scope.form.idevento = ideventos;
+            $scope.form.titulo = titulo;
+            $scope.form.texto = texto;
+            $scope.form.fecha = new Date(fecha);
+            $scope.form.fecha.setDate($scope.form.fecha.getDate() + 1);
+            $scope.form.tipo = "Modificar";
+        };
+        $scope.Formularionoti=function(){
+          switch ($scope.form.tipo){
+              case "Modificar":
+                  
+                    break;
+              case "Agregar":
+                    
+                    break;
+                    
+                  
+          }
+            
+        };
 
     }]);
 app.controller("Controldocumentos", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
@@ -351,7 +379,7 @@ app.controller("Controldocumentos", ["$scope", "$http", "$routeParams", function
 
 app.controller("Controlimagenes", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
         $scope.mensaje = "variable1='" + $routeParams.idevento + "' y variable2='" + $routeParams.path + "'";
- $scope.grilla = false;
+        $scope.grilla = false;
         $scope.valor = true;
         $scope.id = $routeParams.idevento;
         $scope.tipo = "imagenes";

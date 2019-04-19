@@ -79,11 +79,11 @@ and open the template in the editor.
             <div class="col-md-12 col-xs-12 Precios_jus" >
                 <h4>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h4>
             </div>
-            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
+<!--            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
                 <h4 style=" color: #761c19;  ">ATENCIÓN: DIPLOMATURA EN DERECHO PENAL SUSPENSION DE CLASES </h4>
                 <p >El Consejo Profesional de la Abogacía informa a los alumnos de la Diplomatura que la clase del día <strong>Viernes 12 de Abril de 2019 SE SUSPENDE </strong> por razones de salud del Dr. Marcelo SANCINETTI, hasta nuevo aviso.
                     <strong>Formosa, 11 de Abril de 2019</strong>.</p>
-            </div>
+            </div>-->
 
 
 
