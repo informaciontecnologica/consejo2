@@ -71,6 +71,62 @@ class Eventos {
         }
         return $pa;
     }
+        function ListaFolletos($idevento) {
+
+        $pdo = new conexion();
+        $string = "SELECT * FROM folletos where  idevento=:idevento";
+        $consulta = $pdo->prepare($string);
+        $consulta->bindparam(':idevento', $idevento);
+        $consulta->execute();
+        if ($consulta->rowCount() > 0) {
+            while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                $rows[] = $registro;
+            }
+            $pa = array("folletos" => $rows);
+        } else {
+
+            $pa = array('folletos' => null);
+        }
+        return $pa;
+    }
+        function ListaDocumentos($idevento) {
+
+        $pdo = new conexion();
+        $string = "SELECT * FROM documentos where  idevento=:idevento";
+        $consulta = $pdo->prepare($string);
+        $consulta->bindparam(':idevento', $idevento);
+        $consulta->execute();
+        if ($consulta->rowCount() > 0) {
+            while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                $rows[] = $registro;
+            }
+            $pa = array("documentos" => $rows);
+        } else {
+
+            $pa = array('documentos' => null);
+        }
+        return $pa;
+        }
+
+        
+        function ListaNoticias($idevento) {
+
+        $pdo = new conexion();
+        $string = "SELECT * FROM noticias where  idevento=:idevento";
+        $consulta = $pdo->prepare($string);
+        $consulta->bindparam(':idevento', $idevento);
+        $consulta->execute();
+        if ($consulta->rowCount() > 0) {
+            while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                $rows[] = $registro;
+            }
+            $pa = array("noticias" => $rows);
+        } else {
+
+            $pa = array('noticias' => null);
+        }
+        return $pa;
+    }
 
     function ListaImagenEventos($ideventos) {
         if ($ideventos != "") {

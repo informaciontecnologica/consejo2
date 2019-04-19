@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var app = angular.module('App', []);
+var app = angular.module('App', ['ngRoute']);
 app.controller('eventos', function ($scope, $http, $filter) {
 
     $scope.grilla = true;
@@ -49,7 +49,7 @@ app.controller('eventos', function ($scope, $http, $filter) {
         }).then(function (response) {
             console.log(response)
             if (response.data != null) {
-                
+
                 $scope.evento = response.data.eventos;
 
             } else
@@ -59,8 +59,8 @@ app.controller('eventos', function ($scope, $http, $filter) {
 
         });
     };
- $scope.Listaeventos();
- 
+    $scope.Listaeventos();
+
     if ($scope.grilla) {
         $scope.Listaeventos();
     }
@@ -90,13 +90,13 @@ app.controller('eventos', function ($scope, $http, $filter) {
         $scope.formData.ideventos = $scope.registro[0].ideventos;
         $scope.formData.idimagenevento = $scope.registro[0].idimagenevento;
         $scope.formData.titulo = $scope.registro[0].titulo;
-        
+
         $scope.formData.idpagina = {idpagina: $scope.registro[0].idpagina};
-        
+
         $scope.pagin = $scope.registro[0].idpagina;
-        
+
         $scope.formData.path = $scope.registro[0].path;
-        
+
         $scope.formData.fecha = new Date($scope.registro[0].fecha);
         $scope.formData.texto = $scope.registro[0].texto;
         $("#summernote").summernote("code", $scope.registro[0].texto);
@@ -141,20 +141,20 @@ app.controller('eventos', function ($scope, $http, $filter) {
 
         });
     };
-var archivos;
+    var archivos;
     $scope.Aimagenes = function (ideventos, path, titulo) {
 //       $scope.grilla = false;
 //       Scope.formulario=false;
-        $scope.archivo = true;
+        $scope.grilla= false;
         $scope.id = ideventos;
         $scope.titulo = titulo;
         $scope.tipo = "imagenes";
         $scope.path = path;//"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
         console.log("ideventos : " + ideventos);
-        archivos="upfile_imagenes.php";
+        archivos = "upfile_imagenes.php";
     };
 
-   
+
 
     $scope.SubirDoc = function (ideventos, path) {
 //       $scope.grilla = false;
@@ -163,8 +163,8 @@ var archivos;
         $scope.archivo = true;
         $scope.id = ideventos;
         $scope.tipo = "documentos"
-          $scope.path = path;
-          archivos="upfile_documentos.php";
+        $scope.path = path;
+        archivos = "upfile_documentos.php";
 
     };
     $scope.Afolletos = function (ideventos, path) {
@@ -174,10 +174,10 @@ var archivos;
         $scope.archivo = true;
         $scope.id = ideventos;
         $scope.tipo = "folletos";
-         $scope.path = path;
-      //"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
+        $scope.path = path;
+        //"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
         console.log("ideventos : " + ideventos);
-         archivos="upfile_folletos.php";
+        archivos = "upfile_folletos.php";
     };
 
 
@@ -211,7 +211,7 @@ var archivos;
                 idevento: $scope.id,
                 path: $scope.path,
                 tipo: $scope.tipo,
-                titulo:$scope.titulo
+                titulo: $scope.titulo
             };
             return data;
         }
@@ -220,6 +220,271 @@ var archivos;
 
 
 });
+
+app.config(['$routeProvider', function ($routeProvider) {
+
+
+        $routeProvider.when('/noticias/:idevento/:path/:titulo', {
+            templateUrl: "noticias.php",
+            controller: "ControlNoticias"
+        });
+
+        $routeProvider.when('/documentos/:idevento/:path/:titulo', {
+            templateUrl: "documentos.php",
+            controller: "Controldocumentos"
+        });
+
+        $routeProvider.when('/imagenes/:idevento/:path/:titulo', {
+            templateUrl: "imagenes.php",
+            controller: "Controlimagenes"
+        });
+        $routeProvider.when('/folletos/:idevento/:path/:titulo', {
+            templateUrl: "folletos.php",
+            controller: "Controlfolletos"
+        });
+
+//  $routeProvider.otherwise({
+//        redirectTo: '/pagina1'
+//  });   
+
+    }]);
+
+
+app.controller("ControlNoticias", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
+        $scope.mensaje = "variable1='" + $routeParams.idevento + "' y variable2='" + $routeParams.path + "'";
+
+//        $scope.valor = true;
+//        $scope.id = $routeParams.idevento;
+//        $scope.tipo = "noticias";
+//        $scope.path = $routeParams.path;
+//        $scope.titulo = $routeParams.titulo;
+//        //"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
+
+        $scope.cargarnoticias = function (ideventos) {
+            $http({
+                url: '../controles/clases/intermedio.php',
+                method: "POST",
+                data: {tipo: 'Listanoticias', idevento: ideventos}
+            }).then(function (response) {
+                $scope.noticias = response.data.imagenes;
+                console.log(response);
+                console.log($scope.noticias[0].imagen);
+                var length = $scope.noticias.length;
+                console.log("Largo " + length);
+                $scope.notic = [];
+                for (i = 0; i < length; i++) {
+//      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
+                    $scope.notic.push('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/' + $scope.noticias[i].imagen);
+
+                };
+            })};
+      
+
+    }]);
+app.controller("Controldocumentos", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
+        $scope.mensaje = "variable1='" + $routeParams.idevento + "' y variable2='" + $routeParams.path + "'";
+
+        $scope.valor = true;
+        $scope.id = $routeParams.idevento;
+        $scope.tipo = "documentos";
+        $scope.path = $routeParams.path;
+        $scope.titulo = $routeParams.titulo;
+        //"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
+
+        $scope.cargarnoticias = function (ideventos) {
+            $http({
+                url: '../controles/clases/intermedio.php',
+                method: "POST",
+                data: {tipo: 'Listadocumentos', idevento: ideventos}
+            }).then(function (response) {
+                $scope.noticias = response.data.imagenes;
+                console.log(response);
+                console.log($scope.noticias[0].imagen);
+                var length = $scope.noticias.length;
+                console.log("Largo " + length);
+                $scope.notic = [];
+                for (i = 0; i < length; i++) {
+//      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
+                    $scope.notic.push('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/' + $scope.noticias[i].imagen);
+
+                }
+                ;
+
+
+
+                $("#inputid").fileinput({
+                    language: "es",
+                    uploadUrl: "../controles/controles/upfile.php",
+                    uploadAsync: true,
+                    minFilecount: 1,
+                    MaxFilecount: 5,
+                    showPreview: true,
+                    showRemove: true,
+                    initialPreview: $scope.notic,
+                    initialPreviewAsData: true, // identify if you are sending preview data only and not the raw markup
+                    initialPreviewFileType: 'image',
+//        initialPreviewConfig: [
+//            {caption: "People-1.jpg", size: 576237, width: "120px", url: "/site/file-delete", key: 1},
+//            {caption: "People-2.jpg", size: 932882, width: "120px", url: "/site/file-delete", key: 2},
+//        ],
+                    elErrorContainer: "#dedos",
+                    uploadExtraData: function () {
+                        var data = {
+                            idevento: $scope.id,
+                            path: $scope.path,
+                            tipo: $scope.tipo,
+                            titulo: $scope.titulo
+                        };
+                        return data;
+                    }
+
+                });
+
+
+            });
+
+        };
+
+
+        $scope.cargarnoticias($scope.id);
+    }]);
+
+app.controller("Controlimagenes", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
+        $scope.mensaje = "variable1='" + $routeParams.idevento + "' y variable2='" + $routeParams.path + "'";
+ $scope.grilla = false;
+        $scope.valor = true;
+        $scope.id = $routeParams.idevento;
+        $scope.tipo = "imagenes";
+        $scope.path = $routeParams.path;
+        $scope.titulo = $routeParams.titulo;
+        //"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
+
+        $scope.cargarnoticias = function (ideventos) {
+            $http({
+                url: '../controles/clases/intermedio.php',
+                method: "POST",
+                data: {tipo: 'ListaImagen', idevento: ideventos}
+            }).then(function (response) {
+                $scope.noticias = response.data.imagenes;
+                console.log(response);
+                console.log($scope.noticias[0].imagen);
+                var length = $scope.noticias.length;
+                console.log("Largo " + length);
+                $scope.notic = [];
+                for (i = 0; i < length; i++) {
+//      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
+                    $scope.notic.push('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/' + $scope.noticias[i].imagen);
+
+                }
+                ;
+
+
+
+                $("#inputid").fileinput({
+                    language: "es",
+                    uploadUrl: "../controles/controles/upfile.php",
+                    uploadAsync: true,
+                    minFilecount: 1,
+                    MaxFilecount: 5,
+                    showPreview: true,
+                    showRemove: true,
+                    initialPreview: $scope.notic,
+                    initialPreviewAsData: true, // identify if you are sending preview data only and not the raw markup
+                    initialPreviewFileType: 'image',
+//        initialPreviewConfig: [
+//            {caption: "People-1.jpg", size: 576237, width: "120px", url: "/site/file-delete", key: 1},
+//            {caption: "People-2.jpg", size: 932882, width: "120px", url: "/site/file-delete", key: 2},
+//        ],
+                    elErrorContainer: "#dedos",
+                    uploadExtraData: function () {
+                        var data = {
+                            idevento: $scope.id,
+                            path: $scope.path,
+                            tipo: $scope.tipo,
+                            titulo: $scope.titulo
+                        };
+                        return data;
+                    }
+
+                });
+
+
+            });
+
+        };
+
+
+        $scope.cargarnoticias($scope.id);
+    }]);
+
+app.controller("Controlfolletos", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
+        $scope.mensaje = "variable1='" + $routeParams.idevento + "' y variable2='" + $routeParams.path + "'";
+
+        $scope.valor = true;
+        $scope.id = $routeParams.idevento;
+        $scope.tipo = "folletos";
+        $scope.path = $routeParams.path;
+        $scope.titulo = $routeParams.titulo;
+        //"folletos_"+ $scope.formData.idpagina+"_"+ideventos;
+
+        $scope.cargarnoticias = function (ideventos) {
+            $http({
+                url: '../controles/clases/intermedio.php',
+                method: "POST",
+                data: {tipo: 'Listafolleto', idevento: ideventos}
+            }).then(function (response) {
+                $scope.noticias = response.data.imagenes;
+                console.log(response);
+                console.log($scope.noticias[0].imagen);
+                var length = $scope.noticias.length;
+                console.log("Largo " + length);
+                $scope.notic = [];
+                for (i = 0; i < length; i++) {
+//      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
+                    $scope.notic.push('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/' + $scope.noticias[i].imagen);
+
+                }
+                ;
+
+
+
+                $("#inputid").fileinput({
+                    language: "es",
+                    uploadUrl: "../controles/controles/upfile.php",
+                    uploadAsync: true,
+                    minFilecount: 1,
+                    MaxFilecount: 5,
+                    showPreview: true,
+                    showRemove: true,
+                    initialPreview: $scope.notic,
+                    initialPreviewAsData: true, // identify if you are sending preview data only and not the raw markup
+                    initialPreviewFileType: 'image',
+//        initialPreviewConfig: [
+//            {caption: "People-1.jpg", size: 576237, width: "120px", url: "/site/file-delete", key: 1},
+//            {caption: "People-2.jpg", size: 932882, width: "120px", url: "/site/file-delete", key: 2},
+//        ],
+                    elErrorContainer: "#dedos",
+                    uploadExtraData: function () {
+                        var data = {
+                            idevento: $scope.id,
+                            path: $scope.path,
+                            tipo: $scope.tipo,
+                            titulo: $scope.titulo
+                        };
+                        return data;
+                    }
+
+                });
+
+
+            });
+
+        };
+
+
+        $scope.cargarnoticias($scope.id);
+    }]);
+
 
 $(function () {
 

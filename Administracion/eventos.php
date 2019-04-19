@@ -6,6 +6,7 @@
         <link href="../summernote-master/dist/summernote-lite.css" rel="stylesheet" type="text/css"/>
         <script src="../summernote-master/dist/summernote-bs4.js" type="text/javascript"></script>
         <link href="../summernote-master/dist/summernote-bs4.css" rel="stylesheet" type="text/css"/>
+        <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.min.js'></script>
     </head>
     <body ng-app="App" ng-controller="eventos">
         <header>
@@ -43,7 +44,7 @@
                                     <input type="hidden" name="ideventos" id="ideventos"   ng-model="formData.ideventos" value="{{formData.ideventos}}" />
                                     <input type="hidden" name="pathold" id="pathold"   ng-model="formData.pathold" value="{{formData.path}}" />
                                     <input type="hidden" name="idpathold" id="idpathold"   ng-model="formData.idpathold" value="{{pagin}}" />
-                               
+
                                 </div>
                             </div>
                             <div class="form-group">  
@@ -52,7 +53,7 @@
                                     <select ng-model="formData.idpagina" id="idpagina" name="idpagina"  class="form-control" required 
                                             ng-options="operator.pagina for operator  in pag track by operator.idpagina" >
                                     </select>
-     {{formData.path}}-{{formData.idpathold}}
+
                                 </div>
                             </div>
                             <div class="form-group">  
@@ -86,28 +87,13 @@
 
 
 
-        <div id="dedos"></div>
-        <div class="row" >  
-            <div class="imagenes" ng-show="archivo">
-                <input id="input-id" name="imagenes[]"  multiple=true type="file" class="file" data-preview-file-type="text"/>
-                <div class="listaimagen">
-                    <div class="" ng-repeat="x in imagenes" >
-                        <div style="float: left;position: relative;">
-                            <img src="../icons/if_Cancel_1063907.png" title="Eliminar" class="borrarimagen" id="eliminarimagen" ng-click="eliminarimagen(x.idimagenes, x.idevento)"  />
 
-                            <img class="img-thumbnail" ng-src="../imagenes/eventos/{{x.path}}/{{x.imagen}}" style="float: left;position: relative; z-index:0; " width="250" height="150">
-                        </div>   
-                    </div>
-                </div>
-
-            </div>
-        </div>
         <div ng-show="grilla" class="row">
 
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                         <th style="width: 25px">
+                        <th style="width: 25px">
                             id
                         </th>
                         <th style="width: 200px">
@@ -132,7 +118,9 @@
                         <th style="width: 80px">
                             Documentos
                         </th>
-
+                        <th style="width: 80px">
+                            Noticias
+                        </th>
                         <th style="width: 80px">
                             Borrar
                         </th>
@@ -143,8 +131,8 @@
                 </thead>
                 <tbody ng-repeat="x in evento">
                     <tr>
-                         <th >
-                           {{x.ideventos}}
+                        <th >
+                            {{x.ideventos}}
                         </th>
                         <td>
                             {{x.titulo}}
@@ -159,20 +147,28 @@
                             <button ng-click="caco(x.ideventos)" class="btn btn-primary">Editar texto</button>
                         </td>
                         <td>
-                           <button data-titulo="{{x.titulo}}" data-path="{{x.path}}" data-ideventos="{{x.ideventos}}" ng-click="Afolletos(x.ideventos,x.path)" class="btn btn-primary">Folletos</button>
+                            <a ng-href="#noticias/{{x.ideventos}}/{{x.path}}/{{x.titulo}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-info" role="button">Folletos</a>
+                            <!--<button data-titulo="{{x.titulo}}" data-path="{{x.path}}" data-ideventos="{{x.ideventos}}" ng-click="Afolletos(x.ideventos,x.path)" class="btn btn-primary">Folletos</button>-->
                         </td>
                         <td>
-                            <button  data-titulo="{{x.titulo}}" data-path="{{x.path}}" data-idevento="{{x.ideventos}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-primary">Imagenes</button>
+                            <a ng-href="#imagenes/{{x.ideventos}}/{{x.path}}/{{x.titulo}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-info" role="button">Imagenes</a>
+                            <!--<button  data-titulo="{{x.titulo}}" data-path="{{x.path}}" data-idevento="{{x.ideventos}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-primary">Imagenes</button>-->
                         </td>
-
-<!--                            <td>
-                     <button id="upload1" data-titulo="{{x.titulo}}" data-ideventos="{{x.ideventos}}" ng-click="docu(x.ideventos);" class="btn btn-primary">Documentos</button>
-                 </td>-->
+                       
+                       <!--                            <td>
+                                            <button id="upload1" data-titulo="{{x.titulo}}" data-ideventos="{{x.ideventos}}" ng-click="docu(x.ideventos);" class="btn btn-primary">Documentos</button>
+                                        </td>-->
 
 
                         <td>
-                            <button data-titulo="{{x.titulo}}" data-ideventos="{{x.ideventos}}" ng-click="SubirDoc(x.ideventos, x.path)" class="btn btn-primary">Documentos</button>
+                             <a ng-href="#noticias/{{x.ideventos}}/{{x.path}}/{{x.titulo}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-info" role="button">Documentos</a>
+                            <!--<button data-titulo="{{x.titulo}}" data-ideventos="{{x.ideventos}}" ng-click="SubirDoc(x.ideventos, x.path)" class="btn btn-primary">Documentos</button>-->
                         </td>
+                        <td>
+                            <a ng-href="#noticias/{{x.ideventos}}/{{x.path}}/{{x.titulo}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-info" role="button">Noticias</a>
+                            <!--<button data-titulo="{{x.titulo}}" data-ideventos="{{x.ideventos}}" ng-src="#noticias/{{x.ideventos}}/{{x.path}}" class="btn btn-file">Noticias</button>-->
+                        </td>
+
 
                         <td>
                             <button ng-click="BorrarEventos(x.ideventos)" class="btn btn-primary">Borrar</button>
@@ -182,9 +178,13 @@
                             <button ng-click="BajaEventos(x.ideventos)" class="btn btn-primary">Baja</button>
                         </td>
                     </tr>
+                  
                 </tbody>
             </table>
         </div>
+        <div ng-view></div>
+
+
         <div id="message"></div>
         </div>
         <div id="dialog-confirm" title="Información">

@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="alert alert-success" role="alert">Imagenes</div>
+<div class="alert alert-success" role="alert">Documentos</div>
 <nav class="nav ">
 
     <a href="#" class="nav-item active">{{id}} - {{titulo}}</a>
@@ -13,7 +13,7 @@
 </nav>
 
 
-<section ng-controller="Controlimagenes" >
+<section ng-controller="Controldocumentos" >
     <div id="dedos"></div>
     <div class="row" ng-show="valor">  
         <div class="imagenes">
@@ -23,7 +23,7 @@
                     <div style="float: left;position: relative;">
                         <img src="../icons/if_Cancel_1063907.png" title="Eliminar" class="borrarimagen" id="eliminarimagen" ng-click="eliminarimagen(x.idimagenes, x.idevento)"  />
 
-                        <img class="img-thumbnail" ng-src="../imagenes/eventos/{{x.path}}/imagenes/{{x.imagen}}" style="float: left;position: relative; z-index:0; " width="250" height="150">
+                        <img class="img-thumbnail" ng-src="../imagenes/eventos/{{x.path}}/documentos/{{x.imagen}}" style="float: left;position: relative; z-index:0; " width="250" height="150">
                     </div>   
                 </div>
             </div>

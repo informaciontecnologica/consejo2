@@ -17,33 +17,72 @@ $tipo = $data->tipo;
 $eve = new Eventos();
 
 switch ($tipo) {
-
-    case'banner':
-       
-            
-        echo json_encode($eve->TodosEve());
+    case'ListaFolletos':
+        $idevento = $data->idevento;
+        $result = $eve->ListaFolletos($idevento);
+        echo json_encode($result);
+        exit();
+        break;
+    case'ListaImagen':
+        $idevento = $data->idevento;
+        $result = $eve->ListaImagen($idevento);
+        echo json_encode($result);
+        exit();
+        break;
+    case'ListaDocumentos':
+        $idevento = $data->idevento;
+        $result = $eve->ListaDocumentos($idevento);
+        echo json_encode($result);
+        exit();
+        break;
+    case'ListaNoticias':
+        $idevento = $data->idevento;
+        $result = $eve->ListaNoticias($idevento);
+        echo json_encode($result);
         exit();
         break;
     
+     case'BorrarEvento':
+        $idevento = $data->idevento;
+        $result = $eve->BorrarEventos($idevento);
+        echo json_encode($result);
+        exit();
+        break;
+    
+    case'Baja':
+        $idevento = $data->idevento;
+        $result = $eve->BajaEvento($idevento);
+        echo json_encode($result);
+        exit();
+        break;
+    
+    
+    case'banner':
+
+
+        echo json_encode($eve->TodosEve());
+        exit();
+        break;
+
     case'Agregar':
         $titulo = $data->titulo;
         $fecha = $data->fecha;
         $texto = $data->texto;
         $idpagina = $data->idpagina;
-        
-       
-        $result = $eve->InsertarEventos($titulo, $fecha, $texto,$idpagina);
+
+
+        $result = $eve->InsertarEventos($titulo, $fecha, $texto, $idpagina);
         echo json_encode(array("Estado" => "ok"));
         exit();
         break;
-    
-     case'eventosid':
+
+    case'eventosid':
         $idevento = $data->idevento;
-        $result = $eve-> Eventosid($idevento);
+        $result = $eve->Eventosid($idevento);
         echo json_encode($result);
         exit();
         break;
-    
+
     case 'todos':
         $eve = new Eventos();
 
@@ -58,56 +97,54 @@ switch ($tipo) {
         echo json_encode($eve->ListaImagen($idevento));
 
         break;
-    
+
     case 'Modificar':
-          $eve = new Eventos();
+        $eve = new Eventos();
         $idevento = $data->idevento;
         $titulo = $data->titulo;
         $fecha = $data->fecha;
         $texto = $data->texto;
-        $idpagina= $data->idpagina;
-        $idpathold= $data->idpathold;
-        $pathold= $data->pathold;
-       
-     
-         
-        if ($idpagina!=$idpathold){
-             $paginao=$eve->ListaPagina($idpathold);
-             $pathold=$paginao[0]['pagina']."_" . $idpathold. "_" .$idevento;
-             $paginan=$eve->ListaPagina($idpagina);
-             $pathnew = $paginan[0]['pagina']."_" . $idpagina . "_" .$idevento;
-             $dd="../../imagenes/".$pathold."-../../imagenes/".$pathnew;
-             if (!rename("../../imagenes/".$pathold."/","../../imagenes/".$pathnew."/"))
-                 die("error nombrar");
-             $path=$pathnew;
-            
+        $idpagina = $data->idpagina;
+        $idpathold = $data->idpathold;
+        $pathold = $data->pathold;
+
+
+
+        if ($idpagina != $idpathold) {
+            $paginao = $eve->ListaPagina($idpathold);
+            $pathold = $paginao[0]['pagina'] . "_" . $idpathold . "_" . $idevento;
+            $paginan = $eve->ListaPagina($idpagina);
+            $pathnew = $paginan[0]['pagina'] . "_" . $idpagina . "_" . $idevento;
+            $dd = "../../imagenes/" . $pathold . "-../../imagenes/" . $pathnew;
+            if (!rename("../../imagenes/" . $pathold . "/", "../../imagenes/" . $pathnew . "/"))
+                die("error nombrar");
+            $path = $pathnew;
         } else {
-             $pagina=$eve->ListaPagina($idpagina);
-             $pathnew = $pagina[0]['pagina']."_" . $idpagina . "_" .$idevento;
-             $path=$pathnew;
-             
+            $pagina = $eve->ListaPagina($idpagina);
+            $pathnew = $pagina[0]['pagina'] . "_" . $idpagina . "_" . $idevento;
+            $path = $pathnew;
         }
-        
-        $result = $eve->SetEventos($idevento, $titulo, $fecha, $texto,$idpagina,$path);
-        echo json_encode(array("Estado"=>$result));
+
+        $result = $eve->SetEventos($idevento, $titulo, $fecha, $texto, $idpagina, $path);
+        echo json_encode(array("Estado" => $result));
         break;
 
     case 'TodosEventosAgrupados':
         $eve = new Eventos();
-        
+
         echo json_encode($eve->TodosEventosAgrupados());
 // 
         exit();
         break;
-    
-       case 'TodosEve':
+
+    case 'TodosEve':
         $eve = new Eventos();
-        
+
         echo json_encode($eve->TodosEve());
 // 
         exit();
         break;
-    
+
     case 'Borrar_eventos':
         $eve = new Eventos();
         $ideventos = $data->ideventos;
@@ -115,30 +152,29 @@ switch ($tipo) {
 // 
         exit();
         break;
-    
+
     case 'Borrarimagen':
         $eve = new Eventos();
         $idimagenevento = $data->idimagenevento;
         $imagenevento = $data->imagenevento;
-      
-        if ($eve->Borrarimagen($idimagenevento, $imagenevento))
-                {
-           echo json_encode(array("Estado"=>"true"));
+
+        if ($eve->Borrarimagen($idimagenevento, $imagenevento)) {
+            echo json_encode(array("Estado" => "true"));
         } else {
-        echo json_encode(array("Estado"=>"false"));    
+            echo json_encode(array("Estado" => "false"));
         }
- 
+
         exit();
         break;
-         case 'prueba':
+    case 'prueba':
         $eve = new Eventos();
 //        $idimagenevento = $data->idimagenevento;
 //        $imagenevento = $data->imagenevento;
-      
-       echo json_encode($eve->prueba());
-             
-       
- 
+
+        echo json_encode($eve->prueba());
+
+
+
         exit();
         break;
 }
