@@ -21,21 +21,43 @@ class Eventos {
     private $foto;
     private $idevento;
     public $nombre_carpeta = "../../imagenes/eventos";
- function ListaPagina($idpagina) {
-        
-            $pdo = new conexion();
-            $string = "select * from paginas where idpagina=:idpagina";
-            $consulta = $pdo->prepare($string);
-            $consulta->bindparam(':idpagina', $idpagina);
-            $consulta->execute();
-            if ($consulta){
-             while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+
+    function Agregar_Noticia($valores) {
+        $idevento = $valores->idevento;
+        $fecha = $valores->fecha;
+        $titulo = $valores->titulo;
+        $texto = $valores->texto;
+        print_r($valores);
+        $pdo = new conexion();
+        $string = "insert into noticias set (fecha,titulo,texto) value (:fecha,:titulo,:texto)";
+        $consulta = $pdo->prepare($string);
+        $consulta->bindparam(':idevento', $idevento);
+        $consulta->bindparam(':fecha', $fecha);
+        $consulta->bindparam(':titulo', $titulo);
+        $consulta->bindparam(':texto', $texto);
+        $consulta->execute();
+        if ($consulta) {
+            return array("noticias" => "true");
+        } else {
+            return array("noticias" => "false");
+        }
+    }
+
+    function ListaPagina($idpagina) {
+
+        $pdo = new conexion();
+        $string = "select * from paginas where idpagina=:idpagina";
+        $consulta = $pdo->prepare($string);
+        $consulta->bindparam(':idpagina', $idpagina);
+        $consulta->execute();
+        if ($consulta) {
+            while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 $rows[] = $registro;
             }
-           return $rows;
-            }
+            return $rows;
         }
-    
+    }
+
     function GetFotoEvento($ideventos) {
         if ($ideventos != "") {
             $pdo = new conexion();
@@ -71,7 +93,8 @@ class Eventos {
         }
         return $pa;
     }
-        function ListaFolletos($idevento) {
+
+    function ListaFolletos($idevento) {
 
         $pdo = new conexion();
         $string = "SELECT * FROM folletos where  idevento=:idevento";
@@ -89,7 +112,8 @@ class Eventos {
         }
         return $pa;
     }
-        function ListaDocumentos($idevento) {
+
+    function ListaDocumentos($idevento) {
 
         $pdo = new conexion();
         $string = "SELECT * FROM documentos where  idevento=:idevento";
@@ -106,10 +130,9 @@ class Eventos {
             $pa = array('documentos' => null);
         }
         return $pa;
-        }
+    }
 
-        
-        function ListaNoticias($idevento) {
+    function ListaNoticias($idevento) {
 
         $pdo = new conexion();
         $string = "SELECT * FROM noticias where  idevento=:idevento";
@@ -159,7 +182,7 @@ class Eventos {
         if ($row = $rs->fetch(PDO::FETCH_ASSOC)) {
             $id[] = $row;
         }
-        print_r($id);
+//        print_r($id);
         $path = "evento_" . $idpagina . "_" . ($id[0]['id'] + 1);
 
 
@@ -173,7 +196,7 @@ class Eventos {
 //        $consulta->bindparam(':idimagenevento',$id);
         $consulta->execute();
         if ($consulta) {
-            
+            return array("Estado" => "OK");
         }
     }
 
@@ -236,7 +259,7 @@ class Eventos {
 
                     //------------------------------------
 
-                ;
+                    ;
                     foreach ($eventos as $eventoid => $valoreve) {
 
                         foreach ($imagenes as $imagenid => $valorimag) {
@@ -250,7 +273,7 @@ class Eventos {
                             }
                         }
                         if (!isset($documentos)) {
-                
+
                             foreach ($documentos as $documid => $valordocumento) {
 
                                 if ($valoreve['ideventos'] == $valordocumento['idevento']) {
@@ -316,7 +339,7 @@ class Eventos {
         $consulta = $pdo->prepare($string);
         $consulta->bindparam(':idevento', $idevento);
         $consulta->execute();
-      if ($consulta->rowCount() > 0) {
+        if ($consulta->rowCount() > 0) {
             while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 $eventos[] = $registro;
             }
@@ -351,7 +374,7 @@ class Eventos {
 
                     //------------------------------------
 
-                ;
+                    ;
                     foreach ($eventos as $eventoid => $valoreve) {
 
                         foreach ($imagenes as $imagenid => $valorimag) {
@@ -365,13 +388,12 @@ class Eventos {
                             }
                         }
                         if (!isset($documentos)) {
-                
+
                             foreach ($documentos as $documid => $valordocumento) {
 
                                 if ($valoreve['ideventos'] == $valordocumento['idevento']) {
 
                                     $eventos[$eventoid]['documentos'] = explode(',', $valordocumento['archivo']);
-
                                 }
                             }
                         }
@@ -387,8 +409,8 @@ class Eventos {
         }
     }
 
-    function SetEventos($idevento, $titulo, $fecha, $texto, $idpagina,$path) {
-      //  echo "$idevento, $titulo, $fecha, $texto, $idpagina,$path";
+    function SetEventos($idevento, $titulo, $fecha, $texto, $idpagina, $path) {
+        //  echo "$idevento, $titulo, $fecha, $texto, $idpagina,$path";
         $pdo3 = new conexion();
         $cadena2 = "update eventos set fecha = :fecha, titulo = :titulo, texto =:texto, idpagina=:idpagina, path=:path where ideventos = :ideventos";
         $consulta = $pdo3->prepare($cadena2);
@@ -401,7 +423,6 @@ class Eventos {
         $consulta->execute();
         if ($consulta) {
             $pa = array("Estado" => 'ok');
-            
         } else {
             $pa = array("Estado" => 'false');
         }
@@ -456,34 +477,65 @@ class Eventos {
         }
     }
 
-    function BorrarEventos($ideventos) {
+/**
+ * Remove a non empty directory
+ * @author Cristián Pérez
+ * @param string $path Folder Path
+ * @return bool
+ */
+function removeDirectory($path)
+{
+    $path = rtrim( strval( $path ), '/' ) ;
+    
+    $d = dir( $path );
+    
+    if( ! $d )
+        return false;
+    
+    while ( false !== ($current = $d->read()) )
+    {
+        if( $current === '.' || $current === '..')
+            continue;
+        
+        $file = $d->path . '/' . $current;
+        
+        if( is_dir($file) )
+            $this-> removeDirectory($file);
+        
+        if( is_file($file) )
+            unlink($file);
+    }
+    
+    rmdir( $d->path );
+    $d->close();
+    return true;
+}
+    function BorrarEvento($idevento, $path) {
+        $ruta = "../../imagenes/" . $path;
+        if (is_dir($ruta))
+           $this-> removeDirectory($ruta);
+
+
+
         $pdo3 = new conexion();
-//
-        $cadena2 = "SELECT * FROM imageneventos WHERE `ideventos`=:ideventos";
-        $consulta = $pdo3->prepare($cadena2);
-        $consulta->bindparam(':ideventos', $ideventos);
-        $consulta->execute();
-        if ($consulta->rowCount() > 0) {
-            while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                $rows[] = $registro;
-            }
-
-            $cadena1 = "delete FROM `imageneventos` WHERE `ideventos`=:ideventos";
-            $consulta = $pdo3->prepare($cadena1);
-            $consulta->bindparam(':ideventos', $ideventos);
-            $consulta->execute();
-            if (isset($rows)) {
-                foreach ($rows as $clave => $valor) {
-                    echo $valor['link'];
-                    unlink("../../imagenes/eventos/" . $valor['imagenevento']);
-                }
-            }
-        }
-
         $cadena2 = "delete from eventos  where ideventos= :ideventos";
         $consulta = $pdo3->prepare($cadena2);
+        $consulta->bindparam(':ideventos', $idevento);
+        $consulta->execute();
+
+        $cadena2 = "delete from imagenes  where ideventos= :ideventos";
+        $consulta = $pdo3->prepare($cadena2);
         $consulta->bindparam(':ideventos', $ideventos);
         $consulta->execute();
+        $cadena2 = "delete from folletos  where ideventos= :ideventos";
+        $consulta = $pdo3->prepare($cadena2);
+        $consulta->bindparam(':ideventos', $ideventos);
+        $consulta->execute();
+        $cadena2 = "delete from documentos  where ideventos= :ideventos";
+        $consulta = $pdo3->prepare($cadena2);
+        $consulta->bindparam(':ideventos', $ideventos);
+        $consulta->execute();
+
 
         $pa = array("Estado" => "ok");
         return $pa;

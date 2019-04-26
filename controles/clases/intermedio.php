@@ -41,10 +41,17 @@ switch ($tipo) {
         echo json_encode($result);
         exit();
         break;
+     case'Agregar_Noticia':
+        $valores = $data->valores;
+        $result = $eve->Agregar_Noticia($valores);
+        echo json_encode($result);
+        exit();
+        break;
     
      case'BorrarEvento':
         $idevento = $data->idevento;
-        $result = $eve->BorrarEventos($idevento);
+         $path = $data->path;
+        $result = $eve->BorrarEvento($idevento,$path);
         echo json_encode($result);
         exit();
         break;
@@ -72,7 +79,7 @@ switch ($tipo) {
 
 
         $result = $eve->InsertarEventos($titulo, $fecha, $texto, $idpagina);
-        echo json_encode(array("Estado" => "ok"));
+        echo json_encode($result);
         exit();
         break;
 

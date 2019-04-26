@@ -70,20 +70,22 @@ and open the template in the editor.
 
                                     </div>
                                 </div>
-    <?php }
-}
-?>
-                    </div></div>
+                            <?php
+                            }
+                        }
+                        ?>
+                    </div></div>micro
             </section>
 
             <div class="col-md-12 col-xs-12 Precios_jus" >
                 <h4>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h4>
             </div>
-<!--            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
-                <h4 style=" color: #761c19;  ">ATENCIÓN: DIPLOMATURA EN DERECHO PENAL SUSPENSION DE CLASES </h4>
-                <p >El Consejo Profesional de la Abogacía informa a los alumnos de la Diplomatura que la clase del día <strong>Viernes 12 de Abril de 2019 SE SUSPENDE </strong> por razones de salud del Dr. Marcelo SANCINETTI, hasta nuevo aviso.
-                    <strong>Formosa, 11 de Abril de 2019</strong>.</p>
-            </div>-->
+                        <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
+            <h4 style=" color: #761c19;  ">INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
+                            <h4 style=" color: #761c19;  ">REUNION: INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
+                            <p >El día 24 de Abril del cte año a las 20.00 hs se  reunieron en la sede del Consejo Profesional de la Abogacía, los abogados interesados en la reactivación del Instituto de Derecho de las Familias y Sucesiones.
+            En ese contexto, se invita a todos los colegas que deseen participar en la citada rama académica, a la próxima reunión que se llevará a cabo el día 08 de Mayo a las 20 hs, en la sede del Consejo.</p>
+                        </div>
 
 
 
@@ -92,12 +94,20 @@ and open the template in the editor.
                     <h3 style="text-align: center">Noticias</h3>
 
                     <article>
+                        <h4 style="text-align: center">DERECHO PROCESAL CONSTITUCIONAL ARGENTINO PARAGUAYO  “EL DEBIDO PROCESO</h4>
+                        <h5>MODULO I:Dra. Mirta SOTELO de ANDREAU </h5>
+                        <p >Se informa a los interesados preinscriptos, que las primeras clases se desarrollarán en la sede del Consejo Profesional de la Abogacía el <strong>Jueves 23 de Mayo y el Viernes 24 de Mayo, a las 16 hs</strong> respectivamente.
+                            Las mismas estarán a cargo de la Dra. Mirta SOTELO de ANDREAU quien desarrollará el tema: “DERECHO PROCESAL CONSTITUCIONAL. DEBIDO PROCESO”.</p>
+
+                    </article>
+
+<!--                    <article>
                         <h4 style="text-align: center">DIPLOMATURA EN DERECHO PENAL</h4>
                         <h5>TERCERA CLASE: 12 de Abril de 2019 de 14 a 20 hs Disertante: Dr. Marcelo SANCINETTI</h5>
                         <p >El Consejo Profesional de la Abogacía recuerda a los profesionales que cursan la “DIPLOMATURA EN DERECHO PENAL” que las clases continúan en su sede el día Viernes 12 de Abril de 2019 desde las 14.00 horas.
                             <strong>Formosa, 11 de Abril de 2019</strong>.</p>
 
-                    </article>
+                    </article>-->
                     <article class="bg-info" style="padding-left: 5px; padding-right: 5px;" >
                         <H3  style="padding-left: 5px;">ATENCIÓN</H3>
                         <h5><strong>CURSOS DICTADOS EN EL CONSEJO DE ABOGADOS</strong></h5>
@@ -108,7 +118,7 @@ and open the template in the editor.
 
 
                 </div>
-                <div class="col-xs-12 col-md-12 efemerides">
+<!--                <div class="col-xs-12 col-md-12 efemerides">
                     <h3 style="text-align: center; ">Efemerides</h3>
 
                     <h4 style="text-align: center">DIA INTERNACIONAL DE LA MUJER</h4>
@@ -121,15 +131,15 @@ and open the template in the editor.
                         A todas, nuestros cordiales saludos y nuestro reconocimiento.
 
                         <br><strong>Formosa, 8 de marzo de 2019.</strong></p>    
-                </div>
+                </div>-->
 
             </aside>
             <section class="col-md-8 col-xs-12 bg-success " style="min-height: 450px; max-height:800px; display: block;">
                 <div class="row">
-                    <div >
-                        <h4 class="text-center">Cursos</h4>
-                        <div class="">
-                            <div class='btn-group'> 
+                    <div class="col-md-12" >
+                     
+                        <div class=" col-md-6 ">
+                            <div class='btn-group pull-right'> 
                                 <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
                                 <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
                                 <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage >= usuarios.length / pageSize - 1'  ng-click='currentPage = currentPage + 1'>&raquo;</button>
@@ -142,9 +152,9 @@ and open the template in the editor.
                         <div >
                             <!--                    <h3>{{eve.titulo}}</h3>
                                                 <h5>Fecha del evento: {{eve.fecha| date:'dd/MM/yyyy'}}</h5>-->
-                            <a ng-href="eventos.php?id={{eve.ideventos}}"><h5 class="bg-success text-warning text-center"> {{eve.ideventos}} - {{ eve.titulo}}</h5> </a>
+                            <a ng-href="eventos.php?id={{eve.ideventos}}"><h5 class="bg-success text-warning text-center"> {{eve.ideventos}} - {{ eve.titulo}}</h5>  </a>
                             <div class="col-xs-12 col-md-12  " style="height: 150px;" ng-bind-html="eve.texto |cortarTexto:400"></div>
-<!--                           <p>{{eve.texto|cortarTexto:100}} Mas++</p> -->
+                            <p class="pull-right"> <a ng-href="eventos.php?id={{eve.ideventos}}"> Mas ... </a></p>
 
                             <div class="col-md-12 col-xs-12 img-thumbnail" ng-repeat="folleto in eve.folletos| limitTo:1" >
                                 <!--<img target="Click al Ingresar" class="img-responsive" width="350px" ng-src="../imagenes/eventos/{{eve.path_imagen}}/{{folleto}}" title=""/>-->
@@ -184,11 +194,11 @@ and open the template in the editor.
                 <div id="carousel-example-generic" class="carousel slide  " style=" text-align: center; height:400px; margin-top: 25px; margin: auto;" data-ride="carousel" >
                     <!--Indicators--> 
                     <ol class="carousel-indicators">
-                <?php
-                for ($index = 0; $index < $fila; $index++) {
+                        <?php
+                        for ($index = 0; $index < $fila; $index++) {
 
-                    $re = ($index == 0) ? $clas = 'class="active"' : "";
-                    ?>
+                            $re = ($index == 0) ? $clas = 'class="active"' : "";
+                            ?>
                             <li data-target="#carousel-example-generic" data-slide-to="<?php echo $index ?>" <?php echo $clas ?>></li>
 
 
@@ -196,23 +206,23 @@ and open the template in the editor.
 
                         <!--Wrapper for slides--> 
                         <div class="carousel-inner" role="listbox">
-    <?php
-    for ($index = 0; $index < $fila; $index++) {
+                            <?php
+                            for ($index = 0; $index < $fila; $index++) {
 
-        $re = ($index == $fila - 1) ? $clas = 'active' : "";
-        ?>
+                                $re = ($index == $fila - 1) ? $clas = 'active' : "";
+                                ?>
                                 <div class="item <?php echo $clas ?>">
 
                                     <img style="height: 400px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
                                     <div class="carousel-caption"  >
                                         <p style="background-color:  #555;">
-        <?php
-        echo $rows[$index]['titulo'];
-        ?>
+                                            <?php
+                                            echo $rows[$index]['titulo'];
+                                            ?>
 
                                     </div>
                                 </div>
-                                        <?php }; ?>
+    <?php }; ?>
 
                         </div>
 
@@ -226,45 +236,41 @@ and open the template in the editor.
                         </a>
                     </div> 
 
-    <?php
-}
+                    <?php
+                }
 
-;
-?>
+                ;
+                ?>
 
             </section>
 
-
-
-
-
             <section class="col-md-12 col-xs-12 menu_resoluciones" >
-                <div class=" col-xs-12 col-md-4 text-center"> 
+                <div class=" col-xs-12 col-md-6 text-center"> 
                     <h4 class="text-center">Resoluciones</h4>
                     <img width="100px" height="100px" src="../imagenes/front-end/resoluciones.png" alt=""/>  
                     <p>Proximamente</p>
 
                 </div> 
-                <div class="col-xs-12 col-md-4  text-center">
+                <div class="col-xs-12 col-md-6  text-center">
                     <h4 class="text-center">Inscripciones</h4>
                     <img width="200px" height="100px" src="../imagenes/front-end/inscripcion.jpg" alt=""/> 
                     <p>Proximamente</p>
                 </div>
 
-                <div class="col-xs-12 col-md-4">   
-                    <h4 class="text-center">Varios</h4>
-                    <p>Proximamente</p>
-                    <ul class="list-unstyled" ng-repeat = "eve in resoluciones">
-                        <li ><a  title="{{eve.tag}}" ng-href = "resoluciones.php?res={{eve.idresolucion}}"><p>{{eve.tag}}</p></a></li>
-
-                    </ul>
-                </div>
+                <!--                <div class="col-xs-12 col-md-4">   
+                                    <h4 class="text-center">Varios</h4>
+                                    <p>Proximamente</p>
+                                    <ul class="list-unstyled" ng-repeat = "eve in resoluciones">
+                                        <li ><a  title="{{eve.tag}}" ng-href = "resoluciones.php?res={{eve.idresolucion}}"><p>{{eve.tag}}</p></a></li>
+                
+                                    </ul>
+                                </div>-->
 
             </section>
 
         </div>
-<?php include '../pie.php';
-?> 
+        <?php include '../pie.php';
+        ?> 
     </body>
     <script src="../js/index.js" type="text/javascript"></script>
 </html>

@@ -78,7 +78,7 @@ app.controller('eventos', function ($scope, $http, $filter) {
         } else {
             $scope.grilla = !false;
             $scope.formulario = !true;
-
+            $scope.Listaeventos();
         }
     };
 
@@ -109,14 +109,14 @@ app.controller('eventos', function ($scope, $http, $filter) {
         $scope.accion = 'Modificar';
     };
 
-    $scope.BorrarEventos = function (ideventos) {
+    $scope.BorrarEventos = function (ideventos, path) {
         $http({
             url: '../controles/clases/intermedio.php',
             method: "POST",
-            data: {tipo: 'Borrar_eventos', ideventos: ideventos}
+            data: {tipo: 'BorrarEvento', idevento: ideventos, path: path}
         }).then(function (response) {
             console.log(response);
-            location.reload();
+//            location.reload();
         });
 
     };
@@ -294,18 +294,29 @@ app.controller("ControlNoticias", ["$scope", "$http", "$routeParams", function (
             $scope.form.fecha.setDate($scope.form.fecha.getDate() + 1);
             $scope.form.tipo = "Modificar";
         };
-        $scope.Formularionoti=function(){
-          switch ($scope.form.tipo){
-              case "Modificar":
-                  
-                    break;
-              case "Agregar":
-                    
-                    break;
-                    
-                  
-          }
-            
+        $scope.formularios = function (tipo, valores) {
+            $http({
+                url: '../controles/clases/intermedio.php',
+                method: "POST",
+                data: {tipo: tipo, valores: valores}
+            }).then(function (response) {
+
+                console.log(response);
+
+
+
+            })
+        };
+        $scope.Formularionoti = function () {
+            $scope.form.idevento = $scope.id;
+
+            $scope.formularios($scope.form.tipo + "_Noticia", $scope.form);
+
+
+            console.log($scope.id);
+
+
+
         };
 
     }]);
@@ -596,7 +607,7 @@ $(function () {
             success: function (response) {
                 var arr = JSON.stringify(response);
                 console.log("Estado:" + response.Estado);
-                if (response.Estado == "ok") {
+                if (response.Estado == "OK") {
                     location.reload();
                 }
 

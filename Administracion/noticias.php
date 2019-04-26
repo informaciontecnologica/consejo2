@@ -49,8 +49,8 @@
 
 </section>
 <section ng-show="Formul">
-    <form ng-submit="Formularionoti" role="Form">
-        <input ng-value="{{x.ideventos}}" ng-model="form.idevento" type="hidden"/>
+    <form ng-submit="Formularionoti()" role="Form">
+        <input ng-value="{{x.ideventos}}" value="{{x.ideventos}}" name="idevento" ng-model="form.id" type="hidden"/>
       <div class="form-group col-md-3">
     <label for="Fecha">Fecha</label>
     <input type="date" ng-model="form.fecha" class="form-control col-md-3" id="fecha" aria-describedby="emailHelp" placeholder="Fecha Noticia">

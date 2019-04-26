@@ -66,7 +66,7 @@ and open the template in the editor.
                 <div class="row col-xs-12 ">
                     <div class="col-xs-12 col-md-12 TarjertaEventos" ng-repeat="eve in evento| filter:search | startFromGrid: currentPage * pageSize | limitTo: pageSize">
                         <div class="col-xs-12 col-md-12">
-                            <h3 >{{eve.titulo}} Fecha del evento: {{eve.fecha| date:'dd/MM/yyyy'}}
+                            <h3 >{{eve.titulo}} 
                                 <!--<a  class="pull-right" target="Bajas documentación" ng-href='../imagenes/{{eve.path}}/documentos/{{eve.}}' >{{eve.imagenevento != null ? "download" : "" }}</a></h3>-->
                             <h5></h5>
                         </div>

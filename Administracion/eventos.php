@@ -171,7 +171,7 @@
 
 
                         <td>
-                            <button ng-click="BorrarEventos(x.ideventos)" class="btn btn-primary">Borrar</button>
+                            <button ng-click="BorrarEventos(x.ideventos,x.path)" class="btn btn-primary">Borrar</button>
 
                         </td>
                         <td>
