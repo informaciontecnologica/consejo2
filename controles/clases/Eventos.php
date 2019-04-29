@@ -221,7 +221,7 @@ class Eventos {
 
     function TodosEve() {
         $pdo = new conexion();
-        $string = "select * from eventos order by fecha desc ";
+        $string = "select e.*,p.pagina from eventos e left join paginas p on e.idpagina=p.idpagina order by fecha desc ";
         $consulta = $pdo->prepare($string);
         $consulta->execute();
         if ($consulta->rowCount() > 0) {

@@ -70,44 +70,45 @@ and open the template in the editor.
 
                                     </div>
                                 </div>
-                            <?php
+                                <?php
                             }
                         }
                         ?>
-                    </div></div>micro
+                    </div></div>
             </section>
 
             <div class="col-md-12 col-xs-12 Precios_jus" >
                 <h4>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h4>
             </div>
-                        <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
-            <h4 style=" color: #761c19;  ">INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
-                            <h4 style=" color: #761c19;  ">REUNION: INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
-                            <p >El día 24 de Abril del cte año a las 20.00 hs se  reunieron en la sede del Consejo Profesional de la Abogacía, los abogados interesados en la reactivación del Instituto de Derecho de las Familias y Sucesiones.
-            En ese contexto, se invita a todos los colegas que deseen participar en la citada rama académica, a la próxima reunión que se llevará a cabo el día 08 de Mayo a las 20 hs, en la sede del Consejo.</p>
-                        </div>
+            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
+                <h4 style=" color: #761c19;  ">DIPLOMATURA EN DERECHO PRIVADO PATRIMONIAL</h4>
+                <h4 style=" color: #761c19;  ">INICIO: INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
+                <p >El  Consejo Profesional de la Abogacía recuerda a los interesados inscriptos en la  Diplomatura en Derecho Privado Patrimonial que la primera clase se inicia en el día de la fecha: 
+                    <strong>26 de Abril de  2019 en su sede de calle San Martín  569 a partir de las 14 hs.
+                        Docente: Dr. Marcelo López Mesaz</strong></p>
+            </div>
 
 
 
-            <aside class="col-xs-12 col-md-4 " style="float: right" >
+            <aside class="col-xs-12 col-md-4 pull-right aaside"  >
                 <div class="col-xs-12 col-md-12 noticias" >
                     <h3 style="text-align: center">Noticias</h3>
 
                     <article>
-                        <h4 style="text-align: center">DERECHO PROCESAL CONSTITUCIONAL ARGENTINO PARAGUAYO  “EL DEBIDO PROCESO</h4>
-                        <h5>MODULO I:Dra. Mirta SOTELO de ANDREAU </h5>
-                        <p >Se informa a los interesados preinscriptos, que las primeras clases se desarrollarán en la sede del Consejo Profesional de la Abogacía el <strong>Jueves 23 de Mayo y el Viernes 24 de Mayo, a las 16 hs</strong> respectivamente.
-                            Las mismas estarán a cargo de la Dra. Mirta SOTELO de ANDREAU quien desarrollará el tema: “DERECHO PROCESAL CONSTITUCIONAL. DEBIDO PROCESO”.</p>
+                        <h4 style=" color: #761c19;  ">INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
+                        <h5 style=" color: #761c19;  ">REUNION: INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h5>
+                        <p >El día 24 de Abril del cte año a las 20.00 hs se  reunieron en la sede del Consejo Profesional de la Abogacía, los abogados interesados en la reactivación del Instituto de Derecho de las Familias y Sucesiones.
+                            En ese contexto, se invita a todos los colegas que deseen participar en la citada rama académica, a la próxima reunión que se llevará a cabo el día 08 de Mayo a las 20 hs, en la sede del Consejo.</p>
 
                     </article>
 
-<!--                    <article>
-                        <h4 style="text-align: center">DIPLOMATURA EN DERECHO PENAL</h4>
-                        <h5>TERCERA CLASE: 12 de Abril de 2019 de 14 a 20 hs Disertante: Dr. Marcelo SANCINETTI</h5>
-                        <p >El Consejo Profesional de la Abogacía recuerda a los profesionales que cursan la “DIPLOMATURA EN DERECHO PENAL” que las clases continúan en su sede el día Viernes 12 de Abril de 2019 desde las 14.00 horas.
-                            <strong>Formosa, 11 de Abril de 2019</strong>.</p>
-
-                    </article>-->
+                    <!--                    <article>
+                                            <h4 style="text-align: center">DIPLOMATURA EN DERECHO PENAL</h4>
+                                            <h5>TERCERA CLASE: 12 de Abril de 2019 de 14 a 20 hs Disertante: Dr. Marcelo SANCINETTI</h5>
+                                            <p >El Consejo Profesional de la Abogacía recuerda a los profesionales que cursan la “DIPLOMATURA EN DERECHO PENAL” que las clases continúan en su sede el día Viernes 12 de Abril de 2019 desde las 14.00 horas.
+                                                <strong>Formosa, 11 de Abril de 2019</strong>.</p>
+                    
+                                        </article>-->
                     <article class="bg-info" style="padding-left: 5px; padding-right: 5px;" >
                         <H3  style="padding-left: 5px;">ATENCIÓN</H3>
                         <h5><strong>CURSOS DICTADOS EN EL CONSEJO DE ABOGADOS</strong></h5>
@@ -118,40 +119,38 @@ and open the template in the editor.
 
 
                 </div>
-<!--                <div class="col-xs-12 col-md-12 efemerides">
-                    <h3 style="text-align: center; ">Efemerides</h3>
-
-                    <h4 style="text-align: center">DIA INTERNACIONAL DE LA MUJER</h4>
-                    <h5><strong>DIA INTERNACIONAL DE LA MUJER</strong></h5>
-                    <p>El Consejo Profesional de la Abogacía adhiere y saluda a las colegas y en su nombre a todas las mujeres en su día:
-                        A aquellas que nos representan en los campos de la ciencia, la tecnología, la ingeniería, la docencia, los oficios, las comunicaciones y a todas quienes abogan por innovaciones sensibles al género que conformarán las sociedades del futuro.
-                        A aquellas emprendedoras sociales; las que trabajan a favor de la igualdad de género para eliminar barreras y acelerar los avances hacia ese objetivo.
-                        Todos hemos nacido de una mujer y ese solo hecho demuestra el valor social y humano de su condición, preponderante en la sociedad y en la familia. A ellas, nuestra gratitud.
-                        A aquellas que ejercen un rol activo bregando por la creación de sistemas mas inclusivos, servicios eficientes e infraestructuras sostenibles para acelerar el logro de la igualdad de género.
-                        A todas, nuestros cordiales saludos y nuestro reconocimiento.
-
-                        <br><strong>Formosa, 8 de marzo de 2019.</strong></p>    
-                </div>-->
+                <!--                <div class="col-xs-12 col-md-12 efemerides">
+                                    <h3 style="text-align: center; ">Efemerides</h3>
+                
+                                    <h4 style="text-align: center">DIA INTERNACIONAL DE LA MUJER</h4>
+                                    <h5><strong>DIA INTERNACIONAL DE LA MUJER</strong></h5>
+                                    <p>El Consejo Profesional de la Abogacía adhiere y saluda a las colegas y en su nombre a todas las mujeres en su día:
+                                        A aquellas que nos representan en los campos de la ciencia, la tecnología, la ingeniería, la docencia, los oficios, las comunicaciones y a todas quienes abogan por innovaciones sensibles al género que conformarán las sociedades del futuro.
+                                        A aquellas emprendedoras sociales; las que trabajan a favor de la igualdad de género para eliminar barreras y acelerar los avances hacia ese objetivo.
+                                        Todos hemos nacido de una mujer y ese solo hecho demuestra el valor social y humano de su condición, preponderante en la sociedad y en la familia. A ellas, nuestra gratitud.
+                                        A aquellas que ejercen un rol activo bregando por la creación de sistemas mas inclusivos, servicios eficientes e infraestructuras sostenibles para acelerar el logro de la igualdad de género.
+                                        A todas, nuestros cordiales saludos y nuestro reconocimiento.
+                
+                                        <br><strong>Formosa, 8 de marzo de 2019.</strong></p>    
+                                </div>-->
 
             </aside>
-            <section class="col-md-8 col-xs-12 bg-success " style="min-height: 450px; max-height:800px; display: block;">
+            <section class="col-md-8 col-xs-12 bg-success " >
                 <div class="row">
                     <div class="col-md-12" >
-                     
-                        <div class=" col-md-6 ">
-                            <div class='btn-group pull-right'> 
-                                <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
-                                <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
-                                <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage >= usuarios.length / pageSize - 1'  ng-click='currentPage = currentPage + 1'>&raquo;</button>
-                            </div>
+                        <div class='btn-group pull-right'> 
+                            <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
+                            <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
+                            <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage >= usuarios.length / pageSize - 1'  ng-click='currentPage = currentPage + 1'>&raquo;</button>
                         </div>
+
                     </div>
                 </div>
                 <div class="row ">
                     <div class="col-md-6 col-xs-12 img-thumbnail  " ng-repeat="eve in evento| filter:search | startFromGrid: currentPage * pageSize | limitTo: pageSize">
                         <div >
-                            <!--                    <h3>{{eve.titulo}}</h3>
-                                                <h5>Fecha del evento: {{eve.fecha| date:'dd/MM/yyyy'}}</h5>-->
+                            <h5><strong>{{eve.pagina}}</strong></h5>
+                            <!--                                                <h5>Fecha del evento: {{eve.fecha| date:'dd/MM/yyyy'}}</h5>-->
                             <a ng-href="eventos.php?id={{eve.ideventos}}"><h5 class="bg-success text-warning text-center"> {{eve.ideventos}} - {{ eve.titulo}}</h5>  </a>
                             <div class="col-xs-12 col-md-12  " style="height: 150px;" ng-bind-html="eve.texto |cortarTexto:400"></div>
                             <p class="pull-right"> <a ng-href="eventos.php?id={{eve.ideventos}}"> Mas ... </a></p>
@@ -168,16 +167,18 @@ and open the template in the editor.
                     </div> 
                 </div>
                 <div class="row">
-                    <div class='btn-group '>
+                    <div class="col-md-12" >
+                    <div class='btn-group pull-right '>
                         <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage == 0' ng-click='currentPage = currentPage - 1'>&laquo;</button>
                         <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' ng-repeat='page in pages'>{{page.no}}</button>
                         <button type='button' class='btn btn-default btn-xs' ng-disabled='currentPage >= usuarios.length / pageSize - 1'  ng-click='currentPage = currentPage + 1'>&raquo;</button>
+                    </div>
                     </div>
                 </div>
 
             </section> 
 
-            <section class="col-xs-12  col-md-6 col-md-offset-3" style="padding:10px; display: block; border-bottom:  #008200 solid 1px; height: 450px;" >
+            <section class="col-xs-12  col-md-6 col-md-offset-3 Imagenes_pie"  >
                 <?php
                 $rea = new Conexion();
                 $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento";
@@ -222,7 +223,7 @@ and open the template in the editor.
 
                                     </div>
                                 </div>
-    <?php }; ?>
+                            <?php }; ?>
 
                         </div>
 
