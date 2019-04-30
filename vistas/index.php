@@ -80,13 +80,13 @@ and open the template in the editor.
             <div class="col-md-12 col-xs-12 Precios_jus" >
                 <h4>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h4>
             </div>
-            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
+<!--            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
                 <h4 style=" color: #761c19;  ">DIPLOMATURA EN DERECHO PRIVADO PATRIMONIAL</h4>
                 <h4 style=" color: #761c19;  ">INICIO: INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
                 <p >El  Consejo Profesional de la Abogacía recuerda a los interesados inscriptos en la  Diplomatura en Derecho Privado Patrimonial que la primera clase se inicia en el día de la fecha: 
                     <strong>26 de Abril de  2019 en su sede de calle San Martín  569 a partir de las 14 hs.
                         Docente: Dr. Marcelo López Mesaz</strong></p>
-            </div>
+            </div>-->
 
 
 
