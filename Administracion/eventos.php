@@ -147,7 +147,7 @@
                             <button ng-click="caco(x.ideventos)" class="btn btn-primary">Editar texto</button>
                         </td>
                         <td>
-                            <a ng-href="#noticias/{{x.ideventos}}/{{x.path}}/{{x.titulo}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-info" role="button">Folletos</a>
+                            <a ng-href="#folletos/{{x.ideventos}}/{{x.path}}/{{x.titulo}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-info" role="button">Folletos</a>
                             <!--<button data-titulo="{{x.titulo}}" data-path="{{x.path}}" data-ideventos="{{x.ideventos}}" ng-click="Afolletos(x.ideventos,x.path)" class="btn btn-primary">Folletos</button>-->
                         </td>
                         <td>
@@ -161,7 +161,7 @@
 
 
                         <td>
-                             <a ng-href="#noticias/{{x.ideventos}}/{{x.path}}/{{x.titulo}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-info" role="button">Documentos</a>
+                             <a ng-href="#documentos/{{x.ideventos}}/{{x.path}}/{{x.titulo}}" ng-click="Aimagenes(x.ideventos, x.path, x.titulo);" class="btn btn-info" role="button">Documentos</a>
                             <!--<button data-titulo="{{x.titulo}}" data-ideventos="{{x.ideventos}}" ng-click="SubirDoc(x.ideventos, x.path)" class="btn btn-primary">Documentos</button>-->
                         </td>
                         <td>

@@ -336,6 +336,7 @@ app.controller("Controldocumentos", ["$scope", "$http", "$routeParams", function
                 method: "POST",
                 data: {tipo: 'Listadocumentos', idevento: ideventos}
             }).then(function (response) {
+                  if(response.data.imagenes!="false"){
                 $scope.noticias = response.data.imagenes;
                 console.log(response);
                 console.log($scope.noticias[0].imagen);
@@ -344,11 +345,10 @@ app.controller("Controldocumentos", ["$scope", "$http", "$routeParams", function
                 $scope.notic = [];
                 for (i = 0; i < length; i++) {
 //      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
-                    $scope.notic.push('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/' + $scope.noticias[i].imagen);
+                  $scope.notic.push('../imagenes/'+$scope.path+'/documentos/' + $scope.noticias[i].imagen);
 
-                }
-                ;
-
+                };
+            };
 
 
                 $("#inputid").fileinput({
@@ -404,6 +404,7 @@ app.controller("Controlimagenes", ["$scope", "$http", "$routeParams", function (
                 method: "POST",
                 data: {tipo: 'ListaImagen', idevento: ideventos}
             }).then(function (response) {
+                if(response.data.imagenes!="false"){
                 $scope.noticias = response.data.imagenes;
                 console.log(response);
                 console.log($scope.noticias[0].imagen);
@@ -412,12 +413,9 @@ app.controller("Controlimagenes", ["$scope", "$http", "$routeParams", function (
                 $scope.notic = [];
                 for (i = 0; i < length; i++) {
 //      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
-                    $scope.notic.push('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/' + $scope.noticias[i].imagen);
-
-                }
-                ;
-
-
+                    $scope.notic.push('../imagenes/'+$scope.path+'/imagenes/' + $scope.noticias[i].imagen);
+                    };
+                };
 
                 $("#inputid").fileinput({
                     language: "es",
@@ -472,6 +470,7 @@ app.controller("Controlfolletos", ["$scope", "$http", "$routeParams", function (
                 method: "POST",
                 data: {tipo: 'Listafolleto', idevento: ideventos}
             }).then(function (response) {
+                  if(response.data.imagenes!="false"){
                 $scope.noticias = response.data.imagenes;
                 console.log(response);
                 console.log($scope.noticias[0].imagen);
@@ -479,11 +478,11 @@ app.controller("Controlfolletos", ["$scope", "$http", "$routeParams", function (
                 console.log("Largo " + length);
                 $scope.notic = [];
                 for (i = 0; i < length; i++) {
-//      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
-                    $scope.notic.push('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/' + $scope.noticias[i].imagen);
 
-                }
-                ;
+                 $scope.notic.push('../imagenes/'+$scope.path+'/folletos/' + $scope.noticias[i].imagen);
+
+                };
+            }
 
 
 

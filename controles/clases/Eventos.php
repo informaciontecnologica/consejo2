@@ -89,7 +89,7 @@ class Eventos {
             $pa = array("imagenes" => $rows);
         } else {
 
-            $pa = array('imagenes' => null);
+            $pa = array('imagenes' => "false");
         }
         return $pa;
     }
@@ -108,7 +108,7 @@ class Eventos {
             $pa = array("folletos" => $rows);
         } else {
 
-            $pa = array('folletos' => null);
+            $pa = array('folletos' =>  "false");
         }
         return $pa;
     }
@@ -127,7 +127,7 @@ class Eventos {
             $pa = array("documentos" => $rows);
         } else {
 
-            $pa = array('documentos' => null);
+            $pa = array('documentos' =>  "false");
         }
         return $pa;
     }
@@ -146,7 +146,7 @@ class Eventos {
             $pa = array("noticias" => $rows);
         } else {
 
-            $pa = array('noticias' => "mal");
+            $pa = array('noticias' =>  "false");
         }
         return $pa;
     }

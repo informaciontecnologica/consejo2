@@ -65,9 +65,7 @@ switch ($tipo) {
     
     
     case'banner':
-
-
-        echo json_encode($eve->TodosEve());
+     echo json_encode($eve->TodosEve());
         exit();
         break;
 
