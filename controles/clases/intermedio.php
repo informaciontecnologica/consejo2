@@ -17,7 +17,7 @@ $tipo = $data->tipo;
 $eve = new Eventos();
 
 switch ($tipo) {
-    case'ListaFolletos':
+    case'Listafolletos':
         $idevento = $data->idevento;
         $result = $eve->ListaFolletos($idevento);
         echo json_encode($result);
@@ -29,7 +29,7 @@ switch ($tipo) {
         echo json_encode($result);
         exit();
         break;
-    case'ListaDocumentos':
+    case'Listadocumentos':
         $idevento = $data->idevento;
         $result = $eve->ListaDocumentos($idevento);
         echo json_encode($result);
