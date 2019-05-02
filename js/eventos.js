@@ -13,7 +13,6 @@ app.controller('eventos', function ($scope, $http, $filter) {
     id = {};
 
     $scope.listas = function () {
-
         $http({
             url: '../controles/clases/intermedio.php',
             method: "POST",
@@ -22,16 +21,25 @@ app.controller('eventos', function ($scope, $http, $filter) {
             $scope.evento = response.data.eventos;
             //   $scope.documentos(valor, "doc");
             console.log(response.data);
-
-
         });
     };
-
+//    $scope.ListaNoticias = function (idevento) {
+//        $http({
+//            url: '../controles/clases/intermedio.php',
+//            method: "POST",
+//            data: {tipo: 'ListaNoticias', idevento: idevento}
+//        }).then(function (response) {
+//            if (response.data.noticias!="false"){
+//            $scope.noticias = response.data.noticias;
+//            //   $scope.documentos(valor, "doc");
+//            console.log(response);
+//        };
+//        });
+//    };
 
 
 
     $scope.listauno = function (valor) {
-
         $http({
             url: '../controles/clases/intermedio.php',
             method: "POST",
@@ -40,8 +48,6 @@ app.controller('eventos', function ($scope, $http, $filter) {
             $scope.evento = response.data.eventos;
             //   $scope.documentos(valor, "doc");
             console.log(response);
-
-
         });
     };
 
@@ -96,6 +102,7 @@ app.controller('eventos', function ($scope, $http, $filter) {
 //            $scope.listaImagenes();
         }
         if (valor > 0) {
+//               $scope.ListaNoticias(valor);
             console.log('valor :' + valor);
 
             $scope.listauno(valor);

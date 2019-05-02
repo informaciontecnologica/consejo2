@@ -13,8 +13,8 @@ and open the template in the editor.
         ?>   
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
     </head>
-
-
+  
+    
 
     <body ng-app="App" ng-controller="eventos">
         <header>
@@ -76,7 +76,18 @@ and open the template in the editor.
                         <div class="panel panel-default col-xs-12 col-md-4 "> 
                             <div class="panel-heading text-center">Información </div>
                             <div class="panel-body">
+                                 <div class="col-xs-12"> 
+                                      <div class="panel panel-default col-xs-12 col-md-12"> 
+                                     <div class="panel-heading  text-center "><u>NOTICIAS</u> </div>
+                                                <ul class="noticiasinformacion" ng-repeat="not in eve.noticias ">
+                                                       
+                                                    <div class="text-lowercase " >
+                                                            {{not  }}
+                                                       </div>
 
+
+                                            </ul>   
+                                      </div>
                                 <!--//-                Folletos ----------------------->
                                 <div class="panel panel-default col-xs-12 col-md-12 "> 
                                     <div class="panel-heading  text-center">Folletos </div>
@@ -85,12 +96,33 @@ and open the template in the editor.
 
 
                                         <div class="docuinformacion" ng-repeat="folleto in eve.folletos">
+                                            <a href="#ventana1" data-toggle="modal" >
                                             <img class=" img-thumbnail " ng-src="../imagenes/{{eve.path}}/folletos/{{folleto}}" title=""/>
+                                            </a>
+                                            
+                                       
                                             
 
 
 
                                         </div>
+                                             <div class="modal fade  bd-example-modal-lg " id="ventana1">
+                                                <div class="modal-dialog " role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                            <h5 class="modal-title">Folletos</h5>
+                                                            <div class="modal-body">
+                                                                <img class="col-md-8 col-xs-12"  ng-src="../imagenes/{{eve.path}}/folletos/{{folleto}}" title=""/>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                        
+                                                    
+                                                </div>
+                                                
+                                            </div>
                                     </div> 
                                 </div>
                                     <!--//-------------------------------------------------------->
@@ -105,7 +137,7 @@ and open the template in the editor.
 
                                                     <!--                                                {{archi}} -->
                                                     <!--<a ng-href="../documentos/{{eve.imagen.path}}/{{archi}}" download=""></a>--> 
-                                                    <!--<a ng-href="../imagenes/{{eve.path}}/documentos/{{archi}}" download="">{{archi}}</a>--> 
+                                                    <a ng-href="../imagenes/{{eve.path}}/documentos/{{archi}}" download="">{{archi}}</a> 
 
                                                 </div>
                                             </div>   

@@ -43,7 +43,19 @@ switch ($tipo) {
         break;
      case'Agregar_Noticia':
         $valores = $data->valores;
+         
+//         print_r($data->valores->fecha);
+//         print($valores->fecha);
         $result = $eve->Agregar_Noticia($valores);
+        echo json_encode($result);
+        exit();
+        break;
+      case'Modificar_Noticia':
+        $valores = $data->valores;
+         
+//         print_r($data->valores->fecha);
+//         print($valores->fecha);
+        $result = $eve->Modificar_Noticia($valores);
         echo json_encode($result);
         exit();
         break;

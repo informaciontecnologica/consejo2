@@ -266,14 +266,17 @@ app.controller("ControlNoticias", ["$scope", "$http", "$routeParams", function (
                 method: "POST",
                 data: {tipo: 'ListaNoticias', idevento: ideventos}
             }).then(function (response) {
-                $scope.noticias = response.data.noticias;
+                if (response.data.noticias != "false") {
+                    $scope.noticias = response.data.noticias;
+                }
+
                 console.log(response);
 
 
 
             })
         };
-        $scope.cargarnoticias(40);
+        $scope.cargarnoticias($scope.id);
 
         $scope.ANoticias = function () {
 
@@ -282,6 +285,7 @@ app.controller("ControlNoticias", ["$scope", "$http", "$routeParams", function (
             $scope.form = {};
             $scope.form.tipo = "Agregar";
         };
+        
         $scope.ENoticias = function (ideventos, path, titulo, texto, fecha) {
 
             $scope.Formul = true;
@@ -300,8 +304,11 @@ app.controller("ControlNoticias", ["$scope", "$http", "$routeParams", function (
                 method: "POST",
                 data: {tipo: tipo, valores: valores}
             }).then(function (response) {
-
+                if (response.data.noticias != "false") {
+                    console.log("true");
+                }
                 console.log(response);
+
 
 
 
@@ -336,20 +343,22 @@ app.controller("Controldocumentos", ["$scope", "$http", "$routeParams", function
                 method: "POST",
                 data: {tipo: 'Listadocumentos', idevento: ideventos}
             }).then(function (response) {
-                console.log("ASAS"+response);
-                  if(response.data.documentos!="false"){
-                $scope.documentos = response.data.documentos;
-                console.log(response);
-                console.log($scope.documentos[0].archivo);
-                var length = $scope.documentos.length;
-                console.log("Largo " + length);
-                $scope.notic = [];
-                for (i = 0; i < length; i++) {
+                console.log("ASAS" + response);
+                if (response.data.documentos != "false") {
+                    $scope.documentos = response.data.documentos;
+                    console.log(response);
+                    console.log($scope.documentos[0].archivo);
+                    var length = $scope.documentos.length;
+                    console.log("Largo " + length);
+                    $scope.notic = [];
+                    for (i = 0; i < length; i++) {
 //      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
-                  $scope.notic.push('../imagenes/'+$scope.path+'/documentos/' + $scope.documentos[i].archivo);
+                        $scope.notic.push('../imagenes/' + $scope.path + '/documentos/' + $scope.documentos[i].archivo);
 
-                };
-            };
+                    }
+                    ;
+                }
+                ;
 
 
                 $("#inputid").fileinput({
@@ -405,18 +414,20 @@ app.controller("Controlimagenes", ["$scope", "$http", "$routeParams", function (
                 method: "POST",
                 data: {tipo: 'ListaImagen', idevento: ideventos}
             }).then(function (response) {
-                if(response.data.imagenes!="false"){
-                $scope.noticias = response.data.imagenes;
-                console.log(response);
-                console.log($scope.noticias[0].imagen);
-                var length = $scope.noticias.length;
-                console.log("Largo " + length);
-                $scope.notic = [];
-                for (i = 0; i < length; i++) {
+                if (response.data.imagenes != "false") {
+                    $scope.noticias = response.data.imagenes;
+                    console.log(response);
+                    console.log($scope.noticias[0].imagen);
+                    var length = $scope.noticias.length;
+                    console.log("Largo " + length);
+                    $scope.notic = [];
+                    for (i = 0; i < length; i++) {
 //      console.log('http://localhost/consejoabogados/imagenes/portal_1_40/imagenes/'+$scope.noticias[i].imagen);
-                    $scope.notic.push('../imagenes/'+$scope.path+'/imagenes/' + $scope.noticias[i].imagen);
-                    };
-                };
+                        $scope.notic.push('../imagenes/' + $scope.path + '/imagenes/' + $scope.noticias[i].imagen);
+                    }
+                    ;
+                }
+                ;
 
                 $("#inputid").fileinput({
                     language: "es",
@@ -472,19 +483,20 @@ app.controller("Controlfolletos", ["$scope", "$http", "$routeParams", function (
                 data: {tipo: 'Listafolletos', idevento: ideventos}
             }).then(function (response) {
                 console.log(response);
-                  if(response.data.folletos!="false"){
-                $scope.folletos = response.data.folletos;
-                
-                console.log($scope.folletos[0].imagen);
-                var length = $scope.folletos.length;
-                console.log("Largo " + length);
-                $scope.notic = [];
-                for (i = 0; i < length; i++) {
+                if (response.data.folletos != "false") {
+                    $scope.folletos = response.data.folletos;
 
-                 $scope.notic.push('../imagenes/'+$scope.path+'/folletos/' + $scope.folletos[i].imagen);
+                    console.log($scope.folletos[0].imagen);
+                    var length = $scope.folletos.length;
+                    console.log("Largo " + length);
+                    $scope.notic = [];
+                    for (i = 0; i < length; i++) {
 
-                };
-            }
+                        $scope.notic.push('../imagenes/' + $scope.path + '/folletos/' + $scope.folletos[i].imagen);
+
+                    }
+                    ;
+                }
 
 
 

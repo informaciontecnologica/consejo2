@@ -27,9 +27,28 @@ class Eventos {
         $fecha = $valores->fecha;
         $titulo = $valores->titulo;
         $texto = $valores->texto;
-        print_r($valores);
+        //  print_r($valores);
         $pdo = new conexion();
-        $string = "insert into noticias set (fecha,titulo,texto) value (:fecha,:titulo,:texto)";
+        $string = "insert into noticias (fecha,titulo,texto,idevento) value (:fecha,:titulo,:texto,:idevento)";
+        $consulta = $pdo->prepare($string);
+        $consulta->bindparam(':idevento', $idevento);
+        $consulta->bindparam(':fecha', $fecha);
+        $consulta->bindparam(':titulo', $titulo);
+        $consulta->bindparam(':texto', $texto);
+        $consulta->execute();
+        if ($consulta) {
+            return array("noticias" => $consulta);
+        } else {
+            return array("noticias" => "false");
+        }
+    }
+        function Modificar_Noticia($valores) {
+        $idevento = $valores->idevento;
+        $fecha = $valores->fecha;
+        $titulo = $valores->titulo;
+        $texto = $valores->texto;
+        $pdo = new conexion();
+        $string = "update  noticias set fecha=:fecha, titulo=:titulo, texto=:texto where idevento=:idevento";
         $consulta = $pdo->prepare($string);
         $consulta->bindparam(':idevento', $idevento);
         $consulta->bindparam(':fecha', $fecha);
@@ -108,7 +127,7 @@ class Eventos {
             $pa = array("folletos" => $rows);
         } else {
 
-            $pa = array('folletos' =>  "false");
+            $pa = array('folletos' => "false");
         }
         return $pa;
     }
@@ -127,7 +146,7 @@ class Eventos {
             $pa = array("documentos" => $rows);
         } else {
 
-            $pa = array('documentos' =>  "false");
+            $pa = array('documentos' => "false");
         }
         return $pa;
     }
@@ -146,7 +165,7 @@ class Eventos {
             $pa = array("noticias" => $rows);
         } else {
 
-            $pa = array('noticias' =>  "false");
+            $pa = array('noticias' => "false");
         }
         return $pa;
     }
@@ -241,8 +260,8 @@ class Eventos {
                 while ($registro2 = $consulta->fetch(PDO::FETCH_ASSOC)) {
                     $documentos[] = $registro2;
                 }
-
-                //  consulta  de imagenes
+            }
+                //  consulta  de folletos
 
                 $string = "SELECT  p.idevento, GROUP_CONCAT(r.imagen SEPARATOR ',') as imagen FROM
                         folletos r
@@ -254,15 +273,39 @@ class Eventos {
                 if ($consulta->rowCount() > 0) {
                     while ($registro2 = $consulta->fetch(PDO::FETCH_ASSOC)) {
                         $imagenes[] = $registro2;
-                    }
+                    };
+                };
+                    /*                     * ** consulta noticias *///
 
+                    $string = "SELECT  p.idevento,GROUP_CONCAT( r.titulo SEPARATOR',' ) as titulo FROM noticias r
+                        LEFT JOIN noticias p ON r.idnoticia=p.idnoticia
+                        GROUP BY p.idevento";
+                    $consulta = $pdo->prepare($string);
+                    $consulta->execute();
+                    if ($consulta->rowCount() > 0) {
+                        while ($registro3 = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                            $noticias[] = $registro3;
+                        }
+                    };
 
                     //------------------------------------
 
-                    ;
                     foreach ($eventos as $eventoid => $valoreve) {
 
+                        foreach ($noticias as $imagenid => $valorimag) {
+
+
+                            if ($valoreve['ideventos'] == $valorimag['idevento']) {
+
+//                            if (!array_key_exists(valorimag['idevento'],$eve))
+                                $eventos[$eventoid]['noticias'] = explode(',', $valorimag['titulo']);
+//                                $eventos[$eventoid]['noticias'] = explode(',', $valorimag['texto']);
+//                            $eventos[$eventoid]['idpagina']= $valorimag['idpagina'];
+                            }
+                        }
+
                         foreach ($imagenes as $imagenid => $valorimag) {
+
 
                             if ($valoreve['ideventos'] == $valorimag['idevento']) {
 
@@ -272,29 +315,29 @@ class Eventos {
 //                            $eventos[$eventoid]['idpagina']= $valorimag['idpagina'];
                             }
                         }
-                        if (!isset($documentos)) {
+//                        if (!isset($documentos)) {
 
-                            foreach ($documentos as $documid => $valordocumento) {
+                        foreach ($documentos as $documid => $valordocumento) {
 
-                                if ($valoreve['ideventos'] == $valordocumento['idevento']) {
+                            if ($valoreve['ideventos'] == $valordocumento['idevento']) {
 
 //                            if (!array_key_exists(valorimag['idevento'],$eve))
-                                    $eventos[$eventoid]['documentos'] = explode(',', $valordocumento['archivo']);
+                                $eventos[$eventoid]['documentos'] = explode(',', $valordocumento['archivo']);
 
 //                            $eventos[$eventoid]['idpagina']= $valorimag['idpagina'];
-                                }
                             }
                         }
-                    }
-                }
+                    }  
+                
                 $pa = array("eventos" => $eventos);
 
                 return $pa;
             } else {
 
-                return array("eventos" => "no");
+                return array("eventos" => "noa");
             }
-        }
+        
+    
     }
 
     function prueba() {
@@ -343,6 +386,18 @@ class Eventos {
             while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 $eventos[] = $registro;
             }
+             /*                     * ** consulta noticias *///
+
+                    $string = "SELECT  p.idevento,GROUP_CONCAT( r.texto SEPARATOR',' ) as texto FROM noticias r
+                        LEFT JOIN noticias p ON r.idnoticia=p.idnoticia
+                        GROUP BY p.idevento";
+                    $consulta = $pdo->prepare($string);
+                    $consulta->execute();
+                    if ($consulta->rowCount() > 0) {
+                        while ($registro3 = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                            $noticias[] = $registro3;
+                        }
+                    };
             // consulta de documentos 
 
             $string = "SELECT  p.idevento, GROUP_CONCAT(r.archivo SEPARATOR ',') as archivo FROM
@@ -356,7 +411,7 @@ class Eventos {
                 while ($registro2 = $consulta->fetch(PDO::FETCH_ASSOC)) {
                     $documentos[] = $registro2;
                 }
-
+            };
                 //  consulta  de imagenes
 
                 $string = "SELECT  p.idevento, GROUP_CONCAT(r.imagen SEPARATOR ',') as imagen FROM
@@ -369,13 +424,24 @@ class Eventos {
                 if ($consulta->rowCount() > 0) {
                     while ($registro2 = $consulta->fetch(PDO::FETCH_ASSOC)) {
                         $imagenes[] = $registro2;
-                    }
-
+                    };
+                };
 
                     //------------------------------------
 
-                    ;
                     foreach ($eventos as $eventoid => $valoreve) {
+                        
+                             foreach ($noticias as $imagenid => $valorimag) {
+
+
+                            if ($valoreve['ideventos'] == $valorimag['idevento']) {
+
+//                            if (!array_key_exists(valorimag['idevento'],$eve))
+                                $eventos[$eventoid]['noticias'] = explode(',', $valorimag['texto']);
+//                                $eventos[$eventoid]['noticias'] = explode(',', $valorimag['texto']);
+//                            $eventos[$eventoid]['idpagina']= $valorimag['idpagina'];
+                            }
+                        }
 
                         foreach ($imagenes as $imagenid => $valorimag) {
 
@@ -387,18 +453,19 @@ class Eventos {
 //                            $eventos[$eventoid]['idpagina']= $valorimag['idpagina'];
                             }
                         }
-                        if (!isset($documentos)) {
+                        /*                         * ****************  Agrupar documentos  */
+//                        if (!isset($documentos)) {
 
-                            foreach ($documentos as $documid => $valordocumento) {
+                        foreach ($documentos as $documid => $valordocumento) {
 
-                                if ($valoreve['ideventos'] == $valordocumento['idevento']) {
+                            if ($valoreve['ideventos'] == $valordocumento['idevento']) {
 
-                                    $eventos[$eventoid]['documentos'] = explode(',', $valordocumento['archivo']);
-                                }
+                                $eventos[$eventoid]['documentos'] = explode(',', $valordocumento['archivo']);
                             }
                         }
+//                        }
                     }
-                }
+//                }
                 $pa = array("eventos" => $eventos);
 
                 return $pa;
@@ -406,7 +473,7 @@ class Eventos {
 
                 return array("eventos" => "no");
             }
-        }
+        
     }
 
     function SetEventos($idevento, $titulo, $fecha, $texto, $idpagina, $path) {
@@ -477,43 +544,42 @@ class Eventos {
         }
     }
 
-/**
- * Remove a non empty directory
- * @author Cristián Pérez
- * @param string $path Folder Path
- * @return bool
- */
-function removeDirectory($path)
-{
-    $path = rtrim( strval( $path ), '/' ) ;
-    
-    $d = dir( $path );
-    
-    if( ! $d )
-        return false;
-    
-    while ( false !== ($current = $d->read()) )
-    {
-        if( $current === '.' || $current === '..')
-            continue;
-        
-        $file = $d->path . '/' . $current;
-        
-        if( is_dir($file) )
-            $this-> removeDirectory($file);
-        
-        if( is_file($file) )
-            unlink($file);
+    /**
+     * Remove a non empty directory
+     * @author Cristián Pérez
+     * @param string $path Folder Path
+     * @return bool
+     */
+    function removeDirectory($path) {
+        $path = rtrim(strval($path), '/');
+
+        $d = dir($path);
+
+        if (!$d)
+            return false;
+
+        while (false !== ($current = $d->read())) {
+            if ($current === '.' || $current === '..')
+                continue;
+
+            $file = $d->path . '/' . $current;
+
+            if (is_dir($file))
+                $this->removeDirectory($file);
+
+            if (is_file($file))
+                unlink($file);
+        }
+
+        rmdir($d->path);
+        $d->close();
+        return true;
     }
-    
-    rmdir( $d->path );
-    $d->close();
-    return true;
-}
+
     function BorrarEvento($idevento, $path) {
         $ruta = "../../imagenes/" . $path;
         if (is_dir($ruta))
-           $this-> removeDirectory($ruta);
+            $this->removeDirectory($ruta);
 
 
 

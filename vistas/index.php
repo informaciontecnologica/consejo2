@@ -80,26 +80,26 @@ and open the template in the editor.
             <div class="col-md-12 col-xs-12 Precios_jus" >
                 <h4>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h4>
             </div>
-<!--            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
+            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
                 <h4 style=" color: #761c19;  ">DIPLOMATURA EN DERECHO PRIVADO PATRIMONIAL</h4>
-                <h4 style=" color: #761c19;  ">INICIO: INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
-                <p >El  Consejo Profesional de la Abogacía recuerda a los interesados inscriptos en la  Diplomatura en Derecho Privado Patrimonial que la primera clase se inicia en el día de la fecha: 
-                    <strong>26 de Abril de  2019 en su sede de calle San Martín  569 a partir de las 14 hs.
-                        Docente: Dr. Marcelo López Mesaz</strong></p>
-            </div>-->
+                <h4 style=" color: #761c19;  ">DICTADO</h4>
+                <p >El viernes 26 de Abril del cte año se dio inicio al dictado de la Diplomatura en Derecho Privado Patrimonial en el marco del Convenio firmado entre el Consejo Profesional de la Abogacía y la Universidad del Chaco Austral, con el auspicio de la Fiscalía de Estado de la Provincia de Formosa, el Colegio de Magistrados y Funcionarios de la Provincia de Formosa y la Comisión de Jóvenes Abogados.	
+        Esta actualización que se lleva a cabo en la sede del Consejo está destinada a profesionales del derecho y profesiones afines. Durará ocho meses y se centra en las obligaciones, la responsabilidad civil y los derechos reales, en el marco del nuevo Código Civil y Comercial de la Nación, que entró en vigencia en el año 2015. La clase inaugural se dictó de 14 a 21 horas ante una numerosa concurrencia.
+Este primer módulo estuvo a cargo de Marcelo López Mesa, director de la Diplomatura, doctor en Ciencias Jurídicas y Sociales (1998) y Especialista en Derecho Civil (1990), ambos por la Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional de La Plata (UNLP).
+Está previsto que la segunda clase se lleve a cabo el próximo viernes 10 de Mayo de 2019 en la misma sede.</p>
+            </div>
 
-
+ 
 
             <aside class="col-xs-12 col-md-4 pull-right aaside"  >
                 <div class="col-xs-12 col-md-12 noticias" >
                     <h3 style="text-align: center">Noticias</h3>
 
                     <article>
-                        <h4 style=" color: #761c19;  ">INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
-                        <h5 style=" color: #761c19;  ">REUNION: INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h5>
-                        <p >El día 24 de Abril del cte año a las 20.00 hs se  reunieron en la sede del Consejo Profesional de la Abogacía, los abogados interesados en la reactivación del Instituto de Derecho de las Familias y Sucesiones.
-                            En ese contexto, se invita a todos los colegas que deseen participar en la citada rama académica, a la próxima reunión que se llevará a cabo el día 08 de Mayo a las 20 hs, en la sede del Consejo.</p>
-
+                        <h4 style=" color: #761c19;  ">DIPLOMATURA EN DERECHO PENAL</h4>
+                        <h5 style=" color: #761c19;  ">RECORDATORIO</h5>
+                        <p><strong>VIERNES 03 de Mayo continúan las clases de la DIPLOMATURA EN DERECHO PENAL</strong></p>
+        
                     </article>
 
                     <!--                    <article>
@@ -124,14 +124,10 @@ and open the template in the editor.
                 
                                     <h4 style="text-align: center">DIA INTERNACIONAL DE LA MUJER</h4>
                                     <h5><strong>DIA INTERNACIONAL DE LA MUJER</strong></h5>
-                                    <p>El Consejo Profesional de la Abogacía adhiere y saluda a las colegas y en su nombre a todas las mujeres en su día:
-                                        A aquellas que nos representan en los campos de la ciencia, la tecnología, la ingeniería, la docencia, los oficios, las comunicaciones y a todas quienes abogan por innovaciones sensibles al género que conformarán las sociedades del futuro.
-                                        A aquellas emprendedoras sociales; las que trabajan a favor de la igualdad de género para eliminar barreras y acelerar los avances hacia ese objetivo.
-                                        Todos hemos nacido de una mujer y ese solo hecho demuestra el valor social y humano de su condición, preponderante en la sociedad y en la familia. A ellas, nuestra gratitud.
-                                        A aquellas que ejercen un rol activo bregando por la creación de sistemas mas inclusivos, servicios eficientes e infraestructuras sostenibles para acelerar el logro de la igualdad de género.
-                                        A todas, nuestros cordiales saludos y nuestro reconocimiento.
-                
-                                        <br><strong>Formosa, 8 de marzo de 2019.</strong></p>    
+                                    <p>El viernes 26 de Abril del cte año se dio inicio al dictado de la Diplomatura en Derecho Privado Patrimonial en el marco del Convenio firmado entre el Consejo Profesional de la Abogacía y la Universidad del Chaco Austral, con el auspicio de la Fiscalía de Estado de la Provincia de Formosa, el Colegio de Magistrados y Funcionarios de la Provincia de Formosa y la Comisión de Jóvenes Abogados.	
+        Esta actualización que se lleva a cabo en la sede del Consejo está destinada a profesionales del derecho y profesiones afines. Durará ocho meses y se centra en las obligaciones, la responsabilidad civil y los derechos reales, en el marco del nuevo Código Civil y Comercial de la Nación, que entró en vigencia en el año 2015. La clase inaugural se dictó de 14 a 21 horas ante una numerosa concurrencia.
+Este primer módulo estuvo a cargo de Marcelo López Mesa, director de la Diplomatura, doctor en Ciencias Jurídicas y Sociales (1998) y Especialista en Derecho Civil (1990), ambos por la Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional de La Plata (UNLP).
+Está previsto que la segunda clase se lleve a cabo el próximo viernes 10 de Mayo de 2019 en la misma sede.</strong></p>    
                                 </div>-->
 
             </aside>

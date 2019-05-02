@@ -9,7 +9,7 @@
 <div  ng-controller="ControlNoticias">
     <nav class="nav alert alert-success ">
     Noticias   -   {{titulo}}<hr>
-    <a class="nav-item active pull-right"  ng-click="grilla=true; Formul=false;"  class="btn btn-info" role="button"> -  Todos</a>  
+    <a class="nav-item active pull-right"  ng-click="grilla=true; Formul=false; cargarnoticias(id)"  class="btn btn-info" role="button"> -  Todos</a>  
     <a class="nav-item active pull-right" ng-click="ANoticias();"  class="btn btn-info" role="button">Agregar</a>  
      
    
@@ -19,17 +19,17 @@
 <section ng-show="grilla">
     <div id="dedos"></div>
     <div class="row" >  
-        <div class="imagenes">
+        <div class="">
 
          
                 <div class="" ng-repeat="x in noticias" >
 
-                    <div style="float: left;position: relative; ">
+                  
                         
                         <div class="card col-md-4  border-secondary mb-3" style="  border: #a8f5c2 1px solid   ; border-radius: 8px;"  >
                             <div  style="background-color:  #a8f5c2 ">
-                                <h6 class="card-title">{{x.idnoticia}} - {{x.titulo}}</h6>
-                                <h6 class="card-title"> {{x.fecha}}</h6>
+                                <h6 class="card-title">{{x.idnoticia}} - {{x.titulo}} -  {{x.fecha}}</h6>
+                              
                             </div>
                             <div class="card-body text-secondary">
                             
@@ -40,7 +40,7 @@
                         </div>
                       
 
-                    </div>   
+                    
                 </div>
            
 
@@ -62,7 +62,7 @@
   </div>
   <div class="form-group col-md-12">
        <label for="Texto">Texto</label>
-       <textarea class="form-control" ng-model="form.texto" maxlength="180" rows="5" id="texto"></textarea>
+       <textarea class="form-control" ng-model="form.texto"  rows="10" id="texto"></textarea>
     <label class="texto" for="texto">Agregar texto</label>
   </div>
         <button type="submit" class="btn btn-primary pull-right col-md-12" ng-value="{{form.tipo}}">{{form.tipo}}</button>
