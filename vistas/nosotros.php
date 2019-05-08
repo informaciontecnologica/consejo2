@@ -12,7 +12,7 @@ and open the template in the editor.
         <?php include '../cabezera.php';
         ?>   
     </head>
-    <body>
+    <body >
 
         <header>
             <?php include '../barra.php'; ?> 
@@ -55,7 +55,7 @@ and open the template in the editor.
             <article class="delegacion">
                 <h4 class="line-separator">Consejo Profesional de la Abogacía Delegación Las Lomitas</h4>
                 <ul>
-                    <li>Almirante Brown 18, Las Lomitas, Formosa</li>
+                    <li>Almirante Brown N° 29, Las Lomitas, Formosa</li>
 
                     <li>laslomitas@cpabogaciaformosa.com  </li>
                 </ul>
