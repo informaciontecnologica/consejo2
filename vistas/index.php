@@ -26,17 +26,21 @@ and open the template in the editor.
                  display: flex;
                  justify-content: center;
                  align-items: center;">
-                <div  style="border-radius: 15px; width: 70%; background: #629552; display: flex; justify-content: center; align-items: center;" >
-
+                <div  style="border-radius: 15px; width: 70%;  display: flex; justify-content: center; align-items: center;" >
+                    
                     <p class="titulo"  >Consejo Profesional de la Abogacia Formosa</p>
+                    
                 </div>
+                
+                
+                
             </div>
-            <div  class=" col-xs-12  col-md-6 " > 
+            <div  class=" col-xs-12  col-md-6 " style="bottom: 5px;"> 
                 <?php
-                $idevento = '22';
+                $idevento = '26';
                 include '../controles/clases/conexion.php';
                 $rea = new Conexion();
-                $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento";
+                $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento order by idimagenes DESC limit 5 ";
                 $consultas = $rea->prepare($sql);
                 $consultas->bindParam(":idevento", $idevento);
                 $consultas->execute();
@@ -71,10 +75,12 @@ and open the template in the editor.
 
                                     <img style="height: 400px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
                                     <div class="carousel-caption"  >
-                                        <p style="background-color:  #555;">
+                                        <p style="">
                                             <?php
                                             echo $rows[$index]['titulo'];
                                             ?>
+                                            <br>
+                                            con el Dr. Julio Leguizamon
 
                                     </div>
                                 </div>
@@ -86,23 +92,18 @@ and open the template in the editor.
                 </div>
             </div>
 
-            <div class="col-md-12 col-xs-12 Precios_jus" >
-                <h4>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h4>
+            <div class="col-md-12 col-xs-12 Precios_jus " >
+                
+                <h5>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h5>
             </div>
 
             <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
-                <h4 style=" color: #761c19;  ">OFICINA  DEL CONSEJO PROFESIONAL DE LA ABOGACÍA EN LAS LOMITAS</h4>
-                <h4 style=" color: #761c19;  ">INFORMACIÓN</h4>
+                <h4 style=" color: #761c19;  ">PRÓRROGA ENTREGA CERTIFICADOS DIPLOMATURA </h4>
+                <h4 style=" color: #761c19;  ">ACTUALIZACIÓN EN RELACIONES  DE FAMILIA, NIÑEZ Y ADOLESCENCIA</h4>
                 <p >Teniendo en cuenta que el Excmo. Superior Tribunal de Justicia solicitó al Consejo Profesional de la Abogacía la 
-                    urgente desocupación de la oficina emplazada hasta la fecha en el edificio de Tribunales de la Tercera Circunscripción 
-                    Judicial con sede en Las Lomitas, se  informa a los colegas que la atención 
-                    pertinente se realizará provisoriamente en el domicilio de la agente sra. Lorena BARRIONUEVO sito en calle Almte.
-                    Brown Nº 29 de dicha ciudad en el horario de 07 a 13 hs., hasta nuevo aviso.</p>
-
+                    Se informa a los colegas que la entrega de los certificados de la Diplomatura Universitaria “ACTUALIZACIÓN EN RELACIONES DE  FAMILIA, NIÑEZ Y ADOLESCENCIA”  prevista para el Viernes 17/05/2019 en la sede del Consejo Profesional de la Abogacía, SE PRORROGA para el día Viernes 24 de Mayo de 2019 a las 11.00 horas, por razones de fuerza mayor.
+                     Formosa, 08 de Mayo de 2019.</p>
             </div>
-
-
-
             <aside class="col-xs-12 col-md-4  bg-info pull-right  aaside"  >
 
                 <div class="col-xs-12 col-md-12 noticias " >
@@ -119,12 +120,17 @@ and open the template in the editor.
                     </article>
 
                     <article>
-                        <h5  >INSTITUTO DE DERECHO DE LAS FAMILIAS Y SUCESIONES</h4>
-                        <h5 >REUNIÓN 08 de Mayo de 2019 a las 20 hs</h5>
-                        <p>Se informa a los colegas que en el Consejo Profesional de la Abogacía continuarán las reuniones del Instituto de Derecho de las Familias y Sucesiones pautada en la anterior para el Miércoles 08 de Mayo a las 20 hs.
-                            Se invita a todos los profesionales que deseen participar en los encuentros de la citada rama académica, a concurrir a los mismos en su sede de calle San Martín Nº 569.</p>
+                        <h5>OFICINA  DEL CONSEJO PROFESIONAL DE LA ABOGACÍA EN LAS LOMITAS</h4>
+                        <h5>INFORMACIÓN</h5>
+                        <p>Teniendo en cuenta que el Excmo. Superior Tribunal de Justicia solicitó al Consejo Profesional de la Abogacía la 
+                    urgente desocupación de la oficina emplazada hasta la fecha en el edificio de Tribunales de la Tercera Circunscripción 
+                    Judicial con sede en Las Lomitas, se  informa a los colegas que la atención 
+                    pertinente se realizará provisoriamente en el domicilio de la agente sra. Lorena BARRIONUEVO sito en calle Almte.
+                    Brown Nº 29 de dicha ciudad en el horario de 07 a 13 hs., hasta nuevo aviso.</p>
 
                     </article>
+                    
+                    
                     <article class="bg-info" style="padding-left: 5px; padding-right: 5px;" >
                         <H3  style="padding-left: 5px;">ATENCIÓN</H3>
                         <h5><strong>CURSOS DICTADOS EN EL CONSEJO DE ABOGADOS</strong></h5>
@@ -184,10 +190,12 @@ and open the template in the editor.
 
             <section class="col-xs-12  col-md-6 col-md-offset-3 Imagenes_pie"  >
                 <?php
+                
+                $ideventos = '22';
                 $rea = new Conexion();
-                $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento";
+                $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento order by idimagenes DESC limit 5";
                 $consultas = $rea->prepare($sql);
-                $consultas->bindParam(":idevento", $idevento);
+                $consultas->bindParam(":idevento", $ideventos);
                 $consultas->execute();
                 if ($consultas) {
                     while ($registro = $consultas->fetch(PDO::FETCH_ASSOC)) {
@@ -220,7 +228,7 @@ and open the template in the editor.
 
                                     <img style="height: 400px; width:  800px;" src="<?php echo"../imagenes/" . $rows[$index]['path'] . "/imagenes/" . $rows[$index]['imagen']; ?>" alt="..."/>
                                     <div class="carousel-caption"  >
-                                        <p style="background-color:  #555;">
+                                        <p style="">
                                             <?php
                                             echo $rows[$index]['titulo'];
                                             ?>
