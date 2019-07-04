@@ -98,5 +98,6 @@ and open the template in the editor.
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_Oze_7-1VAaRQncH5roDSaiWoU2VDlpQ&callback=initMap"
-async defer></script>
+async defer>
+</script>
 </html>

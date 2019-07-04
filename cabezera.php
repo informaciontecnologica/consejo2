@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -22,13 +22,24 @@ function logOut() {
     session_regenerate_id(true);
 }
 
-$titulo="Consejo Profesional de la Abogacía de Formosa";
-$logo="";
+$titulo = "Consejo Profesional de la Abogacía de Formosa";
+$logo = "";
 echo "
  <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />
         <meta name=\"viewport\" content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
         
-        <title>$titulo</title>
+       <TITLE>$titulo</TITLE>
+
+<META NAME=\"DC.Language\" SCHEME=\"RFC1766\" CONTENT=\"Spanish\">
+<META NAME=\"AUTHOR\" CONTENT=\"jorge daniel castro\">
+<META NAME=\"REPLY-TO\" CONTENT=\"info@informaciontecn.com.ar\">
+<LINK REV=\"made\" href=\"mailto:info@informaciontecn.com.ar\">
+<META NAME=\"DESCRIPTION\" CONTENT=\"sitio oficial de del consejo de abogacía de la Provincia de Formosa, Argentina.\">
+<META NAME=\"KEYWORDS\" CONTENT=\"abogados, Formosa, consejo, jurídico, bono\">
+<META NAME=\"Resource-type\" CONTENT=\"Homepage\">
+<META NAME=\"DateCreated\" CONTENT=\"Sun, 3 December 2017 00:00:00 GMT-3\">
+<META NAME=\"Revisit-after\" CONTENT=\"20 days\">
+<META NAME=\"robots\" content=\"ALL\">
  
         <script src=\"../jquery/jquery-2.1.3.min.js\" type=\"text/javascript\"></script>
         <link href=\"../jquery/jquery-ui-1.12.1.custom/jquery-ui.css\" rel=\"stylesheet\" type=\"text/css\"/>

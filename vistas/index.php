@@ -27,13 +27,13 @@ and open the template in the editor.
                  justify-content: center;
                  align-items: center;">
                 <div  style="border-radius: 15px; width: 70%;  display: flex; justify-content: center; align-items: center;" >
-                    
+
                     <p class="titulo"  >Consejo Profesional de la Abogacia Formosa</p>
-                    
+
                 </div>
-                
-                
-                
+
+
+
             </div>
             <div  class=" col-xs-12  col-md-6 " style="bottom: 5px;"> 
                 <?php
@@ -93,25 +93,23 @@ and open the template in the editor.
             </div>
 
             <div class="col-md-12 col-xs-12 Precios_jus " >
-                
+
                 <h5>Valor JUS {{Vhonorarios.importe}}  Desde : {{Vhonorarios.periodo| date:"dd/MM/yyyy" }} Resolución n°  29/19 </h5>
             </div>
 
-            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
-                <h4 style=" color: #761c19;  ">PRÓRROGA ENTREGA CERTIFICADOS DIPLOMATURA </h4>
-                <h4 style=" color: #761c19;  ">ACTUALIZACIÓN EN RELACIONES  DE FAMILIA, NIÑEZ Y ADOLESCENCIA</h4>
-                <p >Teniendo en cuenta que el Excmo. Superior Tribunal de Justicia solicitó al Consejo Profesional de la Abogacía la 
-                    Se informa a los colegas que la entrega de los certificados de la Diplomatura Universitaria “ACTUALIZACIÓN EN RELACIONES DE  FAMILIA, NIÑEZ Y ADOLESCENCIA”  prevista para el Viernes 17/05/2019 en la sede del Consejo Profesional de la Abogacía, SE PRORROGA para el día Viernes 24 de Mayo de 2019 a las 11.00 horas, por razones de fuerza mayor.
-                     Formosa, 08 de Mayo de 2019.</p>
-            </div>
+<!--            <div class="col-md-12 col-xs-12 alert alert-success" role="alert" >
+                <h4 style=" color: #761c19;  ">DIPLOMATURA EN DERECHO PENAL </h4>
+                <h4 style=" color: #761c19;  ">TEMA: “DELITOS DE ESTUPEFACIENTES Y TRATA DE PERSONAS….”</h4>
+                <p >El  Consejo Profesional de la Abogacía recuerda a los alumnos de la  Diplomatura en Derecho Penal que 
+                    las clases continúan el Viernes 17 de Mayo de  2019 en su sede de calle San Martín  569 a las 14 hs. Docente: Dr. Ramón Luís GONZALEZ</p>
+            </div>-->
             <aside class="col-xs-12 col-md-4  bg-info pull-right  aaside"  >
 
                 <div class="col-xs-12 col-md-12 noticias " >
                     <h3 style="text-align: center">Noticias</h3>
-
-                    <article>
-                        <h5 >DIPLOMATURA EN DERECHO PRIVADO PATRIMONIAL</h4>
-                        <h5 >DICTADO</h4>
+                     <article>
+                        <h5 >DIPLOMATURA EN DERECHO PRIVADO PATRIMONIAL</h5>
+                        <h5 >DICTADO</h5>
                         <p >El viernes 26 de Abril del cte año se dio inicio al dictado de la Diplomatura en Derecho Privado Patrimonial en el marco del Convenio firmado entre el Consejo Profesional de la Abogacía y la Universidad del Chaco Austral, con el auspicio de la Fiscalía de Estado de la Provincia de Formosa, el Colegio de Magistrados y Funcionarios de la Provincia de Formosa y la Comisión de Jóvenes Abogados.	
                             Esta actualización que se lleva a cabo en la sede del Consejo está destinada a profesionales del derecho y profesiones afines. Durará ocho meses y se centra en las obligaciones, la responsabilidad civil y los derechos reales, en el marco del nuevo Código Civil y Comercial de la Nación, que entró en vigencia en el año 2015. La clase inaugural se dictó de 14 a 21 horas ante una numerosa concurrencia.
                             Este primer módulo estuvo a cargo de Marcelo López Mesa, director de la Diplomatura, doctor en Ciencias Jurídicas y Sociales (1998) y Especialista en Derecho Civil (1990), ambos por la Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional de La Plata (UNLP).
@@ -120,17 +118,17 @@ and open the template in the editor.
                     </article>
 
                     <article>
-                        <h5>OFICINA  DEL CONSEJO PROFESIONAL DE LA ABOGACÍA EN LAS LOMITAS</h4>
+                        <h5>OFICINA  DEL CONSEJO PROFESIONAL DE LA ABOGACÍA EN LAS LOMITAS</h5>
                         <h5>INFORMACIÓN</h5>
                         <p>Teniendo en cuenta que el Excmo. Superior Tribunal de Justicia solicitó al Consejo Profesional de la Abogacía la 
-                    urgente desocupación de la oficina emplazada hasta la fecha en el edificio de Tribunales de la Tercera Circunscripción 
-                    Judicial con sede en Las Lomitas, se  informa a los colegas que la atención 
-                    pertinente se realizará provisoriamente en el domicilio de la agente sra. Lorena BARRIONUEVO sito en calle Almte.
-                    Brown Nº 29 de dicha ciudad en el horario de 07 a 13 hs., hasta nuevo aviso.</p>
+                            urgente desocupación de la oficina emplazada hasta la fecha en el edificio de Tribunales de la Tercera Circunscripción 
+                            Judicial con sede en Las Lomitas, se  informa a los colegas que la atención 
+                            pertinente se realizará provisoriamente en el domicilio de la agente sra. Lorena BARRIONUEVO sito en calle Almte.
+                            Brown Nº 29 de dicha ciudad en el horario de 07 a 13 hs., hasta nuevo aviso.</p>
 
                     </article>
-                    
-                    
+
+
                     <article class="bg-info" style="padding-left: 5px; padding-right: 5px;" >
                         <H3  style="padding-left: 5px;">ATENCIÓN</H3>
                         <h5><strong>CURSOS DICTADOS EN EL CONSEJO DE ABOGADOS</strong></h5>
@@ -161,12 +159,13 @@ and open the template in the editor.
                             <h5><strong>{{eve.pagina}}</strong></h5>
                             <!--                                                <h5>Fecha del evento: {{eve.fecha| date:'dd/MM/yyyy'}}</h5>-->
                             <a ng-href="eventos.php?id={{eve.ideventos}}"><h5 class="bg-success text-warning text-center"> {{eve.ideventos}} - {{ eve.titulo}}</h5>  </a>
-                            <div class="col-xs-12 col-md-12  " style="height: 150px;" ng-bind-html="eve.texto |cortarTexto:400"></div>
+                            <div class="col-xs-12 col-md-12  " style="height: 450px;"  ng-bind-html="eve.texto |cortarTexto:1000"></div>
                             <p class="pull-right"> <a ng-href="eventos.php?id={{eve.ideventos}}"> Mas ... </a></p>
 
                             <div class="col-md-12 col-xs-12 img-thumbnail" ng-repeat="folleto in eve.folletos| limitTo:1" >
                                 <!--<img target="Click al Ingresar" class="img-responsive" width="350px" ng-src="../imagenes/eventos/{{eve.path_imagen}}/{{folleto}}" title=""/>-->
-                                <img style="height: 500px;" class="col-md-12 col-xs-12" ng-src="../imagenes/{{eve.path}}/folletos/{{folleto}}" title=""/>
+                                <img ng-show="folleto" style="height: 200px; width: 250px;" class="col-md-12 col-xs-12" ng-src="../imagenes/{{eve.path}}/folletos/{{folleto}}" title=""/>
+                                <!--<img  ng-disabled="folleto" style="height: 200px; width: 250px;" class="col-md-12 col-xs-12" ng-src="../imagenes/logobalanza.png" title=""/>-->
                             </div>
 
 
@@ -190,7 +189,6 @@ and open the template in the editor.
 
             <section class="col-xs-12  col-md-6 col-md-offset-3 Imagenes_pie"  >
                 <?php
-                
                 $ideventos = '22';
                 $rea = new Conexion();
                 $sql = "select * from imagenes i left join eventos e on e.ideventos=i.idevento where e.ideventos=:idevento order by idimagenes DESC limit 5";
@@ -250,7 +248,7 @@ and open the template in the editor.
                     </div> 
 
                     <?php
-                } ;
+                };
                 ?>
 
             </section>

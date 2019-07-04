@@ -113,6 +113,13 @@ app.filter('cortarTexto', function(){
     return (input.length > limit) ? input.substr(0, limit)+'...' : input;
   };
 });
+
+app.filter('eventostexto', function(){
+  return function(text){
+    return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
+  };
+}); 
+
 app.filter('startFromGrid', function () {
     return function (input, start) {
         if (!input || !input.length) {
